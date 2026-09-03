@@ -170,19 +170,55 @@
         </div>
         <figure class="plot" aria-label="Ilustración de una distribución de datos">
           <div class="plot-header"><b>Distribución / 01</b><span>n = 25</span></div>
-          <svg viewBox="0 0 410 194" role="img" aria-label="Histograma y curva de una distribución">
+          <svg viewBox="0 0 410 194" role="img" aria-label="Histograma y curva de una distribución normal de frecuencias">
+            <defs>
+              <linearGradient id="heroBarGrad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#1769aa"/>
+                <stop offset="100%" stop-color="#0d3d63"/>
+              </linearGradient>
+              <filter id="heroGlow" x="-10%" y="-10%" width="120%" height="120%">
+                <feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#d6543d" flood-opacity="0.35"/>
+              </filter>
+            </defs>
+
+            <!-- Gridlines -->
+            <line x1="20" y1="130" x2="390" y2="130" stroke="rgba(23,42,70,0.08)" stroke-dasharray="3 3"/>
+            <line x1="20" y1="90" x2="390" y2="90" stroke="rgba(23,42,70,0.08)" stroke-dasharray="3 3"/>
+            <line x1="20" y1="50" x2="390" y2="50" stroke="rgba(23,42,70,0.08)" stroke-dasharray="3 3"/>
+
+            <!-- Axes -->
             <line x1="20" y1="164" x2="390" y2="164" stroke="#172a46" stroke-width="1.5"/>
-            <line x1="20" y1="24" x2="20" y2="164" stroke="#172a46" stroke-width="1.5"/>
-            <g fill="#1769aa">
-              <rect x="42" y="138" width="28" height="26"/><rect x="75" y="113" width="28" height="51"/>
-              <rect x="108" y="74" width="28" height="90"/><rect x="141" y="50" width="28" height="114"/>
-              <rect x="174" y="35" width="28" height="129"/><rect x="207" y="57" width="28" height="107"/>
-              <rect x="240" y="91" width="28" height="73"/><rect x="273" y="119" width="28" height="45"/>
-              <rect x="306" y="143" width="28" height="21"/>
+            <line x1="20" y1="20" x2="20" y2="164" stroke="#172a46" stroke-width="1.5"/>
+
+            <!-- Histogram Bars with rounded top and gradient -->
+            <g fill="url(#heroBarGrad)">
+              <rect x="42" y="138" width="28" height="26" rx="2"/>
+              <rect x="75" y="113" width="28" height="51" rx="2"/>
+              <rect x="108" y="74" width="28" height="90" rx="2"/>
+              <rect x="141" y="50" width="28" height="114" rx="2"/>
+              <rect x="174" y="35" width="28" height="129" rx="2"/>
+              <rect x="207" y="57" width="28" height="107" rx="2"/>
+              <rect x="240" y="91" width="28" height="73" rx="2"/>
+              <rect x="273" y="119" width="28" height="45" rx="2"/>
+              <rect x="306" y="143" width="28" height="21" rx="2"/>
             </g>
-            <path d="M42 148 C83 141, 94 99, 124 82 S163 26, 194 27 S237 52, 253 79 S298 132, 338 150" fill="none" stroke="#d6543d" stroke-width="4" stroke-linecap="round"/>
-            <circle cx="194" cy="27" r="5" fill="#e3ae2b" stroke="#172a46" stroke-width="2"/>
-            <g fill="#667085" font-family="DM Mono, monospace" font-size="10"><text x="17" y="182">0</text><text x="105" y="182">edad</text><text x="322" y="182">frecuencia</text><text x="2" y="32">f</text></g>
+
+            <!-- Distribution Curve -->
+            <path d="M 42 148 C 80 144, 94 99, 124 82 S 163 26, 194 27 S 237 52, 253 79 S 298 132, 338 150" fill="none" stroke="#d6543d" stroke-width="3.5" stroke-linecap="round" filter="url(#heroGlow)"/>
+
+            <!-- Peak Mode Marker -->
+            <circle cx="194" cy="27" r="8" fill="rgba(227,174,43,0.25)"/>
+            <circle cx="194" cy="27" r="4.5" fill="#e3ae2b" stroke="#172a46" stroke-width="1.5"/>
+            <rect x="162" y="6" width="64" height="16" rx="4" fill="#172a46"/>
+            <text x="194" y="17" text-anchor="middle" fill="#f7f2e7" style="font:700 9px 'DM Mono',monospace">MODA / x̄</text>
+
+            <!-- Axis Labels -->
+            <g fill="#667085" font-family="'DM Mono', monospace" font-size="10">
+              <text x="18" y="180">0</text>
+              <text x="174" y="180" text-anchor="middle">variable x (edad)</text>
+              <text x="390" y="180" text-anchor="end">escala</text>
+              <text x="10" y="25" text-anchor="end">f</text>
+            </g>
           </svg>
           <figcaption class="plot-note">Una observación no es una conclusión: primero se ordena, luego se interpreta.</figcaption>
         </figure>
