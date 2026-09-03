@@ -26,6 +26,7 @@ Base de conocimiento y materiales del curso de **Estadística y Probabilidades**
 - `03 Fuentes/` — inventario y trazabilidad de PDFs y futuras fuentes.
 - `04 Glosario/` — conceptos acumulados, enlazados a su fuente.
 - `Entregables/Semana NN/` — materiales terminados solicitados por el usuario.
+- `docs/` — índice estático publicado; no sustituye las notas ni los entregables de cada semana.
 - `Plantillas/` — punto de partida para notas y bitácoras nuevas.
 
 ## Flujo de trabajo

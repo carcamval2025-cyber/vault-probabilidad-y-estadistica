@@ -17,6 +17,7 @@ tags: [moc, probabilidad-estadistica]
 - [[00 Curso/00 Curso|Curso y método de trabajo]]
 - [[00 Curso/Calendario de presentaciones|Calendarización]]
 - [[00 Curso/Evaluaciones|Evaluaciones]]
+- Índice web publicado: `docs/index.html`.
 - [[01 Bitácora/01 Bitácora|Bitácora]]
 - [[02 Unidades/02 Unidades|Semanas y unidades]]
 - [[03 Fuentes/03 Fuentes|Fuentes]]

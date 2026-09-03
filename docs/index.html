@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hub de estudio de Estadística y Probabilidades, Ciclo III 2026, Sección 2.">
+  <title>Estadística y Probabilidades · Ciclo III 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --paper: #f7f2e7;
+      --ink: #172a46;
+      --muted: #667085;
+      --line: #d9d2c2;
+      --blue: #1769aa;
+      --teal: #007d79;
+      --coral: #d6543d;
+      --yellow: #e3ae2b;
+      --wash: #e9f0ed;
+      --display: "Fraunces", Georgia, serif;
+      --body: "DM Sans", sans-serif;
+      --mono: "DM Mono", monospace;
+      --ease: cubic-bezier(.16, 1, .3, 1);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; background: var(--paper); }
+    body {
+      margin: 0;
+      color: var(--ink);
+      font: 400 16px/1.55 var(--body);
+      background: var(--paper);
+      overflow-x: hidden;
+    }
+    a { color: inherit; }
+    a:focus-visible { outline: 3px solid var(--coral); outline-offset: 4px; }
+    .shell { width: min(1160px, calc(100% - 40px)); margin: auto; }
+    .mono { font-family: var(--mono); }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      margin: 0 0 16px; color: var(--blue); font: 500 .72rem/1 var(--mono);
+      letter-spacing: .1em; text-transform: uppercase;
+    }
+    .eyebrow::before { content: ""; width: 24px; height: 2px; background: currentColor; }
+    h1, h2, h3, p { margin-top: 0; }
+    h1, h2, h3 { text-wrap: balance; }
+
+    .topbar { border-bottom: 1px solid var(--line); background: rgba(247, 242, 231, .94); position: sticky; top: 0; z-index: 5; backdrop-filter: blur(12px); }
+    .topbar .shell { min-height: 66px; display: flex; justify-content: space-between; align-items: center; gap: 18px; }
+    .brand { display: flex; align-items: center; gap: 11px; text-decoration: none; font-weight: 700; }
+    .brand-mark { display: grid; place-items: center; width: 34px; aspect-ratio: 1; border: 1px solid var(--ink); border-radius: 50%; font: 500 .68rem var(--mono); }
+    .brand span { font-size: .88rem; letter-spacing: -.02em; }
+    .topnav { display: flex; align-items: center; gap: clamp(12px, 2.5vw, 28px); font: 500 .73rem var(--mono); }
+    .topnav a { color: var(--muted); text-decoration: none; }
+    .topnav a:hover { color: var(--blue); }
+
+    .hero { position: relative; isolation: isolate; padding: clamp(64px, 10vw, 132px) 0 clamp(54px, 7vw, 88px); }
+    .hero::before { content: ""; position: absolute; z-index: -1; inset: 0; background-image: linear-gradient(rgba(23, 42, 70, .075) 1px, transparent 1px), linear-gradient(90deg, rgba(23, 42, 70, .075) 1px, transparent 1px); background-size: 36px 36px; mask-image: linear-gradient(90deg, #000 0%, transparent 76%); }
+    .hero-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(280px, .76fr); align-items: center; gap: clamp(28px, 8vw, 104px); }
+    .hero h1 { max-width: 9ch; margin-bottom: 20px; font: 800 clamp(3rem, 7vw, 6.3rem)/.9 var(--display); letter-spacing: -.065em; }
+    .hero h1 em { color: var(--blue); font-style: normal; }
+    .hero .lede { max-width: 52ch; margin-bottom: 28px; color: #36445c; font-size: clamp(1rem, 1.5vw, 1.16rem); }
+    .course-meta { display: flex; flex-wrap: wrap; gap: 8px; }
+    .course-meta span { padding: 7px 10px; border: 1px solid var(--line); background: rgba(255,255,255,.38); font: 500 .7rem/1 var(--mono); }
+    .plot { position: relative; min-height: 310px; padding: 26px; border: 1px solid var(--ink); background: #fffcf5; box-shadow: 12px 12px 0 var(--yellow); transform: rotate(1.25deg); }
+    .plot-header { display: flex; align-items: center; justify-content: space-between; color: var(--muted); font: .64rem var(--mono); letter-spacing: .08em; text-transform: uppercase; }
+    .plot-header b { color: var(--ink); font-weight: 500; }
+    .plot svg { display: block; width: 100%; height: auto; margin-top: 26px; overflow: visible; }
+    .plot-note { margin: 18px 0 0; color: var(--muted); font-size: .78rem; }
+
+    main section { scroll-margin-top: 88px; }
+    .section { padding: clamp(54px, 8vw, 90px) 0; border-top: 1px solid var(--line); }
+    .section-head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(220px, .55fr); gap: 24px; align-items: end; margin-bottom: 32px; }
+    .section h2 { margin-bottom: 0; font: 700 clamp(2rem, 4vw, 3.4rem)/.98 var(--display); letter-spacing: -.045em; }
+    .section-head p { margin: 0; color: var(--muted); font-size: .95rem; }
+
+    .week-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 16px; }
+    .week-card { grid-column: span 6; position: relative; min-height: 250px; display: flex; flex-direction: column; padding: 24px; border: 1px solid var(--ink); text-decoration: none; background: #fffdf8; transition: transform .25s var(--ease), box-shadow .25s var(--ease); }
+    .week-card:hover { transform: translate(-4px, -4px); box-shadow: 8px 8px 0 var(--blue); }
+    .week-card:nth-child(2) { background: var(--wash); }
+    .week-card .number { color: var(--blue); font: 500 .72rem var(--mono); letter-spacing: .08em; }
+    .week-card h3 { margin: auto 0 10px; font: 700 clamp(1.7rem, 2.6vw, 2.4rem)/1 var(--display); letter-spacing: -.04em; }
+    .week-card p { max-width: 44ch; margin: 0; color: #45536a; font-size: .9rem; }
+    .status { margin-top: 22px; display: inline-flex; align-items: center; gap: 7px; width: fit-content; color: var(--teal); font: 500 .68rem var(--mono); letter-spacing: .06em; text-transform: uppercase; }
+    .status::before { content: ""; width: 7px; aspect-ratio: 1; border-radius: 50%; background: currentColor; }
+    .status.pending { color: var(--muted); }
+    .status.pending::before { background: transparent; border: 1px solid currentColor; }
+    .week-strip { grid-column: span 12; display: grid; grid-template-columns: repeat(10, 1fr); border: 1px solid var(--line); border-right: 0; }
+    .week-strip div { min-height: 104px; padding: 14px 12px; border-right: 1px solid var(--line); color: var(--muted); font-size: .76rem; }
+    .week-strip b { display: block; margin-bottom: 8px; color: var(--ink); font: 500 .72rem var(--mono); }
+    .week-strip .assessment { background: #fff0c8; color: var(--ink); }
+    .week-strip .assessment b { color: var(--coral); }
+
+    .assessment-wrap { display: grid; grid-template-columns: minmax(0, 1fr) minmax(270px, .55fr); gap: 40px; }
+    .assessment-list { border-top: 2px solid var(--ink); }
+    .assessment-row { display: grid; grid-template-columns: 62px 1fr auto; gap: 14px; align-items: center; min-height: 76px; border-bottom: 1px solid var(--line); }
+    .assessment-row .percent { color: var(--coral); font: 500 1rem var(--mono); }
+    .assessment-row h3 { margin: 0; font: 600 1rem/1.15 var(--body); }
+    .assessment-row small { display: block; margin-top: 5px; color: var(--muted); font-size: .77rem; }
+    .assessment-row time { color: var(--muted); font: .68rem var(--mono); text-align: right; }
+    .assessment-total { align-self: start; padding: 26px; color: #fffdf8; background: var(--ink); }
+    .assessment-total strong { display: block; margin-bottom: 4px; color: var(--yellow); font: 800 clamp(4rem, 9vw, 6rem)/.8 var(--display); letter-spacing: -.08em; }
+    .assessment-total p { margin: 18px 0 0; color: #c8d3e2; font-size: .88rem; }
+
+    .method { background: var(--ink); color: #fffdf8; }
+    .method .section-head p { color: #c8d3e2; }
+    .method .eyebrow { color: var(--yellow); }
+    .method-card { display: grid; grid-template-columns: repeat(5, 1fr); border: 1px solid rgba(255,255,255,.22); }
+    .method-card div { min-height: 180px; padding: 18px; border-right: 1px solid rgba(255,255,255,.22); }
+    .method-card div:last-child { border-right: 0; }
+    .method-card b { display: block; margin-bottom: 38px; color: var(--yellow); font: .7rem var(--mono); }
+    .method-card h3 { margin: 0; font: 600 1.28rem/1.05 var(--display); letter-spacing: -.03em; }
+    .method-card p { margin: 10px 0 0; color: #c8d3e2; font-size: .78rem; }
+
+    footer { padding: 28px 0 46px; background: var(--ink); color: #c8d3e2; }
+    footer .shell { display: flex; flex-wrap: wrap; gap: 14px; justify-content: space-between; font: .7rem var(--mono); }
+    footer a { color: var(--yellow); }
+
+    @media (max-width: 780px) {
+      .topnav a:not(.repo) { display: none; }
+      .hero-grid, .section-head, .assessment-wrap { grid-template-columns: 1fr; }
+      .hero h1 { max-width: 12ch; }
+      .plot { width: min(100%, 440px); margin: 12px auto 0; }
+      .week-card { grid-column: span 12; }
+      .week-strip { grid-template-columns: repeat(2, 1fr); border-bottom: 0; }
+      .week-strip div { min-height: 82px; border-bottom: 1px solid var(--line); }
+      .method-card { grid-template-columns: 1fr; }
+      .method-card div { min-height: auto; border-right: 0; border-bottom: 1px solid rgba(255,255,255,.22); }
+      .method-card div:last-child { border-bottom: 0; }
+      .method-card b { margin-bottom: 12px; }
+    }
+    @media (max-width: 480px) {
+      .shell { width: min(100% - 28px, 1160px); }
+      .topbar .shell { min-height: 58px; }
+      .brand span { max-width: 170px; }
+      .assessment-row { grid-template-columns: 52px 1fr; padding: 13px 0; }
+      .assessment-row time { grid-column: 2; text-align: left; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="shell">
+      <a class="brand" href="./" aria-label="Inicio de Estadística y Probabilidades">
+        <span class="brand-mark">E+P</span><span>Estadística y Probabilidades</span>
+      </a>
+      <nav class="topnav" aria-label="Navegación principal">
+        <a href="#semanas">Semanas</a>
+        <a href="#evaluaciones">Evaluaciones</a>
+        <a href="#metodo">Método</a>
+        <a class="repo" href="https://github.com/carcamval2025-cyber/vault-probabilidad-y-estadistica" target="_blank" rel="noopener">Repositorio ↗</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="titulo">
+      <div class="shell hero-grid">
+        <div>
+          <p class="eyebrow">ESEN · Ciclo III / 2026 · Sección 2</p>
+          <h1 id="titulo">Pensar con <em>datos.</em></h1>
+          <p class="lede">Un espacio de estudio para formular preguntas, describir la variabilidad y tomar decisiones informadas con estadística y probabilidad.</p>
+          <div class="course-meta" aria-label="Datos del curso">
+            <span>12 semanas</span><span>R + visualización</span><span>Roxana Palacios</span>
+          </div>
+        </div>
+        <figure class="plot" aria-label="Ilustración de una distribución de datos">
+          <div class="plot-header"><b>Distribución / 01</b><span>n = 25</span></div>
+          <svg viewBox="0 0 410 194" role="img" aria-label="Histograma y curva de una distribución">
+            <line x1="20" y1="164" x2="390" y2="164" stroke="#172a46" stroke-width="1.5"/>
+            <line x1="20" y1="24" x2="20" y2="164" stroke="#172a46" stroke-width="1.5"/>
+            <g fill="#1769aa">
+              <rect x="42" y="138" width="28" height="26"/><rect x="75" y="113" width="28" height="51"/>
+              <rect x="108" y="74" width="28" height="90"/><rect x="141" y="50" width="28" height="114"/>
+              <rect x="174" y="35" width="28" height="129"/><rect x="207" y="57" width="28" height="107"/>
+              <rect x="240" y="91" width="28" height="73"/><rect x="273" y="119" width="28" height="45"/>
+              <rect x="306" y="143" width="28" height="21"/>
+            </g>
+            <path d="M42 148 C83 141, 94 99, 124 82 S163 26, 194 27 S237 52, 253 79 S298 132, 338 150" fill="none" stroke="#d6543d" stroke-width="4" stroke-linecap="round"/>
+            <circle cx="194" cy="27" r="5" fill="#e3ae2b" stroke="#172a46" stroke-width="2"/>
+            <g fill="#667085" font-family="DM Mono, monospace" font-size="10"><text x="17" y="182">0</text><text x="105" y="182">edad</text><text x="322" y="182">frecuencia</text><text x="2" y="32">f</text></g>
+          </svg>
+          <figcaption class="plot-note">Una observación no es una conclusión: primero se ordena, luego se interpreta.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section" id="semanas" aria-labelledby="semanas-titulo">
+      <div class="shell">
+        <div class="section-head">
+          <div><p class="eyebrow">Ruta de estudio</p><h2 id="semanas-titulo">Lo disponible, semana a semana.</h2></div>
+          <p>Cada presentación o ayudantía abre una semana. Solo se muestra contenido que ya fue documentado en el vault.</p>
+        </div>
+        <div class="week-grid">
+          <a class="week-card" href="#semana-01">
+            <span class="number">SEMANA 01 · 24—28 AGO</span>
+            <h3>Naturaleza de la estadística</h3>
+            <p>Datos, mediciones, variables, escalas y las primeras formas de visualizar una distribución.</p>
+            <span class="status">Documentada</span>
+          </a>
+          <a class="week-card" href="#semana-02">
+            <span class="number">SEMANA 02 · 31 AGO—4 SEP</span>
+            <h3>Ayudantía práctica en R</h3>
+            <p>Lectura de datos, frecuencias, gráficos categóricos e histogramas con una encuesta de centro comercial.</p>
+            <span class="status">Ayudantía disponible</span>
+          </a>
+          <div class="week-strip" aria-label="Hitos de semanas próximas">
+            <div class="assessment"><b>S03</b>Control 1<br><span>10%</span></div>
+            <div><b>S04</b>Presentación pendiente</div>
+            <div class="assessment"><b>S05</b>Control 2<br><span>10%</span></div>
+            <div class="assessment"><b>S06</b>Parcial 1<br><span>25%</span></div>
+            <div><b>S07</b>Proyecto: detalles</div>
+            <div><b>S08</b>Presentación pendiente</div>
+            <div class="assessment"><b>S09</b>Control 3<br><span>10%</span></div>
+            <div><b>S10</b>Presentación pendiente</div>
+            <div class="assessment"><b>S11</b>Control 4 + proyecto<br><span>20%</span></div>
+            <div class="assessment"><b>S12</b>Parcial 2<br><span>25%</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="evaluaciones" aria-labelledby="evaluaciones-titulo">
+      <div class="shell">
+        <div class="section-head">
+          <div><p class="eyebrow">Evaluación</p><h2 id="evaluaciones-titulo">El ciclo completo suma 100%.</h2></div>
+          <p>La cobertura y las ponderaciones se transcriben del programa oficial. Los controles revisan las dos semanas anteriores.</p>
+        </div>
+        <div class="assessment-wrap">
+          <div class="assessment-list">
+            <div class="assessment-row"><span class="percent">10%</span><div><h3>Control 1</h3><small>Semanas 1 y 2</small></div><time>SEMANA 03</time></div>
+            <div class="assessment-row"><span class="percent">10%</span><div><h3>Control 2</h3><small>Semanas 3 y 4</small></div><time>SEMANA 05</time></div>
+            <div class="assessment-row"><span class="percent">25%</span><div><h3>Examen Parcial 1</h3><small>Primera mitad del ciclo</small></div><time>SEMANA 06</time></div>
+            <div class="assessment-row"><span class="percent">10%</span><div><h3>Control 3</h3><small>Semanas 7 y 8</small></div><time>SEMANA 09</time></div>
+            <div class="assessment-row"><span class="percent">10%</span><div><h3>Control 4</h3><small>Semanas 9 y 10</small></div><time>SEMANA 11</time></div>
+            <div class="assessment-row"><span class="percent">10%</span><div><h3>Proyecto grupal</h3><small>Detalles en S07 · entrega en S11</small></div><time>S07 / S11</time></div>
+            <div class="assessment-row"><span class="percent">25%</span><div><h3>Examen Parcial 2</h3><small>Segunda mitad del ciclo</small></div><time>SEMANA 12</time></div>
+          </div>
+          <aside class="assessment-total"><strong>100%</strong><span class="mono">EVALUACIÓN DOCUMENTADA</span><p>Las fechas o contenidos cambian solo mediante la actualización oficial publicada en Moodle.</p></aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="section method" id="metodo" aria-labelledby="metodo-titulo">
+      <div class="shell">
+        <div class="section-head">
+          <div><p class="eyebrow">Cómo trabajamos</p><h2 id="metodo-titulo">Un material debe poder rastrearse.</h2></div>
+          <p>Cada nueva pieza conecta la fuente de clase con una semana, un propósito claro y un registro de verificación.</p>
+        </div>
+        <div class="method-card">
+          <div><b>01</b><h3>Fuente</h3><p>Presentación, ayudantía o programa verificable.</p></div>
+          <div><b>02</b><h3>Alcance</h3><p>Qué se necesita estudiar o practicar, sin inventar cobertura.</p></div>
+          <div><b>03</b><h3>Material</h3><p>El formato mínimo útil para ese objetivo.</p></div>
+          <div><b>04</b><h3>Revisión</h3><p>Cifras, conceptos, enlaces y comportamiento real.</p></div>
+          <div><b>05</b><h3>Bitácora</h3><p>Qué quedó hecho, validado y pendiente.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="semana-01" aria-labelledby="s1-titulo">
+      <div class="shell">
+        <div class="section-head"><div><p class="eyebrow">Semana 01 · referencia</p><h2 id="s1-titulo">Antes de calcular, definir qué se observa.</h2></div><p>Población, muestra, variable y observación son el vocabulario que permite convertir una pregunta en datos analizables.</p></div>
+      </div>
+    </section>
+
+    <section class="section" id="semana-02" aria-labelledby="s2-titulo">
+      <div class="shell">
+        <div class="section-head"><div><p class="eyebrow">Semana 02 · ayudantía</p><h2 id="s2-titulo">De la tabla al gráfico.</h2></div><p>La ayudantía trabaja con <span class="mono">read_csv()</span>, frecuencias, gráficos de categorías e histogramas. La presentación de clase sigue pendiente de incorporarse.</p></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="shell"><span>Estadística y Probabilidades · Sección 2 · Ciclo III/2026</span><a href="https://github.com/carcamval2025-cyber/vault-probabilidad-y-estadistica" target="_blank" rel="noopener">Ver repositorio ↗</a></div>
+  </footer>
+</body>
+</html>
