@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Semana 01 · Fundamentos de estadística</title>
+  <meta name="description" content="Guía interactiva de estudio para la Semana 01 de Estadística y Probabilidades.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root { --ink:#071827; --panel:#10283c; --panel-2:#12354d; --paper:#f7f2e9; --muted:#aec0cc; --line:rgba(247,242,233,.16); --blue:#8cd3ff; --yellow:#f4d267; --coral:#ff896d; --ok:#a8e6bd; --bad:#ffb0a0; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; background:var(--ink); color:var(--paper); font-family:Manrope, sans-serif; line-height:1.55; }
+    button, input { font:inherit; }
+    .shell { width:min(1140px, calc(100% - 40px)); margin:auto; }
+    .topline { border-bottom:1px solid var(--line); background:#06131f; }
+    .topline .shell { min-height:74px; display:flex; align-items:center; justify-content:space-between; gap:22px; }
+    .brand img { display:block; width:186px; max-width:52vw; }
+    .eyebrow, .meta, .tab, .label { font:500 .72rem/1.25 "DM Mono", monospace; letter-spacing:.08em; text-transform:uppercase; }
+    .meta { color:var(--muted); margin:0; text-align:right; }
+    .hero { padding:70px 0 44px; overflow:hidden; position:relative; }
+    .hero::after { content:""; position:absolute; width:520px; height:520px; border:1px solid rgba(140,211,255,.22); border-radius:50%; right:-250px; top:-300px; box-shadow:0 0 0 44px rgba(140,211,255,.035), 0 0 0 88px rgba(140,211,255,.025); }
+    .hero-grid { display:grid; grid-template-columns:1.45fr .55fr; gap:48px; align-items:end; position:relative; z-index:1; }
+    h1,h2,h3,p { margin-top:0; }
+    h1,h2,h3 { font-family:Fraunces, serif; line-height:1.04; letter-spacing:-.03em; }
+    h1 { max-width:790px; font-size:clamp(3rem,7vw,6.4rem); margin:14px 0 22px; }
+    h1 em { color:var(--blue); font-style:normal; }
+    h2 { font-size:clamp(2rem,4vw,3.25rem); margin-bottom:18px; }
+    h3 { font-size:1.32rem; margin-bottom:8px; }
+    .lede { max-width:680px; color:#d5e0e5; font-size:1.08rem; }
+    .source-tag { border-left:2px solid var(--yellow); padding:13px 0 13px 16px; color:#dfe7e9; font-size:.89rem; }
+    .source-tag strong { color:var(--yellow); }
+    .nav-wrap { position:sticky; top:0; z-index:5; background:rgba(7,24,39,.94); backdrop-filter:blur(14px); border-block:1px solid var(--line); }
+    .tabs { display:flex; overflow:auto; scrollbar-width:none; }
+    .tab { appearance:none; background:none; border:0; color:var(--muted); padding:16px 18px; white-space:nowrap; cursor:pointer; border-bottom:3px solid transparent; }
+    .tab:hover, .tab:focus-visible { color:var(--paper); outline:none; }
+    .tab[aria-selected="true"] { color:var(--yellow); border-bottom-color:var(--yellow); }
+    main { padding:44px 0 80px; }
+    [role="tabpanel"] { display:none; animation:rise .32s ease both; }
+    [role="tabpanel"].is-active { display:block; }
+    @keyframes rise { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:none; } }
+    .section-head { display:flex; justify-content:space-between; align-items:end; gap:30px; margin-bottom:26px; }
+    .section-head > p { max-width:360px; color:var(--muted); }
+    .grid-2, .grid-3 { display:grid; gap:18px; }
+    .grid-2 { grid-template-columns:repeat(2,minmax(0,1fr)); }
+    .grid-3 { grid-template-columns:repeat(3,minmax(0,1fr)); }
+    .card, .callout { border:1px solid var(--line); border-radius:16px; }
+    .card { padding:24px; background:linear-gradient(135deg, rgba(18,53,77,.82), rgba(16,40,60,.5)); }
+    .card p:last-child { margin-bottom:0; }
+    .card .label { color:var(--blue); display:block; margin-bottom:13px; }
+    .callout { padding:20px; background:rgba(244,210,103,.08); border-color:rgba(244,210,103,.36); color:#fff4c8; }
+    .formula { margin:17px 0; padding:15px 18px; background:#06131f; color:var(--blue); border-radius:10px; font:500 1rem/1.4 "DM Mono", monospace; overflow:auto; }
+    .steps { counter-reset:step; list-style:none; padding:0; margin:0; display:grid; gap:14px; }
+    .steps li { position:relative; padding:17px 18px 17px 58px; background:rgba(247,242,233,.055); border-radius:11px; }
+    .steps li::before { counter-increment:step; content:counter(step, decimal-leading-zero); position:absolute; left:17px; top:17px; color:var(--yellow); font:500 .78rem "DM Mono", monospace; }
+    .exercise { margin-top:24px; padding:28px; border-radius:18px; background:#f7f2e9; color:#10283c; }
+    .exercise h3 { color:#071827; }
+    .exercise .eyebrow { color:#a64a37; }
+    .prompt { font-size:1.05rem; font-weight:700; }
+    .choices { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; margin:16px 0 8px; }
+    .choice { display:block; width:100%; text-align:left; padding:13px 14px; border:1px solid #bdd0d8; border-radius:9px; background:white; color:#10283c; cursor:pointer; }
+    .choice:hover, .choice:focus-visible { border-color:#2a86b5; box-shadow:0 0 0 3px rgba(42,134,181,.15); outline:none; }
+    .feedback { min-height:1.5em; margin:10px 0 0; font-weight:700; }
+    .feedback.ok { color:#136f46; } .feedback.no { color:#ab3622; }
+    table { width:100%; border-collapse:collapse; font-size:.94rem; }
+    th,td { padding:11px 10px; border-bottom:1px solid var(--line); text-align:left; }
+    th { color:var(--blue); font:500 .71rem "DM Mono", monospace; letter-spacing:.06em; text-transform:uppercase; }
+    .light-table th,.light-table td { border-color:#cdd8dc; } .light-table th { color:#316c88; }
+    .table-wrap { overflow:auto; }
+    .data-strip { font:500 .89rem/1.65 "DM Mono", monospace; color:#d2e8f5; background:#06131f; border-radius:12px; padding:17px; }
+    .chart { display:flex; align-items:end; gap:10px; height:180px; padding:20px 16px 8px; border-bottom:1px solid var(--line); }
+    .bar { flex:1; min-width:26px; background:linear-gradient(var(--blue), #2a86b5); border-radius:7px 7px 0 0; position:relative; }
+    .bar b { position:absolute; top:-25px; left:50%; transform:translateX(-50%); font:500 .74rem "DM Mono", monospace; color:var(--paper); }
+    .bar span { position:absolute; bottom:-25px; left:50%; transform:translateX(-50%); font:500 .67rem "DM Mono", monospace; color:var(--muted); }
+    .hint { color:var(--muted); font-size:.9rem; }
+    .workbook { padding:28px; border:1px solid rgba(140,211,255,.35); border-radius:18px; background:linear-gradient(130deg,rgba(18,53,77,.75),rgba(7,24,39,.9)); }
+    details { margin-top:20px; border-top:1px solid var(--line); }
+    summary { padding:16px 0; cursor:pointer; color:var(--yellow); font-weight:800; }
+    .quiz-intro { display:flex; gap:20px; align-items:flex-start; padding:20px; background:rgba(140,211,255,.11); border-radius:14px; }
+    .quiz-count { flex:0 0 auto; width:54px; height:54px; display:grid; place-items:center; border-radius:50%; background:var(--blue); color:#071827; font:700 1.15rem "DM Mono", monospace; }
+    fieldset { margin:20px 0; padding:0 0 18px; border:0; border-bottom:1px solid var(--line); }
+    legend { padding:0; font:700 1.02rem/1.45 Manrope,sans-serif; }
+    .option { display:flex; gap:10px; align-items:flex-start; padding:11px 0; color:#dce5e8; cursor:pointer; }
+    .option input { accent-color:var(--yellow); margin-top:.35em; }
+    .submit { appearance:none; border:0; padding:14px 20px; border-radius:9px; background:var(--yellow); color:#071827; font-weight:800; cursor:pointer; }
+    .submit:hover,.submit:focus-visible { background:#ffe69a; outline:3px solid rgba(244,210,103,.3); }
+    .result { margin-top:20px; padding:18px; border-left:3px solid var(--yellow); background:rgba(244,210,103,.08); }
+    .corrections { margin:12px 0 0; padding-left:20px; } .corrections li { margin:8px 0; }
+    footer { border-top:1px solid var(--line); padding:32px 0 50px; color:var(--muted); font-size:.88rem; }
+    footer strong { color:var(--paper); }
+    @media (max-width:760px) { .topline .shell,.hero-grid,.section-head { display:block; } .topline .shell { padding:16px 0; } .meta { text-align:left; margin-top:10px; } .hero { padding-top:52px; } .grid-2,.grid-3 { grid-template-columns:1fr; } .choices { grid-template-columns:1fr; } .section-head > p { margin-top:12px; } .exercise,.workbook,.card { padding:20px; } }
+    @media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } *,*::before,*::after { animation-duration:.01ms!important; transition-duration:.01ms!important; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="topline"><div class="shell">
+      <div class="brand"><img src="../assets/brand/ep-wordmark-light.svg" alt="Estadística y Probabilidades"></div>
+      <p class="meta">Ciclo III/2026 · Sección 2<br>Guía de estudio · Semana 01</p>
+    </div></div>
+    <section class="hero"><div class="shell hero-grid">
+      <div>
+        <p class="eyebrow">Fundamentos · práctica activa</p>
+        <h1>Antes de calcular,<br><em>aprende a observar.</em></h1>
+        <p class="lede">Una sesión completa para pasar de una pregunta a datos que puedas clasificar, resumir y representar. Lee, resuelve y verifica cada decisión.</p>
+      </div>
+      <aside class="source-tag"><strong>Qué vas a dominar</strong><br>población, muestra, variables y escalas; tablas de frecuencia; gráficos para datos categóricos, cuantitativos y temporales.</aside>
+    </div></section>
+  </header>
+
+  <nav class="nav-wrap" aria-label="Secciones de la guía"><div class="shell tabs" role="tablist">
+    <button class="tab" role="tab" id="tab-mapa" aria-selected="true" aria-controls="mapa" tabindex="0">01 · Mapa</button>
+    <button class="tab" role="tab" id="tab-clasifica" aria-selected="false" aria-controls="clasifica" tabindex="-1">02 · Clasifica</button>
+    <button class="tab" role="tab" id="tab-tablas" aria-selected="false" aria-controls="tablas" tabindex="-1">03 · Tablas</button>
+    <button class="tab" role="tab" id="tab-practica" aria-selected="false" aria-controls="practica" tabindex="-1">04 · Práctica</button>
+    <button class="tab" role="tab" id="tab-control" aria-selected="false" aria-controls="control" tabindex="-1">05 · Control</button>
+  </div></nav>
+
+  <main class="shell">
+    <section role="tabpanel" id="mapa" aria-labelledby="tab-mapa" class="is-active">
+      <div class="section-head"><div><p class="eyebrow">01 · El mapa mínimo</p><h2>Una pregunta se vuelve estudiable cuando defines sus piezas.</h2></div><p>No memorices una lista aislada: identifica qué se observa, a quiénes, y qué medida describe cada grupo.</p></div>
+      <div class="grid-2">
+        <article class="card"><span class="label">Describir</span><h3>Hacer legibles los datos</h3><p>La estadística descriptiva resume datos mediante tablas, gráficos o números para presentarlos de una forma fácil de comprender.</p></article>
+        <article class="card"><span class="label">Inferir</span><h3>Razonar desde una muestra</h3><p>La inferencia usa datos de una muestra para estimar o probar hipótesis acerca de características de una población.</p></article>
+      </div>
+      <div class="grid-3" style="margin-top:18px">
+        <article class="card"><span class="label">Población</span><h3>El total de interés</h3><p>Conjunto de todos los elementos del estudio. Una medida de población se llama <strong>parámetro</strong>.</p></article>
+        <article class="card"><span class="label">Muestra</span><h3>Una parte de ese total</h3><p>Subconjunto de la población. Una medida de muestra se llama <strong>estadístico</strong>.</p></article>
+        <article class="card"><span class="label">Observación</span><h3>Una fila del estudio</h3><p>Conjunto de mediciones obtenido para un elemento particular; no es lo mismo que la variable medida.</p></article>
+      </div>
+      <div class="callout" style="margin-top:22px"><strong>Regla de oro.</strong> Primero nombra la unidad estadística (el elemento observado); después, la población o muestra; al final, la variable y su escala. Ese orden reduce errores de clasificación.</div>
+      <div class="exercise">
+        <p class="eyebrow">Pausa de 2 minutos</p><h3>Lee el escenario</h3>
+        <p class="prompt">Se registra el color de camisa de 25 estudiantes. ¿Cuál es la unidad estadística?</p>
+        <div class="choices" data-check="unidad">
+          <button class="choice" type="button" data-answer="no" data-feedback="El color es una variable, no el elemento observado.">El color de camisa</button>
+          <button class="choice" type="button" data-answer="ok" data-feedback="Correcto. Cada estudiante aporta una observación del color de su camisa.">Cada estudiante</button>
+          <button class="choice" type="button" data-answer="no" data-feedback="25 es el número de observaciones; no identifica la unidad.">El número 25</button>
+          <button class="choice" type="button" data-answer="no" data-feedback="Una tabla puede resumir datos, pero no es el elemento observado.">La tabla de frecuencias</button>
+        </div>
+        <p id="unidad-feedback" class="feedback" aria-live="polite"></p>
+      </div>
+      <p class="hint">Fuente de conceptos: <em>EstadísticaProbabilidad - Semana 1.pdf</em>, pp. 11–12. El escenario de camisas proviene de pp. 25–27.</p>
+    </section>
+
+    <section role="tabpanel" id="clasifica" aria-labelledby="tab-clasifica" tabindex="0">
+      <div class="section-head"><div><p class="eyebrow">02 · Clasifica con intención</p><h2>El tipo de variable determina qué resumen y qué gráfico tienen sentido.</h2></div><p>Responde con la escala más específica que puedas justificar con los datos disponibles.</p></div>
+      <div class="grid-2">
+        <article class="card"><span class="label">Categóricas</span><h3>Etiquetas, con o sin orden</h3><p><strong>Nominal:</strong> etiquetas que identifican un atributo. <strong>Ordinal:</strong> las categorías tienen un orden significativo.</p></article>
+        <article class="card"><span class="label">Cuantitativas</span><h3>Números que miden o cuentan</h3><p><strong>Discreta:</strong> conteos. <strong>Continua:</strong> mediciones. Las escalas de intervalo y razón usan unidades fijas; razón además tiene un cero significativo.</p></article>
+      </div>
+      <div class="grid-3" style="margin-top:18px">
+        <article class="card"><span class="label">Corte transversal</span><p>Datos de varios elementos en el mismo momento.</p></article>
+        <article class="card"><span class="label">Serie de tiempo</span><p>Datos recogidos a lo largo de varios períodos.</p></article>
+        <article class="card"><span class="label">Panel</span><p>El mismo conjunto de elementos observado a lo largo del tiempo.</p></article>
+      </div>
+      <div class="exercise">
+        <p class="eyebrow">Clasificación rápida</p><h3>No te fijes solo en que “parece un número”.</h3>
+        <p class="prompt">La satisfacción de huéspedes se registra como: 1 = muy insatisfecho, 2 = insatisfecho, 3 = satisfecho, 4 = muy satisfecho. ¿Qué escala es?</p>
+        <div class="choices" data-check="satisfaccion">
+          <button class="choice" type="button" data-answer="no" data-feedback="Hay números, pero aquí codifican categorías con orden; no expresan una distancia fija verificable.">De intervalo</button>
+          <button class="choice" type="button" data-answer="ok" data-feedback="Correcto. Las categorías pueden ordenarse, así que la escala es ordinal.">Ordinal</button>
+          <button class="choice" type="button" data-answer="no" data-feedback="No es nominal porque el orden entre categorías sí importa.">Nominal</button>
+          <button class="choice" type="button" data-answer="no" data-feedback="No hay una razón significativa entre 4 y 2 en esta codificación.">De razón</button>
+        </div>
+        <p id="satisfaccion-feedback" class="feedback" aria-live="polite"></p>
+      </div>
+      <div class="exercise">
+        <p class="eyebrow">Clasificación rápida</p><h3>Cuenta o mide</h3>
+        <p class="prompt">El número de hijos por familia es una variable cuantitativa…</p>
+        <div class="choices" data-check="hijos">
+          <button class="choice" type="button" data-answer="ok" data-feedback="Correcto. Es un conteo: toma valores separados como 0, 1, 2…; por eso es discreta.">discreta</button>
+          <button class="choice" type="button" data-answer="no" data-feedback="La temperatura puede ser continua; el número de hijos es un conteo entero.">continua</button>
+          <button class="choice" type="button" data-answer="no" data-feedback="No es una etiqueta: expresa una cantidad contable.">nominal</button>
+          <button class="choice" type="button" data-answer="no" data-feedback="El orden existe, pero no se trata de categorías ordinales sino de una cantidad numérica.">ordinal</button>
+        </div>
+        <p id="hijos-feedback" class="feedback" aria-live="polite"></p>
+      </div>
+      <p class="hint">Fuente: <em>EstadísticaProbabilidad - Semana 1.pdf</em>, pp. 13–15 y 18; caso de satisfacción, p. 20. El ejemplo de hijos está entre los tipos de datos de p. 13.</p>
+    </section>
+
+    <section role="tabpanel" id="tablas" aria-labelledby="tab-tablas" tabindex="0">
+      <div class="section-head"><div><p class="eyebrow">03 · De datos crudos a tabla</p><h2>Frecuencia no significa solo “contar”.</h2></div><p>Una tabla conserva el total y revela el peso de cada categoría. Después, elige una gráfica que mantenga esa lectura.</p></div>
+      <div class="card"><span class="label">Caso fuente · 25 estudiantes</span><h3>Color de camisa</h3><div class="data-strip">rosa · azul · blanco · azul · rosa · gris · blanco · café · negro · blanco · rosa · azul · café · blanco · blanco · gris · azul · blanco · rosa · gris · gris · blanco · café · negro · verde</div></div>
+      <div class="grid-2" style="margin-top:18px">
+        <div class="card"><h3>Cómo leer la tabla</h3><ol class="steps"><li>Ordena las categorías según un criterio explícito.</li><li>Cuenta cada categoría: esa es la frecuencia absoluta <strong>f</strong>.</li><li>Divide cada frecuencia por el total <strong>n</strong>: esa es la frecuencia relativa <strong>fr = f / n</strong>.</li></ol></div>
+        <div class="card"><h3>Distribución resultante</h3><div class="table-wrap"><table><thead><tr><th>Color</th><th>f</th><th>fr</th></tr></thead><tbody><tr><td>Azul</td><td>4</td><td>0.16</td></tr><tr><td>Blanco</td><td>7</td><td>0.28</td></tr><tr><td>Café</td><td>3</td><td>0.12</td></tr><tr><td>Gris</td><td>4</td><td>0.16</td></tr><tr><td>Negro</td><td>2</td><td>0.08</td></tr><tr><td>Rosa</td><td>4</td><td>0.16</td></tr><tr><td>Verde</td><td>1</td><td>0.04</td></tr><tr><td><strong>Total</strong></td><td><strong>25</strong></td><td><strong>1.00</strong></td></tr></tbody></table></div></div>
+      </div>
+      <div class="grid-2" style="margin-top:18px">
+        <div class="card"><span class="label">Lectura visual</span><h3>Barras: una comparación directa</h3><div class="chart" aria-label="Gráfico de barras con Blanco 7, Azul 4, Gris 4, Rosa 4, Café 3, Negro 2 y Verde 1"><div class="bar" style="height:57%"><b>4</b><span>Az</span></div><div class="bar" style="height:100%"><b>7</b><span>Bl</span></div><div class="bar" style="height:43%"><b>3</b><span>Ca</span></div><div class="bar" style="height:57%"><b>4</b><span>Gr</span></div><div class="bar" style="height:29%"><b>2</b><span>Ne</span></div><div class="bar" style="height:57%"><b>4</b><span>Ro</span></div><div class="bar" style="height:14%"><b>1</b><span>Ve</span></div></div><p class="hint" style="margin-top:35px">La categoría blanco es la más frecuente: 7 de 25 estudiantes (28%).</p></div>
+        <div class="card"><span class="label">Decisión de representación</span><h3>¿Qué usarías?</h3><p>Para categorías como color de camisa, la presentación recomienda gráfico circular o de barras. Para una variable cuantitativa agrupada se emplean, entre otros, histograma, polígono u ojiva.</p><div class="formula">fr = f / n &nbsp; · &nbsp; f acumulada(a) = observaciones ≤ a</div><p class="hint">La frecuencia acumulada corresponde a variables cuantitativas, porque requiere ordenar valores numéricos.</p></div>
+      </div>
+      <div class="exercise">
+        <p class="eyebrow">Comprueba tu lectura</p><h3>Una cuenta sencilla, una interpretación exacta</h3>
+        <p class="prompt">¿Cuál es la frecuencia relativa del color blanco?</p>
+        <div class="choices" data-check="blanco">
+          <button class="choice" type="button" data-answer="no" data-feedback="7 es la frecuencia absoluta; todavía no se dividió por el total.">7</button>
+          <button class="choice" type="button" data-answer="ok" data-feedback="Correcto. fr = 7 / 25 = 0.28; equivale a 28%.">0.28</button>
+          <button class="choice" type="button" data-answer="no" data-feedback="0.16 corresponde a las categorías con 4 observaciones.">0.16</button>
+          <button class="choice" type="button" data-answer="no" data-feedback="1 es la frecuencia relativa total, no la de una categoría.">1.00</button>
+        </div>
+        <p id="blanco-feedback" class="feedback" aria-live="polite"></p>
+      </div>
+      <p class="hint">Fuente de datos y tabla: <em>EstadísticaProbabilidad - Semana 1.pdf</em>, pp. 24–31.</p>
+    </section>
+
+    <section role="tabpanel" id="practica" aria-labelledby="tab-practica" tabindex="0">
+      <div class="section-head"><div><p class="eyebrow">04 · Práctica integrada</p><h2>Ahora tú construyes la distribución.</h2></div><p>Usa el mismo método de clase, pero desarrolla la tabla completa antes de consultar la propuesta de solución.</p></div>
+      <div class="workbook">
+        <span class="label">Caso fuente · 15 clientes en un mercado</span>
+        <h3>Gasto en US$</h3>
+        <p class="data-strip">16.1 · 7.2 · 10.2 · 14.1 · 6.2 · 19.1 · 7.5 · 12.0 · 10.2 · 5.9 · 17.7 · 13.7 · 23.2 · 9.8 · 5.5</p>
+        <ol class="steps"><li>Define <strong>n</strong>, mínimo, máximo y rango.</li><li>Aplica Sturges: <span class="formula">K = 1 + 3.3 log(n)</span>Redondea K al entero inmediato siguiente.</li><li>Calcula un ancho aproximado: <span class="formula">ancho = (Xmax − Xmin) / K</span>Construye clases mutuamente excluyentes y colectivamente exhaustivas.</li><li>Completa clases, punto medio, frecuencia absoluta, relativa y acumulada; finalmente diseña histograma, polígono y ojiva.</li></ol>
+        <details>
+          <summary>Ver una propuesta de resolución pedagógica</summary>
+          <p><strong>Dato fuente:</strong> n = 15, mínimo = 5.5 y máximo = 23.2; por tanto el rango es 17.7. <strong>Aplicación:</strong> K = 1 + 3.3 log(15) ≈ 4.88, por lo que se usan 5 clases. Un ancho práctico es 4 (17.7 / 4.88 ≈ 3.63, redondeado).</p>
+          <div class="table-wrap"><table><thead><tr><th>Clase [Li, Ls)</th><th>Punto medio</th><th>f</th><th>fr</th><th>F acumulada</th></tr></thead><tbody><tr><td>[5.5, 9.5)</td><td>7.5</td><td>5</td><td>0.333</td><td>5</td></tr><tr><td>[9.5, 13.5)</td><td>11.5</td><td>4</td><td>0.267</td><td>9</td></tr><tr><td>[13.5, 17.5)</td><td>15.5</td><td>3</td><td>0.200</td><td>12</td></tr><tr><td>[17.5, 21.5)</td><td>19.5</td><td>2</td><td>0.133</td><td>14</td></tr><tr><td>[21.5, 25.5)</td><td>23.5</td><td>1</td><td>0.067</td><td>15</td></tr></tbody></table></div>
+          <p class="hint">Esta tabla es una resolución pedagógica elaborada a partir del enunciado y las reglas de clase: las clases se definen cerradas a la izquierda y abiertas a la derecha. No sustituye la solución mostrada en la presentación.</p>
+        </details>
+      </div>
+      <div class="callout" style="margin-top:22px"><strong>Control de calidad antes de graficar:</strong> la suma de f debe ser n; la suma de fr debe ser aproximadamente 1 (las diferencias menores pueden venir del redondeo); y ninguna observación puede pertenecer a dos clases.</div>
+      <p class="hint">Enunciado, regla de Sturges y clases [Li, Ls): <em>EstadísticaProbabilidad - Semana 1.pdf</em>, pp. 35–43. La tabla desplegable es una inferencia pedagógica explícitamente marcada.</p>
+    </section>
+
+    <section role="tabpanel" id="control" aria-labelledby="tab-control" tabindex="0">
+      <div class="section-head"><div><p class="eyebrow">05 · Control de salida</p><h2>Ocho decisiones para comprobar que puedes empezar solo.</h2></div><p>Responde y recibe retroalimentación inmediata con la razón de cada corrección.</p></div>
+      <div class="quiz-intro"><div class="quiz-count">08</div><p><strong>Sin calculadora.</strong><br>Este control recupera definiciones, clasificación y lectura de tablas de esta guía. Puedes volver a intentarlo cuantas veces quieras.</p></div>
+      <form id="quiz" novalidate>
+        <fieldset><legend>1. Una muestra es…</legend><label class="option"><input type="radio" name="q1" value="a">el conjunto total de elementos de interés.</label><label class="option"><input type="radio" name="q1" value="b">un subconjunto de la población.</label><label class="option"><input type="radio" name="q1" value="c">una característica medible.</label></fieldset>
+        <fieldset><legend>2. El número de CDs que posee una persona es una variable cuantitativa…</legend><label class="option"><input type="radio" name="q2" value="a">continua.</label><label class="option"><input type="radio" name="q2" value="b">discreta.</label><label class="option"><input type="radio" name="q2" value="c">nominal.</label></fieldset>
+        <fieldset><legend>3. Una escala de satisfacción de “muy insatisfecho” a “muy satisfecho” es…</legend><label class="option"><input type="radio" name="q3" value="a">ordinal.</label><label class="option"><input type="radio" name="q3" value="b">de razón.</label><label class="option"><input type="radio" name="q3" value="c">nominal.</label></fieldset>
+        <fieldset><legend>4. El color de camisa de un estudiante se mide en escala…</legend><label class="option"><input type="radio" name="q4" value="a">nominal.</label><label class="option"><input type="radio" name="q4" value="b">ordinal.</label><label class="option"><input type="radio" name="q4" value="c">de intervalo.</label></fieldset>
+        <fieldset><legend>5. Si se observa a las mismas empresas durante varios años, los datos son de…</legend><label class="option"><input type="radio" name="q5" value="a">corte transversal.</label><label class="option"><input type="radio" name="q5" value="b">panel.</label><label class="option"><input type="radio" name="q5" value="c">censo.</label></fieldset>
+        <fieldset><legend>6. En la tabla de camisas, la frecuencia relativa de blanco es…</legend><label class="option"><input type="radio" name="q6" value="a">7.</label><label class="option"><input type="radio" name="q6" value="b">0.28.</label><label class="option"><input type="radio" name="q6" value="c">1.00.</label></fieldset>
+        <fieldset><legend>7. El gasto en US$ de clientes es una variable cuantitativa…</legend><label class="option"><input type="radio" name="q7" value="a">continua.</label><label class="option"><input type="radio" name="q7" value="b">ordinal.</label><label class="option"><input type="radio" name="q7" value="c">nominal.</label></fieldset>
+        <fieldset><legend>8. Para estudiar la evolución de una variable a lo largo del tiempo, la presentación propone un gráfico de…</legend><label class="option"><input type="radio" name="q8" value="a">pastel.</label><label class="option"><input type="radio" name="q8" value="b">línea.</label><label class="option"><input type="radio" name="q8" value="c">coropleta.</label></fieldset>
+        <button class="submit" type="submit">Revisar mis respuestas</button>
+        <div id="quiz-result" class="result" aria-live="polite" hidden></div>
+      </form>
+    </section>
+  </main>
+  <footer><div class="shell"><p><strong>Trazabilidad de la guía.</strong> Conceptos, casos y datos de clase: <em>EstadísticaProbabilidad - Semana 1.pdf</em>, pp. 11–18, 24–43 y 47; apoyo para tipos de variables: <em>Variables y tipos.pdf</em>, pp. 1–4.</p><p>El caso de gasto incluye una resolución pedagógica identificada como tal. Esta guía no altera los documentos fuente ni sustituye las indicaciones de clase.</p></div></footer>
+  <script>
+    const tabs = [...document.querySelectorAll('[role="tab"]')];
+    const panels = [...document.querySelectorAll('[role="tabpanel"]')];
+    function activateTab(tab) {
+      tabs.forEach(item => { const active = item === tab; item.setAttribute('aria-selected', active); item.tabIndex = active ? 0 : -1; });
+      panels.forEach(panel => panel.classList.toggle('is-active', panel.id === tab.getAttribute('aria-controls')));
+    }
+    tabs.forEach((tab, index) => {
+      tab.addEventListener('click', () => activateTab(tab));
+      tab.addEventListener('keydown', event => { if (!['ArrowRight','ArrowLeft','Home','End'].includes(event.key)) return; event.preventDefault(); const next = event.key === 'Home' ? 0 : event.key === 'End' ? tabs.length - 1 : (index + (event.key === 'ArrowRight' ? 1 : -1) + tabs.length) % tabs.length; tabs[next].focus(); activateTab(tabs[next]); });
+    });
+    document.querySelectorAll('[data-check]').forEach(group => group.addEventListener('click', event => {
+      const button = event.target.closest('button[data-answer]'); if (!button) return;
+      const feedback = document.getElementById(`${group.dataset.check}-feedback`); const correct = button.dataset.answer === 'ok';
+      feedback.className = `feedback ${correct ? 'ok' : 'no'}`; feedback.textContent = button.dataset.feedback;
+    }));
+    const answers = {
+      q1:['b','Una muestra es un subconjunto de la población.'], q2:['b','Un número de CDs es un conteo, por lo que es discreto.'], q3:['a','La satisfacción tiene categorías con un orden significativo: ordinal.'], q4:['a','El color identifica una etiqueta sin orden: nominal.'], q5:['b','Panel combina varios elementos con observación a lo largo del tiempo.'], q6:['b','Blanco: 7 / 25 = 0.28.'], q7:['a','El gasto puede tomar valores en un continuo de montos: continua.'], q8:['b','El gráfico de línea resume el comportamiento de una variable en el tiempo.']
+    };
+    document.getElementById('quiz').addEventListener('submit', event => {
+      event.preventDefault(); let score = 0; const corrections = [];
+      Object.entries(answers).forEach(([name,[answer,reason]], index) => { const value = new FormData(event.currentTarget).get(name); if (value === answer) score++; else corrections.push(`<li><strong>${index + 1}.</strong> ${reason}</li>`); });
+      const result = document.getElementById('quiz-result'); result.hidden = false;
+      const message = score === 8 ? 'Dominio completo: puedes pasar al siguiente tema.' : score >= 6 ? 'Vas bien: revisa las correcciones antes de avanzar.' : 'Conviene volver a las secciones indicadas y repetir el control.';
+      result.innerHTML = `<strong>${score}/8 · ${message}</strong>${corrections.length ? `<ul class="corrections">${corrections.join('')}</ul>` : '<p>Respuestas correctas en las ocho decisiones.</p>'}`;
+      result.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block:'nearest' });
+    });
+  </script>
+</body>
+</html>

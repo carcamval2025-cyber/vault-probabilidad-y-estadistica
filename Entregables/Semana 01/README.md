@@ -1,3 +1,5 @@
 # Semana 01 — Entregables
 
-Carpeta reservada para material solicitado de la Semana 1. Aún no contiene entregables.
+- `Guía de estudio - Semana 01.html` — guía completa e interactiva: conceptos, ejercicios variados, resolución guiada y control con retroalimentación inmediata.
+
+La versión publicada de la misma guía está en `docs/semana-01/index.html`.

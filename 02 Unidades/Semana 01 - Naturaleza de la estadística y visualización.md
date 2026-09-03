@@ -1,6 +1,6 @@
 ---
 semana: 1
-estado: documentada
+estado: material generado
 fuentes:
   - EstadísticaProbabilidad - Semana 1.pdf
   - Variables y tipos.pdf
@@ -44,7 +44,8 @@ Esta semana corresponde a la presentación `EstadísticaProbabilidad - Semana 1.
 
 ## Entregables
 
-Ninguno generado. Cuando se solicite uno, guardarlo en `Entregables/Semana 01/` y enlazarlo aquí.
+- [[Entregables/Semana 01/Guía de estudio - Semana 01.html|Guía de estudio - Semana 01]] — material HTML completo con teoría, práctica variada y control autocorregible. Basado en las fuentes de esta nota; la resolución de gasto se identifica dentro de la guía como propuesta pedagógica.
+- Publicación estática: `docs/semana-01/index.html`.
 
 ## Fuentes
 
