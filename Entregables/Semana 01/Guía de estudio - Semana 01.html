@@ -95,6 +95,9 @@
     .svg-title { fill:var(--paper); font:700 19px Manrope, sans-serif; }
     .svg-copy { fill:#c8d9e1; font:500 14px Manrope, sans-serif; }
     .svg-muted { fill:var(--muted); font:500 12px "DM Mono", monospace; }
+    .svg-interactive .svg-group { transition: transform .25s ease, filter .25s ease; cursor: pointer; }
+    .svg-interactive .svg-group:hover { transform: translateY(-4px); filter: drop-shadow(0 8px 14px rgba(140,211,255,.28)); }
+
     footer { border-top:1px solid var(--line); padding:32px 0 50px; color:var(--muted); font-size:.88rem; }
     footer strong { color:var(--paper); }
     @media (max-width:760px) { .topline .shell,.hero-grid,.section-head { display:block; } .topline .shell { padding:16px 0; } .meta { text-align:left; margin-top:10px; } .hero { padding-top:52px; } .grid-2,.grid-3 { grid-template-columns:1fr; } .choices { grid-template-columns:1fr; } .section-head > p { margin-top:12px; } .exercise,.workbook,.card { padding:20px; } }
@@ -226,6 +229,81 @@
         <article class="card"><span class="label">Datos y elementos</span><h3>Qué se registra</h3><p>Los <strong>datos</strong> son hechos y cifras recabados, analizados y resumidos. Los <strong>elementos</strong> son las entidades de las que se reúnen esos datos; una <strong>variable</strong> es una característica medible de esos elementos.</p></article>
         <article class="card"><span class="label">Cómo se obtienen</span><h3>Censo, encuesta o experimento</h3><p>Un <strong>censo</strong> recuenta la población; una <strong>encuesta</strong> usa cuestionarios, usualmente para un subgrupo; un <strong>experimento</strong> es un procedimiento planeado y controlado que manipula una variable. Si no hay asignación aleatoria posible o deseable, se trata de un cuasi-experimento.</p></article>
       </div>
+      <figure class="visual-board">
+        <svg viewBox="0 0 980 290" role="img" aria-labelledby="fuentes-title fuentes-desc" class="svg-interactive">
+  <title id="fuentes-title">Fuentes y métodos de obtención de datos estadísticos</title>
+  <desc id="fuentes-desc">Comparación de cuatro métodos para recolectar datos: censo, encuesta, experimento y cuasi-experimento según costo, alcance y causalidad.</desc>
+  <defs>
+    <linearGradient id="fCardGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#153c58" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#0c2335" stop-opacity="0.98"/>
+    </linearGradient>
+    <filter id="fShadow" x="-8%" y="-12%" width="116%" height="124%">
+      <feDropShadow dx="0" dy="5" stdDeviation="6" flood-color="#000" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <text x="24" y="30" class="svg-kicker">FUENTES Y RECOLECCIÓN DE DATOS</text>
+  <text x="24" y="58" class="svg-title">¿Cómo se obtienen los datos? Cuatro métodos con alcances distintos.</text>
+
+  <!-- 1. CENSO -->
+  <g filter="url(#fShadow)" transform="translate(24 82)" class="svg-group">
+    <rect width="218" height="142" rx="14" fill="url(#fCardGrad)" stroke="#8cd3ff" stroke-width="1.5"/>
+    <rect x="14" y="14" width="74" height="20" rx="5" fill="rgba(140,211,255,0.15)"/>
+    <text x="20" y="28" fill="#8cd3ff" style="font:700 10px 'DM Mono',monospace">01 · CENSO</text>
+    <text x="14" y="58" class="svg-title" style="font-size:16px">Población total</text>
+    <text x="14" y="78" class="svg-copy" style="font-size:12px">Recuento de todos los</text>
+    <text x="14" y="94" class="svg-copy" style="font-size:12px">elementos del marco.</text>
+    <rect x="14" y="106" width="190" height="22" rx="5" fill="rgba(244,210,103,0.12)"/>
+    <text x="20" y="121" fill="#f4d267" style="font:600 10px 'DM Mono',monospace">Sin error de muestreo</text>
+  </g>
+
+  <!-- 2. ENCUESTA -->
+  <g filter="url(#fShadow)" transform="translate(262 82)" class="svg-group">
+    <rect width="218" height="142" rx="14" fill="url(#fCardGrad)" stroke="#8cd3ff" stroke-width="1.5"/>
+    <rect x="14" y="14" width="92" height="20" rx="5" fill="rgba(140,211,255,0.15)"/>
+    <text x="20" y="28" fill="#8cd3ff" style="font:700 10px 'DM Mono',monospace">02 · ENCUESTA</text>
+    <text x="14" y="58" class="svg-title" style="font-size:16px">Muestra representativa</text>
+    <text x="14" y="78" class="svg-copy" style="font-size:12px">Uso de cuestionarios sobre</text>
+    <text x="14" y="94" class="svg-copy" style="font-size:12px">un subgrupo de interés.</text>
+    <rect x="14" y="106" width="190" height="22" rx="5" fill="rgba(168,230,189,0.14)"/>
+    <text x="20" y="121" fill="#a8e6bd" style="font:600 10px 'DM Mono',monospace">Menor costo · Hay margen</text>
+  </g>
+
+  <!-- 3. EXPERIMENTO -->
+  <g filter="url(#fShadow)" transform="translate(500 82)" class="svg-group">
+    <rect width="218" height="142" rx="14" fill="url(#fCardGrad)" stroke="#f4d267" stroke-width="1.5"/>
+    <rect x="14" y="14" width="108" height="20" rx="5" fill="rgba(244,210,103,0.15)"/>
+    <text x="20" y="28" fill="#f4d267" style="font:700 10px 'DM Mono',monospace">03 · EXPERIMENTO</text>
+    <text x="14" y="58" class="svg-title" style="font-size:16px">Control deliberado</text>
+    <text x="14" y="78" class="svg-copy" style="font-size:12px">Se manipula una variable</text>
+    <text x="14" y="94" class="svg-copy" style="font-size:12px">con asignación aleatoria.</text>
+    <rect x="14" y="106" width="190" height="22" rx="5" fill="rgba(244,210,103,0.18)"/>
+    <text x="20" y="121" fill="#f4d267" style="font:700 10px 'DM Mono',monospace">Prueba Causa → Efecto</text>
+  </g>
+
+  <!-- 4. CUASI-EXPERIMENTO -->
+  <g filter="url(#fShadow)" transform="translate(738 82)" class="svg-group">
+    <rect width="218" height="142" rx="14" fill="url(#fCardGrad)" stroke="#8cd3ff" stroke-width="1.5"/>
+    <rect x="14" y="14" width="144" height="20" rx="5" fill="rgba(255,137,109,0.15)"/>
+    <text x="20" y="28" fill="#ff896d" style="font:700 10px 'DM Mono',monospace">04 · CUASI-EXPERIMENTO</text>
+    <text x="14" y="58" class="svg-title" style="font-size:16px">Sin aleatorización</text>
+    <text x="14" y="78" class="svg-copy" style="font-size:12px">Condición donde no es posible</text>
+    <text x="14" y="94" class="svg-copy" style="font-size:12px">o ético asignar al azar.</text>
+    <rect x="14" y="106" width="190" height="22" rx="5" fill="rgba(255,137,109,0.14)"/>
+    <text x="20" y="121" fill="#ff896d" style="font:600 10px 'DM Mono',monospace">Control estadístico ex-post</text>
+  </g>
+
+  <!-- Bottom Insight Banner -->
+  <g transform="translate(24 240)">
+    <rect width="932" height="36" rx="8" fill="rgba(7,24,39,0.7)" stroke="rgba(140,211,255,0.2)" stroke-width="1"/>
+    <circle cx="16" cy="18" r="4" fill="#f4d267"/>
+    <text x="28" y="22" fill="#aec0cc" style="font:500 11px Manrope,sans-serif">Principio metodológico: Solo un experimento aleatorizado permite aislar variables de confusión y demostrar relación causal; las encuestas describen o correlacionan.</text>
+    <text x="800" y="22" class="svg-muted" style="font-size:10px">Semana 1, pp. 16–17</text>
+  </g>
+</svg>
+        <figcaption>Comparación metodológica entre censo, encuesta por muestreo y experimentos (control deliberado vs. observación pasiva). Semana 1, pp. 16–17.</figcaption>
+      </figure>
       <div class="callout" style="margin-top:22px"><strong>Regla de oro.</strong> Primero nombra la unidad estadística (el elemento observado); después, la población o muestra; al final, la variable y su escala. Ese orden reduce errores de clasificación.</div>
       <div class="exercise">
         <p class="eyebrow">Pausa de 2 minutos</p><h3>Lee el escenario</h3>
@@ -252,6 +330,95 @@
         <article class="card"><span class="label">Serie de tiempo</span><p>Datos recogidos a lo largo de varios períodos.</p></article>
         <article class="card"><span class="label">Panel</span><p>El mismo conjunto de elementos observado a lo largo del tiempo.</p></article>
       </div>
+      <figure class="visual-board">
+        <svg viewBox="0 0 980 270" role="img" aria-labelledby="temporal-title temporal-desc" class="svg-interactive">
+  <title id="temporal-title">Matriz comparativa de temporalidad de datos</title>
+  <desc id="temporal-desc">Visualización de corte transversal, serie de tiempo y datos de panel según la variación en elementos y en el tiempo.</desc>
+  <defs>
+    <linearGradient id="tCardGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#153c58" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#0c2335" stop-opacity="0.98"/>
+    </linearGradient>
+    <filter id="tShadow" x="-8%" y="-12%" width="116%" height="124%">
+      <feDropShadow dx="0" dy="5" stdDeviation="6" flood-color="#000" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <text x="24" y="30" class="svg-kicker">ESTRUCTURA TEMPORAL DE LOS DATOS</text>
+  <text x="24" y="58" class="svg-title">La dimensión del tiempo y de los individuos define la estructura del análisis.</text>
+
+  <!-- 1. CORTE TRANSVERSAL -->
+  <g filter="url(#tShadow)" transform="translate(24 84)" class="svg-group">
+    <rect width="296" height="148" rx="14" fill="url(#tCardGrad)" stroke="#8cd3ff" stroke-width="1.5"/>
+    <rect x="14" y="14" width="140" height="20" rx="5" fill="rgba(140,211,255,0.15)"/>
+    <text x="20" y="28" fill="#8cd3ff" style="font:700 10px 'DM Mono',monospace">01 · CORTE TRANSVERSAL</text>
+    <text x="14" y="58" class="svg-title" style="font-size:16px">Muchos elementos, un momento</text>
+    <text x="14" y="78" class="svg-copy" style="font-size:12px">Foto fija: n observaciones medidas</text>
+    <text x="14" y="94" class="svg-copy" style="font-size:12px">exactamente en el mismo período t.</text>
+    
+    <!-- Mini matrix diagram -->
+    <g transform="translate(14 108)">
+      <rect x="0" y="0" width="36" height="24" rx="4" fill="#8cd3ff"/>
+      <rect x="42" y="0" width="36" height="24" rx="4" fill="#8cd3ff"/>
+      <rect x="84" y="0" width="36" height="24" rx="4" fill="#8cd3ff"/>
+      <rect x="126" y="0" width="36" height="24" rx="4" fill="#8cd3ff"/>
+      <text x="18" y="16" text-anchor="middle" fill="#071827" style="font:700 10px 'DM Mono',monospace">e_1</text>
+      <text x="60" y="16" text-anchor="middle" fill="#071827" style="font:700 10px 'DM Mono',monospace">e_2</text>
+      <text x="102" y="16" text-anchor="middle" fill="#071827" style="font:700 10px 'DM Mono',monospace">e_3</text>
+      <text x="144" y="16" text-anchor="middle" fill="#071827" style="font:700 10px 'DM Mono',monospace">e_n</text>
+      <text x="180" y="16" fill="#aec0cc" style="font:600 11px 'DM Mono',monospace">en t = t_1</text>
+    </g>
+  </g>
+
+  <!-- 2. SERIE DE TIEMPO -->
+  <g filter="url(#tShadow)" transform="translate(342 84)" class="svg-group">
+    <rect width="296" height="148" rx="14" fill="url(#tCardGrad)" stroke="#f4d267" stroke-width="1.5"/>
+    <rect x="14" y="14" width="132" height="20" rx="5" fill="rgba(244,210,103,0.15)"/>
+    <text x="20" y="28" fill="#f4d267" style="font:700 10px 'DM Mono',monospace">02 · SERIE DE TIEMPO</text>
+    <text x="14" y="58" class="svg-title" style="font-size:16px">Un elemento, varios períodos</text>
+    <text x="14" y="78" class="svg-copy" style="font-size:12px">Película de 1 variable a lo largo</text>
+    <text x="14" y="94" class="svg-copy" style="font-size:12px">de semanas, meses o trimestres.</text>
+    
+    <!-- Mini timeline diagram -->
+    <g transform="translate(14 108)">
+      <rect x="0" y="0" width="36" height="24" rx="4" fill="#f4d267"/>
+      <rect x="42" y="0" width="36" height="24" rx="4" fill="#f4d267"/>
+      <rect x="84" y="0" width="36" height="24" rx="4" fill="#f4d267"/>
+      <rect x="126" y="0" width="36" height="24" rx="4" fill="#f4d267"/>
+      <text x="18" y="16" text-anchor="middle" fill="#071827" style="font:700 10px 'DM Mono',monospace">T_1</text>
+      <text x="60" y="16" text-anchor="middle" fill="#071827" style="font:700 10px 'DM Mono',monospace">T_2</text>
+      <text x="102" y="16" text-anchor="middle" fill="#071827" style="font:700 10px 'DM Mono',monospace">T_3</text>
+      <text x="144" y="16" text-anchor="middle" fill="#071827" style="font:700 10px 'DM Mono',monospace">T_k</text>
+      <text x="180" y="16" fill="#f4d267" style="font:600 11px 'DM Mono',monospace">para e = e_1</text>
+    </g>
+  </g>
+
+  <!-- 3. PANEL -->
+  <g filter="url(#tShadow)" transform="translate(660 84)" class="svg-group">
+    <rect width="296" height="148" rx="14" fill="url(#tCardGrad)" stroke="#a8e6bd" stroke-width="1.5"/>
+    <rect x="14" y="14" width="138" height="20" rx="5" fill="rgba(168,230,189,0.15)"/>
+    <text x="20" y="28" fill="#a8e6bd" style="font:700 10px 'DM Mono',monospace">03 · DATOS DE PANEL</text>
+    <text x="14" y="58" class="svg-title" style="font-size:16px">Mismos elementos en el tiempo</text>
+    <text x="14" y="78" class="svg-copy" style="font-size:12px">Combinación bidimensional:</text>
+    <text x="14" y="94" class="svg-copy" style="font-size:12px">los mismos n sujetos en t períodos.</text>
+    
+    <!-- Mini 2D grid diagram -->
+    <g transform="translate(14 108)">
+      <rect x="0" y="0" width="36" height="11" rx="2" fill="#a8e6bd"/>
+      <rect x="42" y="0" width="36" height="11" rx="2" fill="#a8e6bd"/>
+      <rect x="84" y="0" width="36" height="11" rx="2" fill="#a8e6bd"/>
+      <rect x="0" y="13" width="36" height="11" rx="2" fill="#a8e6bd"/>
+      <rect x="42" y="13" width="36" height="11" rx="2" fill="#a8e6bd"/>
+      <rect x="84" y="13" width="36" height="11" rx="2" fill="#a8e6bd"/>
+      <text x="140" y="18" fill="#a8e6bd" style="font:600 11px 'DM Mono',monospace">n sujetos × T tiempos</text>
+    </g>
+  </g>
+
+  <!-- Bottom Citation -->
+  <text x="24" y="255" class="svg-muted" style="font-size:11px">Fuente: Semana 1, p. 18 · Estructura temporal y metodológica de bases de datos.</text>
+</svg>
+        <figcaption>Las tres estructuras temporales según varíen los elementos analizados o los períodos observados. Semana 1, p. 18.</figcaption>
+      </figure>
       <figure class="visual-board">
         <svg viewBox="0 0 980 370" role="img" aria-labelledby="type-title type-desc">
           <title id="type-title">Árbol visual para clasificar variables</title>
@@ -346,6 +513,100 @@
         <figcaption>Una codificación numérica no cambia automáticamente una categoría en cantidad: 1–4 para satisfacción conserva un orden, pero no asegura distancias equivalentes.</figcaption>
       </figure>
       <div class="card"><span class="label">Caso de la presentación · música</span><h3>Resuelve por significado, no por apariencia</h3><div class="table-wrap"><table><thead><tr><th>Pregunta del cuestionario</th><th>Resolución pedagógica</th><th>Justificación</th></tr></thead><tbody><tr><td>CDs comprados en 12 meses</td><td>Cuantitativa discreta · razón</td><td>Es un conteo; cero CDs tiene significado.</td></tr><tr><td>¿Miembro de un club? Sí / No</td><td>Categórica nominal dicotómica</td><td>Son dos etiquetas excluyentes y exhaustivas.</td></tr><tr><td>Edad</td><td>Cuantitativa continua · razón</td><td>Es una medición con cero significativo.</td></tr><tr><td>Personas en la familia</td><td>Cuantitativa discreta · razón</td><td>Es un conteo de personas.</td></tr><tr><td>Tipo de música</td><td>Categórica nominal</td><td>Las opciones son etiquetas sin orden.</td></tr></tbody></table></div><p class="hint">Las preguntas pertenecen a la presentación (p. 19); las clasificaciones de esta tabla son resolución pedagógica explícita.</p></div>
+      <figure class="visual-board">
+        <svg viewBox="0 0 980 320" role="img" aria-labelledby="escalas-title escalas-desc" class="svg-interactive">
+  <title id="escalas-title">La escalera acumulativa de las cuatro escalas de medición</title>
+  <desc id="escalas-desc">Jerarquía de Stevens que explica qué operaciones matemáticas y medidas estadísticas son válidas en cada nivel: nominal, ordinal, intervalo y razón.</desc>
+  <defs>
+    <linearGradient id="sCardGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#153c58" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#0c2335" stop-opacity="0.98"/>
+    </linearGradient>
+    <filter id="sShadow" x="-8%" y="-12%" width="116%" height="124%">
+      <feDropShadow dx="0" dy="5" stdDeviation="6" flood-color="#000" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <text x="24" y="30" class="svg-kicker">JERARQUÍA DE MEDICIÓN (S.S. STEVENS)</text>
+  <text x="24" y="58" class="svg-title">La escala determina qué cálculos matemáticos tienen sentido real.</text>
+
+  <!-- Step 1: Nominal -->
+  <g filter="url(#sShadow)" transform="translate(24 86)" class="svg-group">
+    <rect width="220" height="185" rx="14" fill="url(#sCardGrad)" stroke="#8cd3ff" stroke-width="1.5"/>
+    <rect x="14" y="14" width="86" height="20" rx="5" fill="rgba(140,211,255,0.15)"/>
+    <text x="20" y="28" fill="#8cd3ff" style="font:700 10px 'DM Mono',monospace">NIVEL 1 · BASE</text>
+    <text x="14" y="60" class="svg-title" style="font-size:18px">Nominal</text>
+    <text x="14" y="80" class="svg-copy" style="font-size:12px">Solo clasifica por nombres o atributos.</text>
+    
+    <rect x="14" y="98" width="192" height="22" rx="5" fill="rgba(7,24,39,0.6)"/>
+    <text x="20" y="113" fill="#8cd3ff" style="font:600 11px 'DM Mono',monospace">Operación: = ó ≠</text>
+    
+    <rect x="14" y="126" width="192" height="22" rx="5" fill="rgba(244,210,103,0.12)"/>
+    <text x="20" y="141" fill="#f4d267" style="font:600 11px 'DM Mono',monospace">Medida: Moda</text>
+    
+    <text x="14" y="168" class="svg-muted" style="font-size:11px">Ej.: color camisa, género</text>
+  </g>
+
+  <!-- Step 2: Ordinal -->
+  <g filter="url(#sShadow)" transform="translate(262 86)" class="svg-group">
+    <rect width="220" height="185" rx="14" fill="url(#sCardGrad)" stroke="#8cd3ff" stroke-width="1.5"/>
+    <rect x="14" y="14" width="102" height="20" rx="5" fill="rgba(140,211,255,0.15)"/>
+    <text x="20" y="28" fill="#8cd3ff" style="font:700 10px 'DM Mono',monospace">NIVEL 2 · ORDEN</text>
+    <text x="14" y="60" class="svg-title" style="font-size:18px">Ordinal</text>
+    <text x="14" y="80" class="svg-copy" style="font-size:12px">Categorías con orden y jerarquía.</text>
+    
+    <rect x="14" y="98" width="192" height="22" rx="5" fill="rgba(7,24,39,0.6)"/>
+    <text x="20" y="113" fill="#8cd3ff" style="font:600 11px 'DM Mono',monospace">Operación: > ó &lt;</text>
+    
+    <rect x="14" y="126" width="192" height="22" rx="5" fill="rgba(244,210,103,0.12)"/>
+    <text x="20" y="141" fill="#f4d267" style="font:600 11px 'DM Mono',monospace">Medida: Mediana / Q_k</text>
+    
+    <text x="14" y="168" class="svg-muted" style="font-size:11px">Ej.: satisfacción (1–4)</text>
+  </g>
+
+  <!-- Step 3: Intervalo -->
+  <g filter="url(#sShadow)" transform="translate(500 86)" class="svg-group">
+    <rect width="220" height="185" rx="14" fill="url(#sCardGrad)" stroke="#8cd3ff" stroke-width="1.5"/>
+    <rect x="14" y="14" width="112" height="20" rx="5" fill="rgba(140,211,255,0.15)"/>
+    <text x="20" y="28" fill="#8cd3ff" style="font:700 10px 'DM Mono',monospace">NIVEL 3 · UNIDAD</text>
+    <text x="14" y="60" class="svg-title" style="font-size:18px">Intervalo</text>
+    <text x="14" y="80" class="svg-copy" style="font-size:12px">Distancias fijas; cero relativo.</text>
+    
+    <rect x="14" y="98" width="192" height="22" rx="5" fill="rgba(7,24,39,0.6)"/>
+    <text x="20" y="113" fill="#8cd3ff" style="font:600 11px 'DM Mono',monospace">Operación: + y −</text>
+    
+    <rect x="14" y="126" width="192" height="22" rx="5" fill="rgba(244,210,103,0.12)"/>
+    <text x="20" y="141" fill="#f4d267" style="font:600 11px 'DM Mono',monospace">Medida: Media, s, s²</text>
+    
+    <text x="14" y="168" class="svg-muted" style="font-size:11px">Ej.: temperatura en °C</text>
+  </g>
+
+  <!-- Step 4: Razón -->
+  <g filter="url(#sShadow)" transform="translate(738 86)" class="svg-group">
+    <rect width="220" height="185" rx="14" fill="url(#sCardGrad)" stroke="#f4d267" stroke-width="1.8"/>
+    <rect x="14" y="14" width="124" height="20" rx="5" fill="rgba(244,210,103,0.2)"/>
+    <text x="20" y="28" fill="#f4d267" style="font:700 10px 'DM Mono',monospace">NIVEL 4 · MÁXIMO</text>
+    <text x="14" y="60" fill="#f4d267" style="font:800 18px Manrope,sans-serif">Razón</text>
+    <text x="14" y="80" class="svg-copy" style="font-size:12px">Cero absoluto (ausencia total).</text>
+    
+    <rect x="14" y="98" width="192" height="22" rx="5" fill="rgba(7,24,39,0.6)"/>
+    <text x="20" y="113" fill="#f4d267" style="font:600 11px 'DM Mono',monospace">Operación: × y ÷ (ratios)</text>
+    
+    <rect x="14" y="126" width="192" height="22" rx="5" fill="rgba(244,210,103,0.2)"/>
+    <text x="20" y="141" fill="#f4d267" style="font:700 11px 'DM Mono',monospace">Medida: Todas las previas</text>
+    
+    <text x="14" y="168" class="svg-muted" style="font-size:11px">Ej.: ingresos $, peso, edad</text>
+  </g>
+
+  <!-- Bottom rule -->
+  <g transform="translate(24 282)">
+    <rect width="932" height="28" rx="6" fill="rgba(7,24,39,0.7)" stroke="rgba(140,211,255,0.2)" stroke-width="1"/>
+    <text x="16" y="18" fill="#aec0cc" style="font:500 11px Manrope,sans-serif">Cada nivel hereda todas las propiedades del nivel anterior y suma nuevas operaciones matemáticas verificables.</text>
+    <text x="810" y="18" class="svg-muted" style="font-size:10px">Semana 1, pp. 13–15</text>
+  </g>
+</svg>
+        <figcaption>La jerarquía acumulativa de Stevens: cada escala hereda las propiedades del nivel anterior y suma nuevas operaciones matemáticas. Semana 1, pp. 13–15.</figcaption>
+      </figure>
       <div class="exercise">
         <p class="eyebrow">Clasificación rápida</p><h3>No te fijes solo en que “parece un número”.</h3>
         <p class="prompt">La satisfacción de huéspedes se registra como: 1 = muy insatisfecho, 2 = insatisfecho, 3 = satisfecho, 4 = muy satisfecho. ¿Qué escala es?</p>
@@ -702,6 +963,79 @@
           </g>
         </svg>
         <figcaption>Histograma: intervalos y frecuencias; polígono: puntos medios y frecuencias; ojiva: puntos medios y frecuencias acumuladas. Definiciones de la presentación, pp. 38–40.</figcaption>
+      </figure>
+      <figure class="visual-board">
+        <svg viewBox="0 0 980 330" role="img" aria-labelledby="stem-title stem-desc" class="svg-interactive">
+  <title id="stem-title">Diagrama de tallo y hojas (Stem-and-Leaf)</title>
+  <desc id="stem-desc">Explicación visual de cómo el diagrama de tallo y hojas descompone los datos en decenas y unidades, funcionando como tabla ordenada e histograma simultáneo.</desc>
+  <defs>
+    <linearGradient id="stemCardGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#153c58" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#0c2335" stop-opacity="0.98"/>
+    </linearGradient>
+    <filter id="stemShadow" x="-8%" y="-12%" width="116%" height="124%">
+      <feDropShadow dx="0" dy="5" stdDeviation="6" flood-color="#000" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <text x="24" y="30" class="svg-kicker">REPRESENTACIÓN EXPLORATORIA · TALLO Y HOJAS</text>
+  <text x="24" y="58" class="svg-title">Conserva los datos individuales mientras dibuja la silueta de la distribución.</text>
+
+  <!-- Left: The Stem and Leaf Table -->
+  <g filter="url(#stemShadow)" transform="translate(24 86)" class="svg-group">
+    <rect width="450" height="224" rx="14" fill="url(#stemCardGrad)" stroke="#8cd3ff" stroke-width="1.5"/>
+    <rect x="16" y="16" width="144" height="20" rx="5" fill="rgba(140,211,255,0.15)"/>
+    <text x="22" y="30" fill="#8cd3ff" style="font:700 10px 'DM Mono',monospace">ESTRUCTURA TALLO | HOJAS</text>
+    
+    <!-- Table Headers -->
+    <text x="60" y="64" text-anchor="middle" fill="#f4d267" style="font:700 12px 'DM Mono',monospace">TALLO (Decenas)</text>
+    <line x1="115" y1="50" x2="115" y2="195" stroke="#8cd3ff" stroke-width="2"/>
+    <text x="130" y="64" fill="#8cd3ff" style="font:700 12px 'DM Mono',monospace">HOJAS (Unidades redondeadas)</text>
+
+    <!-- Row 0: 0 | 5 6 7 7 9 (5 items) -->
+    <text x="60" y="98" text-anchor="middle" fill="#f4d267" style="font:800 18px 'DM Mono',monospace">0</text>
+    <text x="135" y="98" fill="#f7f2e9" style="font:600 16px 'DM Mono',monospace;letter-spacing:14px">6 6 7 8 10</text>
+    <rect x="400" y="82" width="34" height="20" rx="4" fill="rgba(244,210,103,0.15)"/>
+    <text x="417" y="96" text-anchor="middle" fill="#f4d267" style="font:700 11px 'DM Mono',monospace">f=5</text>
+
+    <!-- Row 1: 1 | 0 0 2 4 4 6 8 9 (8 items) -->
+    <text x="60" y="138" text-anchor="middle" fill="#f4d267" style="font:800 18px 'DM Mono',monospace">1</text>
+    <text x="135" y="138" fill="#f7f2e9" style="font:600 16px 'DM Mono',monospace;letter-spacing:14px">0 0 2 4 4 6 8 9</text>
+    <rect x="400" y="122" width="34" height="20" rx="4" fill="rgba(140,211,255,0.15)"/>
+    <text x="417" y="136" text-anchor="middle" fill="#8cd3ff" style="font:700 11px 'DM Mono',monospace">f=8</text>
+
+    <!-- Row 2: 2 | 3 (2 items) -->
+    <text x="60" y="178" text-anchor="middle" fill="#f4d267" style="font:800 18px 'DM Mono',monospace">2</text>
+    <text x="135" y="178" fill="#f7f2e9" style="font:600 16px 'DM Mono',monospace;letter-spacing:14px">3 3</text>
+    <rect x="400" y="162" width="34" height="20" rx="4" fill="rgba(168,230,189,0.15)"/>
+    <text x="417" y="176" text-anchor="middle" fill="#a8e6bd" style="font:700 11px 'DM Mono',monospace">f=2</text>
+
+    <text x="16" y="212" class="svg-muted" style="font-size:10px">Lectura: 1 | 4 representa 14 US$. Muestra n = 15 observaciones.</text>
+  </g>
+
+  <!-- Right: Dual Concept Graphic (Histogram rotated 90 deg) -->
+  <g filter="url(#stemShadow)" transform="translate(500 86)" class="svg-group">
+    <rect width="456" height="224" rx="14" fill="url(#stemCardGrad)" stroke="#f4d267" stroke-width="1.5"/>
+    <rect x="16" y="16" width="158" height="20" rx="5" fill="rgba(244,210,103,0.15)"/>
+    <text x="22" y="30" fill="#f4d267" style="font:700 10px 'DM Mono',monospace">PROPIEDAD DUAL FUNDAMENTAL</text>
+    <text x="16" y="60" class="svg-title" style="font-size:16px">Es un histograma sin pérdida de información</text>
+
+    <!-- Silhouette bars simulating the leaves length -->
+    <g transform="translate(16 75)">
+      <rect x="0" y="8" width="160" height="28" rx="5" fill="rgba(140,211,255,0.25)" stroke="#8cd3ff"/>
+      <text x="12" y="27" fill="#8cd3ff" style="font:700 12px 'DM Mono',monospace">Tallo 0: 5 hojas</text>
+
+      <rect x="0" y="46" width="280" height="28" rx="5" fill="rgba(244,210,103,0.3)" stroke="#f4d267"/>
+      <text x="12" y="65" fill="#f4d267" style="font:700 12px 'DM Mono',monospace">Tallo 1: 8 hojas [MODA]</text>
+
+      <rect x="0" y="84" width="90" height="28" rx="5" fill="rgba(168,230,189,0.25)" stroke="#a8e6bd"/>
+      <text x="12" y="103" fill="#a8e6bd" style="font:700 12px 'DM Mono',monospace">Tallo 2: 2 hojas</text>
+    </g>
+
+    <text x="16" y="206" fill="#f7f2e9" style="font:500 11px Manrope,sans-serif">Al girar la mirada 90° contra el eje, la longitud de las hojas dibuja la forma exacta de la distribución, pero a diferencia de un histograma, <strong>cada valor numérico sigue intacto y legible</strong>.</text>
+  </g>
+</svg>
+        <figcaption>Diagrama de tallo y hojas con los datos del ejercicio de práctica (n = 15). Demostración de su propiedad dual: orden tabular e histograma de frecuencias simultáneo. Semana 1, pp. 44–45.</figcaption>
       </figure>
       <div class="grid-2">
         <article class="card"><span class="label">Serie de tiempo</span><h3>Cuando el eje horizontal es el período</h3><p>Un gráfico de línea estudia el comportamiento de una variable durante un período: tiempo en el eje horizontal y valores de la variable en el vertical.</p><svg viewBox="0 0 360 145" role="img" aria-label="Ejemplo de gráfico de línea temporal" style="width:100%;margin-top:10px">

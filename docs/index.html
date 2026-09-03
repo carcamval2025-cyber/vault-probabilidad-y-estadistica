@@ -67,6 +67,9 @@
     .plot-header { display: flex; align-items: center; justify-content: space-between; color: var(--muted); font: .64rem var(--mono); letter-spacing: .08em; text-transform: uppercase; }
     .plot-header b { color: var(--ink); font-weight: 500; }
     .plot svg { display: block; width: 100%; height: auto; margin-top: 26px; overflow: visible; }
+    .svg-interactive .svg-group { transition: transform .25s ease, filter .25s ease; cursor: pointer; }
+    .svg-interactive .svg-group:hover { transform: translateY(-4px); filter: drop-shadow(0 8px 14px rgba(140,211,255,.28)); }
+
     .plot-note { margin: 18px 0 0; color: var(--muted); font-size: .78rem; }
 
     main section { scroll-margin-top: 88px; }
@@ -305,7 +308,112 @@
 
     <section class="section" id="semana-02" aria-labelledby="s2-titulo">
       <div class="shell">
-        <div class="section-head"><div><p class="eyebrow">Semana 02 · ayudantía</p><h2 id="s2-titulo">De la tabla al gráfico.</h2></div><p>La ayudantía trabaja con <span class="mono">read_csv()</span>, frecuencias, gráficos de categorías e histogramas. La presentación de clase sigue pendiente de incorporarse.</p></div>
+        <div class="section-head">
+          <div><p class="eyebrow">Semana 02 · ayudantía práctica en R</p><h2 id="s2-titulo">De la tabla al gráfico con ggplot2.</h2></div>
+          <p>La ayudantía trabaja con <span class="mono">read_csv()</span>, tablas de frecuencias, gráficos circulares, barras ordenadas e histogramas con la encuesta del centro comercial.</p>
+        </div>
+
+        <div class="week-grid" style="margin-bottom:28px">
+          <article class="week-card" style="grid-column:span 4;min-height:auto">
+            <span class="number">EJERCICIO 01</span>
+            <h3 style="font-size:1.4rem">Pupusas Favoritas</h3>
+            <p>Tabla de frecuencias relativas (%) y gráfico circular tipo dona con R base y <span class="mono">ggplot2</span>.</p>
+          </article>
+          <article class="week-card" style="grid-column:span 4;min-height:auto">
+            <span class="number">EJERCICIO 02</span>
+            <h3 style="font-size:1.4rem">Pasatiempos</h3>
+            <p>Gráfico de barras horizontales con ordenamiento por frecuencia decreciente y etiquetas exactas.</p>
+          </article>
+          <article class="week-card" style="grid-column:span 4;min-height:auto">
+            <span class="number">EJERCICIO 03</span>
+            <h3 style="font-size:1.4rem">Distribución de Edad</h3>
+            <p>Histograma con amplitud de clase ajustada (<span class="mono">binwidth = 5</span>) y líneas guía de media y mediana.</p>
+          </article>
+        </div>
+
+        <figure class="plot" style="transform:none;box-shadow:8px 8px 0 var(--blue);margin-top:20px;padding:24px" aria-label="Arquitectura de capas de ggplot2">
+          <svg viewBox="0 0 980 320" role="img" aria-labelledby="ggplot-title ggplot-desc" class="svg-interactive">
+  <title id="ggplot-title">La gramática de gráficos en capas de ggplot2</title>
+  <desc id="ggplot-desc">Estructura de capas acumulativas en R: data, aesthetics, geometries, coordinates, scales y theme, vinculadas a la Ayudantía 02.</desc>
+  <defs>
+    <linearGradient id="ggCardGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#18425f" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#0d273a" stop-opacity="0.98"/>
+    </linearGradient>
+    <filter id="ggShadow" x="-8%" y="-12%" width="116%" height="124%">
+      <feDropShadow dx="0" dy="5" stdDeviation="6" flood-color="#000" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <text x="24" y="30" class="svg-kicker">ARQUITECTURA DE VISUALIZACIÓN EN R (TIDYVERSE)</text>
+  <text x="24" y="58" class="svg-title">La Gramática de Gráficos: construir visualizaciones por capas superpuestas.</text>
+
+  <!-- Left: Layer Pyramid / Stack -->
+  <g filter="url(#ggShadow)" transform="translate(24 84)" class="svg-group">
+    <rect width="450" height="220" rx="14" fill="url(#ggCardGrad)" stroke="#1769aa" stroke-width="1.5"/>
+    
+    <!-- 5 Stacked Layers -->
+    <!-- Layer 5 (Top): THEME -->
+    <g transform="translate(16 16)">
+      <rect width="418" height="34" rx="6" fill="#e3ae2b" stroke="#ffe69a" stroke-width="1"/>
+      <text x="16" y="22" fill="#071827" style="font:800 12px 'DM Mono',monospace">05 · THEME()</text>
+      <text x="145" y="22" fill="#172a46" style="font:600 11px Manrope,sans-serif">theme_minimal(), tipografía, títulos, rejilla</text>
+    </g>
+
+    <!-- Layer 4: COORD / SCALES -->
+    <g transform="translate(16 54)">
+      <rect width="418" height="34" rx="6" fill="#d6543d" stroke="#ffa291" stroke-width="1"/>
+      <text x="16" y="22" fill="#fff" style="font:800 12px 'DM Mono',monospace">04 · SCALES / COORD</text>
+      <text x="175" y="22" fill="#fff" style="font:600 11px Manrope,sans-serif">coord_polar(), scale_fill_manual(), scale_y</text>
+    </g>
+
+    <!-- Layer 3: GEOMETRIES -->
+    <g transform="translate(16 92)">
+      <rect width="418" height="34" rx="6" fill="#1769aa" stroke="#8cd3ff" stroke-width="1"/>
+      <text x="16" y="22" fill="#fff" style="font:800 12px 'DM Mono',monospace">03 · GEOM_*()</text>
+      <text x="145" y="22" fill="#e2f1fd" style="font:600 11px Manrope,sans-serif">geom_bar(), geom_histogram(), geom_text()</text>
+    </g>
+
+    <!-- Layer 2: AESTHETICS -->
+    <g transform="translate(16 130)">
+      <rect width="418" height="34" rx="6" fill="#007d79" stroke="#a8e6bd" stroke-width="1"/>
+      <text x="16" y="22" fill="#fff" style="font:800 12px 'DM Mono',monospace">02 · AES()</text>
+      <text x="130" y="22" fill="#d7f7eb" style="font:600 11px Manrope,sans-serif">aes(x = Edad, y = Freq, fill = Pasatiempo)</text>
+    </g>
+
+    <!-- Layer 1 (Base): DATA -->
+    <g transform="translate(16 168)">
+      <rect width="418" height="36" rx="6" fill="#172a46" stroke="#8cd3ff" stroke-width="1.2"/>
+      <text x="16" y="23" fill="#8cd3ff" style="font:800 12px 'DM Mono',monospace">01 · DATA</text>
+      <text x="130" y="23" fill="#aec0cc" style="font:600 11px Manrope,sans-serif">datos &lt;- read_csv("EncuestaCentroComercial_2025.csv")</text>
+    </g>
+  </g>
+
+  <!-- Right: Code in Action Card (Ayudantia02.R) -->
+  <g filter="url(#ggShadow)" transform="translate(498 84)" class="svg-group">
+    <rect width="458" height="220" rx="14" fill="#0a1f30" stroke="rgba(244,210,103,0.35)" stroke-width="1.5"/>
+    <rect x="16" y="16" width="136" height="20" rx="5" fill="rgba(244,210,103,0.15)"/>
+    <text x="22" y="30" fill="#f4d267" style="font:700 10px 'DM Mono',monospace">AYUDANTÍA 02 · R SCRIPT</text>
+    
+    <!-- Code block simulation -->
+    <g transform="translate(16 48)">
+      <text x="0" y="16" fill="#8cd3ff" style="font:600 12px 'DM Mono',monospace">ggplot(datos, aes(x = Edad)) +</text>
+      <text x="20" y="36" fill="#e2f1fd" style="font:500 12px 'DM Mono',monospace">geom_histogram(binwidth = 5, fill = "#2E7D32") +</text>
+      <text x="20" y="56" fill="#ffa291" style="font:500 12px 'DM Mono',monospace">geom_vline(xintercept = mean(Edad), linetype = 2) +</text>
+      <text x="20" y="76" fill="#f4d267" style="font:500 12px 'DM Mono',monospace">labs(title = "Distribución de Edad", x = "Años") +</text>
+      <text x="20" y="96" fill="#a8e6bd" style="font:500 12px 'DM Mono',monospace">theme_minimal()</text>
+    </g>
+
+    <!-- Mini badge indicator -->
+    <g transform="translate(16 172)">
+      <rect width="426" height="32" rx="6" fill="rgba(23,42,70,0.8)" stroke="rgba(140,211,255,0.2)"/>
+      <circle cx="14" cy="16" r="4" fill="#a8e6bd"/>
+      <text x="26" y="20" fill="#aec0cc" style="font:500 11px Manrope,sans-serif">Enfoque aditivo con operador <strong>+</strong>: cada línea aporta una capa independiente.</text>
+    </g>
+  </g>
+</svg>
+          <figcaption class="plot-note" style="margin-top:14px">Cada visualización en ggplot2 se compone agregando capas con el operador <strong>+</strong>: datos, mapeo estético, geometrías y personalización de temas.</figcaption>
+        </figure>
       </div>
     </section>
   </main>
