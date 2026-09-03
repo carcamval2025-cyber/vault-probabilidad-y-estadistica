@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 112" role="img" aria-labelledby="title desc">
+  <title id="title">Estadística y Probabilidades</title>
+  <desc id="desc">Logo del curso con símbolo de distribución y wordmark en azul marino.</desc>
+  <g transform="translate(8 8) scale(.9)">
+    <path d="M16 76.5H82M16 76.5V15" fill="none" stroke="#172A46" stroke-width="3" stroke-linecap="square"/>
+    <path d="M23 68C31 64 34 53 40 43C46 32 51 24 58 26C66 29 67 48 78 62" fill="none" stroke="#1769AA" stroke-width="4" stroke-linecap="round"/>
+    <g fill="#E3AE2B" stroke="#172A46" stroke-width="2"><circle cx="24" cy="68" r="4"/><circle cx="33" cy="59" r="4"/><circle cx="41" cy="43" r="4"/><circle cx="50" cy="29" r="4"/><circle cx="59" cy="27" r="4"/><circle cx="68" cy="42" r="4"/><circle cx="78" cy="62" r="4"/></g>
+    <circle cx="50" cy="29" r="8" fill="none" stroke="#D6543D" stroke-width="2"/>
+  </g>
+  <text x="112" y="51" fill="#172A46" font-family="Georgia, serif" font-size="39" font-weight="700" letter-spacing="-.8">Estadística</text>
+  <text x="112" y="82" fill="#1769AA" font-family="ui-monospace, Menlo, monospace" font-size="18" font-weight="500" letter-spacing="2.8">Y PROBABILIDADES</text>
+</svg>

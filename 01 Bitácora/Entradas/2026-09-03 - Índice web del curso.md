@@ -15,3 +15,9 @@ estado: completado
 ## Verificación pendiente
 
 - Revisar el índice publicado por GitHub Pages una vez que el repositorio tenga Pages habilitado.
+
+## Identidad SVG propuesta
+
+- Se añadieron el símbolo y wordmarks claro/oscuro en `docs/assets/brand/`.
+- El contrato de color, texto exacto, uso y estado de aprobación está en [[00 Curso/Pedidos SVG - Identidad del curso]].
+- El usuario aprobó la dirección visual. `ep-wordmark-dark.svg` reemplazó el identificador temporal del encabezado claro; la variante clara queda reservada para fondos oscuros.

@@ -49,9 +49,8 @@
 
     .topbar { border-bottom: 1px solid var(--line); background: rgba(247, 242, 231, .94); position: sticky; top: 0; z-index: 5; backdrop-filter: blur(12px); }
     .topbar .shell { min-height: 66px; display: flex; justify-content: space-between; align-items: center; gap: 18px; }
-    .brand { display: flex; align-items: center; gap: 11px; text-decoration: none; font-weight: 700; }
-    .brand-mark { display: grid; place-items: center; width: 34px; aspect-ratio: 1; border: 1px solid var(--ink); border-radius: 50%; font: 500 .68rem var(--mono); }
-    .brand span { font-size: .88rem; letter-spacing: -.02em; }
+    .brand { display: flex; align-items: center; text-decoration: none; }
+    .brand-logo { display: block; width: clamp(190px, 25vw, 260px); height: auto; }
     .topnav { display: flex; align-items: center; gap: clamp(12px, 2.5vw, 28px); font: 500 .73rem var(--mono); }
     .topnav a { color: var(--muted); text-decoration: none; }
     .topnav a:hover { color: var(--blue); }
@@ -134,7 +133,7 @@
     @media (max-width: 480px) {
       .shell { width: min(100% - 28px, 1160px); }
       .topbar .shell { min-height: 58px; }
-      .brand span { max-width: 170px; }
+      .brand-logo { width: 190px; }
       .assessment-row { grid-template-columns: 52px 1fr; padding: 13px 0; }
       .assessment-row time { grid-column: 2; text-align: left; }
     }
@@ -147,7 +146,7 @@
   <header class="topbar">
     <div class="shell">
       <a class="brand" href="./" aria-label="Inicio de Estadística y Probabilidades">
-        <span class="brand-mark">E+P</span><span>Estadística y Probabilidades</span>
+        <img class="brand-logo" src="assets/brand/ep-wordmark-dark.svg" width="720" height="112" alt="Estadística y Probabilidades">
       </a>
       <nav class="topnav" aria-label="Navegación principal">
         <a href="#semanas">Semanas</a>

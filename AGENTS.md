@@ -27,6 +27,7 @@ Base de conocimiento y materiales del curso de **Estadística y Probabilidades**
 - `04 Glosario/` — conceptos acumulados, enlazados a su fuente.
 - `Entregables/Semana NN/` — materiales terminados solicitados por el usuario.
 - `docs/` — índice estático publicado; no sustituye las notas ni los entregables de cada semana.
+- `00 Curso/Pedidos SVG - Identidad del curso.md` — contrato y estado de los activos vectoriales del índice web.
 - `Plantillas/` — punto de partida para notas y bitácoras nuevas.
 
 ## Flujo de trabajo
