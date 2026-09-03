@@ -44,7 +44,7 @@ Esta semana corresponde a la presentación `EstadísticaProbabilidad - Semana 1.
 
 ## Entregables
 
-- [[Entregables/Semana 01/Guía de estudio - Semana 01.html|Guía de estudio - Semana 01]] — material HTML completo con teoría, práctica variada y control autocorregible. Basado en las fuentes de esta nota; la resolución de gasto se identifica dentro de la guía como propuesta pedagógica.
+- [[Entregables/Semana 01/Guía de estudio - Semana 01.html|Guía de estudio - Semana 01]] — material HTML completo con teoría ampliada, seis ejemplos SVG, práctica variada y control autocorregible. Basado en las fuentes de esta nota; las resoluciones de gasto y clasificación musical se identifican dentro de la guía como propuestas pedagógicas.
 - Publicación estática: `docs/semana-01/index.html`.
 
 ## Fuentes

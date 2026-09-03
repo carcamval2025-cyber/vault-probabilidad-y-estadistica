@@ -88,6 +88,13 @@
     .submit:hover,.submit:focus-visible { background:#ffe69a; outline:3px solid rgba(244,210,103,.3); }
     .result { margin-top:20px; padding:18px; border-left:3px solid var(--yellow); background:rgba(244,210,103,.08); }
     .corrections { margin:12px 0 0; padding-left:20px; } .corrections li { margin:8px 0; }
+    .visual-board { margin:22px 0; padding:20px; border:1px solid rgba(140,211,255,.3); border-radius:18px; background:radial-gradient(circle at 80% 10%, rgba(140,211,255,.13), transparent 35%), #0a2031; overflow:auto; }
+    .visual-board figcaption { color:var(--muted); font-size:.88rem; margin-top:12px; }
+    .visual-board svg { display:block; width:100%; min-width:620px; height:auto; }
+    .svg-kicker { fill:var(--blue); font:500 12px "DM Mono", monospace; letter-spacing:1.3px; }
+    .svg-title { fill:var(--paper); font:700 19px Manrope, sans-serif; }
+    .svg-copy { fill:#c8d9e1; font:500 14px Manrope, sans-serif; }
+    .svg-muted { fill:var(--muted); font:500 12px "DM Mono", monospace; }
     footer { border-top:1px solid var(--line); padding:32px 0 50px; color:var(--muted); font-size:.88rem; }
     footer strong { color:var(--paper); }
     @media (max-width:760px) { .topline .shell,.hero-grid,.section-head { display:block; } .topline .shell { padding:16px 0; } .meta { text-align:left; margin-top:10px; } .hero { padding-top:52px; } .grid-2,.grid-3 { grid-template-columns:1fr; } .choices { grid-template-columns:1fr; } .section-head > p { margin-top:12px; } .exercise,.workbook,.card { padding:20px; } }
@@ -130,6 +137,23 @@
         <article class="card"><span class="label">Muestra</span><h3>Una parte de ese total</h3><p>Subconjunto de la población. Una medida de muestra se llama <strong>estadístico</strong>.</p></article>
         <article class="card"><span class="label">Observación</span><h3>Una fila del estudio</h3><p>Conjunto de mediciones obtenido para un elemento particular; no es lo mismo que la variable medida.</p></article>
       </div>
+      <figure class="visual-board">
+        <svg viewBox="0 0 980 300" role="img" aria-labelledby="flow-title flow-desc">
+          <title id="flow-title">Flujo de una investigación estadística</title><desc id="flow-desc">Una pregunta define una población, de la que se observa una muestra y sus variables; después se describe o se infiere.</desc>
+          <text x="24" y="34" class="svg-kicker">DIAGRAMA DE DECISIÓN</text><text x="24" y="65" class="svg-title">Del fenómeno a una conclusión responsable</text>
+          <path d="M207 153H270 M468 153H532 M731 153H790" stroke="#8cd3ff" stroke-width="3" stroke-linecap="round"/><path d="M258 144l15 9-15 9M520 144l15 9-15 9M778 144l15 9-15 9" fill="none" stroke="#8cd3ff" stroke-width="3"/>
+          <g transform="translate(24 111)"><rect width="183" height="88" rx="13" fill="#12354d" stroke="#8cd3ff"/><text x="16" y="29" class="svg-kicker">01 · PREGUNTA</text><text x="16" y="55" class="svg-title">¿Qué quiero conocer?</text><text x="16" y="76" class="svg-copy">Ej.: gasto de clientes</text></g>
+          <g transform="translate(270 111)"><rect width="198" height="88" rx="13" fill="#12354d" stroke="#8cd3ff"/><text x="16" y="29" class="svg-kicker">02 · POBLACIÓN</text><text x="16" y="55" class="svg-title">Todos los elementos</text><text x="16" y="76" class="svg-copy">parámetro si se mide el total</text></g>
+          <g transform="translate(532 111)"><rect width="199" height="88" rx="13" fill="#12354d" stroke="#8cd3ff"/><text x="16" y="29" class="svg-kicker">03 · MUESTRA</text><text x="16" y="55" class="svg-title">Parte observada</text><text x="16" y="76" class="svg-copy">estadístico si se resume</text></g>
+          <g transform="translate(790 111)"><rect width="166" height="88" rx="13" fill="#f4d267"/><text x="16" y="29" fill="#6f5310" style="font:500 12px 'DM Mono',monospace;letter-spacing:1.3px">04 · RESULTADO</text><text x="16" y="55" fill="#071827" style="font:700 19px Manrope,sans-serif">Describir</text><text x="16" y="76" fill="#10283c" style="font:500 14px Manrope,sans-serif">o inferir con cuidado</text></g>
+          <text x="25" y="246" class="svg-muted">UNA OBSERVACIÓN = mediciones de un elemento · UNA VARIABLE = característica medible</text><text x="25" y="270" class="svg-muted">Fuente: Semana 1, pp. 11–12 · Visualización pedagógica.</text>
+        </svg>
+        <figcaption>Una observación no “es” la variable: contiene las mediciones de una unidad estadística. Este esquema organiza las definiciones de las pp. 11–12.</figcaption>
+      </figure>
+      <div class="grid-2">
+        <article class="card"><span class="label">Datos y elementos</span><h3>Qué se registra</h3><p>Los <strong>datos</strong> son hechos y cifras recabados, analizados y resumidos. Los <strong>elementos</strong> son las entidades de las que se reúnen esos datos; una <strong>variable</strong> es una característica medible de esos elementos.</p></article>
+        <article class="card"><span class="label">Cómo se obtienen</span><h3>Censo, encuesta o experimento</h3><p>Un <strong>censo</strong> recuenta la población; una <strong>encuesta</strong> usa cuestionarios, usualmente para un subgrupo; un <strong>experimento</strong> es un procedimiento planeado y controlado que manipula una variable. Si no hay asignación aleatoria posible o deseable, se trata de un cuasi-experimento.</p></article>
+      </div>
       <div class="callout" style="margin-top:22px"><strong>Regla de oro.</strong> Primero nombra la unidad estadística (el elemento observado); después, la población o muestra; al final, la variable y su escala. Ese orden reduce errores de clasificación.</div>
       <div class="exercise">
         <p class="eyebrow">Pausa de 2 minutos</p><h3>Lee el escenario</h3>
@@ -142,7 +166,7 @@
         </div>
         <p id="unidad-feedback" class="feedback" aria-live="polite"></p>
       </div>
-      <p class="hint">Fuente de conceptos: <em>EstadísticaProbabilidad - Semana 1.pdf</em>, pp. 11–12. El escenario de camisas proviene de pp. 25–27.</p>
+      <p class="hint">Fuente de conceptos: <em>EstadísticaProbabilidad - Semana 1.pdf</em>, pp. 11–12 y 17. El escenario de camisas proviene de pp. 25–27.</p>
     </section>
 
     <section role="tabpanel" id="clasifica" aria-labelledby="tab-clasifica" tabindex="0">
@@ -156,6 +180,19 @@
         <article class="card"><span class="label">Serie de tiempo</span><p>Datos recogidos a lo largo de varios períodos.</p></article>
         <article class="card"><span class="label">Panel</span><p>El mismo conjunto de elementos observado a lo largo del tiempo.</p></article>
       </div>
+      <figure class="visual-board">
+        <svg viewBox="0 0 980 308" role="img" aria-labelledby="type-title type-desc">
+          <title id="type-title">Árbol visual para clasificar variables</title><desc id="type-desc">Una pregunta decide si los datos son etiquetas o números, y los ramifica en las categorías explicadas por la clase.</desc>
+          <text x="24" y="34" class="svg-kicker">ÁRBOL DE CLASIFICACIÓN</text><text x="24" y="65" class="svg-title">No preguntes “¿hay números?”; pregunta qué representan.</text>
+          <rect x="366" y="92" width="245" height="49" rx="24" fill="#f4d267"/><text x="405" y="122" fill="#071827" style="font:700 17px Manrope,sans-serif">¿Qué representa el dato?</text>
+          <path d="M488 142V169H226V191 M488 169H752V191" stroke="#8cd3ff" stroke-width="3" fill="none"/>
+          <g transform="translate(42 191)"><rect width="365" height="86" rx="13" fill="#12354d" stroke="#8cd3ff"/><text x="18" y="29" class="svg-kicker">ETIQUETA O CATEGORÍA</text><text x="18" y="56" class="svg-title">Categórica</text><text x="18" y="77" class="svg-copy">nominal: sin orden · ordinal: orden significativo</text></g>
+          <g transform="translate(573 191)"><rect width="365" height="86" rx="13" fill="#12354d" stroke="#8cd3ff"/><text x="18" y="29" class="svg-kicker">CANTIDAD NUMÉRICA</text><text x="18" y="56" class="svg-title">Cuantitativa</text><text x="18" y="77" class="svg-copy">discreta: cuenta · continua: mide</text></g>
+          <path d="M225 277V289 M752 277V289" stroke="#f4d267" stroke-width="2"/><text x="85" y="304" class="svg-muted">color de camisa · satisfacción</text><text x="648" y="304" class="svg-muted">número de hijos · peso</text>
+        </svg>
+        <figcaption>Una codificación numérica no cambia automáticamente una categoría en cantidad: 1–4 para satisfacción conserva un orden, pero no asegura distancias equivalentes.</figcaption>
+      </figure>
+      <div class="card"><span class="label">Caso de la presentación · música</span><h3>Resuelve por significado, no por apariencia</h3><div class="table-wrap"><table><thead><tr><th>Pregunta del cuestionario</th><th>Resolución pedagógica</th><th>Justificación</th></tr></thead><tbody><tr><td>CDs comprados en 12 meses</td><td>Cuantitativa discreta · razón</td><td>Es un conteo; cero CDs tiene significado.</td></tr><tr><td>¿Miembro de un club? Sí / No</td><td>Categórica nominal dicotómica</td><td>Son dos etiquetas excluyentes y exhaustivas.</td></tr><tr><td>Edad</td><td>Cuantitativa continua · razón</td><td>Es una medición con cero significativo.</td></tr><tr><td>Personas en la familia</td><td>Cuantitativa discreta · razón</td><td>Es un conteo de personas.</td></tr><tr><td>Tipo de música</td><td>Categórica nominal</td><td>Las opciones son etiquetas sin orden.</td></tr></tbody></table></div><p class="hint">Las preguntas pertenecen a la presentación (p. 19); las clasificaciones de esta tabla son resolución pedagógica explícita.</p></div>
       <div class="exercise">
         <p class="eyebrow">Clasificación rápida</p><h3>No te fijes solo en que “parece un número”.</h3>
         <p class="prompt">La satisfacción de huéspedes se registra como: 1 = muy insatisfecho, 2 = insatisfecho, 3 = satisfecho, 4 = muy satisfecho. ¿Qué escala es?</p>
@@ -188,6 +225,15 @@
         <div class="card"><h3>Cómo leer la tabla</h3><ol class="steps"><li>Ordena las categorías según un criterio explícito.</li><li>Cuenta cada categoría: esa es la frecuencia absoluta <strong>f</strong>.</li><li>Divide cada frecuencia por el total <strong>n</strong>: esa es la frecuencia relativa <strong>fr = f / n</strong>.</li></ol></div>
         <div class="card"><h3>Distribución resultante</h3><div class="table-wrap"><table><thead><tr><th>Color</th><th>f</th><th>fr</th></tr></thead><tbody><tr><td>Azul</td><td>4</td><td>0.16</td></tr><tr><td>Blanco</td><td>7</td><td>0.28</td></tr><tr><td>Café</td><td>3</td><td>0.12</td></tr><tr><td>Gris</td><td>4</td><td>0.16</td></tr><tr><td>Negro</td><td>2</td><td>0.08</td></tr><tr><td>Rosa</td><td>4</td><td>0.16</td></tr><tr><td>Verde</td><td>1</td><td>0.04</td></tr><tr><td><strong>Total</strong></td><td><strong>25</strong></td><td><strong>1.00</strong></td></tr></tbody></table></div></div>
       </div>
+      <figure class="visual-board">
+        <svg viewBox="0 0 980 315" role="img" aria-labelledby="cat-title cat-desc">
+          <title id="cat-title">Ejemplo SVG de gráfico de barras y gráfico circular</title><desc id="cat-desc">Dos representaciones de los colores de camisa de 25 estudiantes, con blanco como la categoría más frecuente.</desc>
+          <text x="24" y="34" class="svg-kicker">MISMA DISTRIBUCIÓN · DOS LECTURAS</text><text x="24" y="65" class="svg-title">Las barras comparan; el círculo muestra partes de un total.</text>
+          <g transform="translate(35 88)"><line x1="0" y1="165" x2="425" y2="165" stroke="#aec0cc"/><text x="0" y="185" class="svg-muted">AZ</text><text x="64" y="185" class="svg-muted">BL</text><text x="128" y="185" class="svg-muted">CA</text><text x="192" y="185" class="svg-muted">GR</text><text x="256" y="185" class="svg-muted">NE</text><text x="320" y="185" class="svg-muted">RO</text><text x="384" y="185" class="svg-muted">VE</text><g fill="#8cd3ff"><rect x="0" y="73" width="35" height="92" rx="5"/><rect x="64" y="4" width="35" height="161" rx="5" fill="#f4d267"/><rect x="128" y="96" width="35" height="69" rx="5"/><rect x="192" y="73" width="35" height="92" rx="5"/><rect x="256" y="119" width="35" height="46" rx="5"/><rect x="320" y="73" width="35" height="92" rx="5"/><rect x="384" y="142" width="35" height="23" rx="5"/></g><text x="64" y="-7" fill="#f4d267" style="font:700 14px 'DM Mono',monospace">7</text><text x="0" y="216" class="svg-copy">Gráfico de barras · etiquetas y frecuencia</text></g>
+          <g transform="translate(694 157)"><circle r="100" fill="#12354d"/><path d="M0 0 L0 -100 A100 100 0 0 1 98 18 Z" fill="#f4d267"/><path d="M0 0 L98 18 A100 100 0 0 1 -74 67 Z" fill="#8cd3ff"/><path d="M0 0 L-74 67 A100 100 0 0 1 0 -100 Z" fill="#ff896d"/><circle r="48" fill="#0a2031"/><text x="-26" y="-3" class="svg-muted">BLANCO</text><text x="-17" y="18" fill="#f4d267" style="font:700 19px Manrope,sans-serif">28%</text></g><text x="623" y="286" class="svg-copy">Gráfico circular · proporción del total</text>
+        </svg>
+        <figcaption>Los dos SVG representan los datos del caso fuente. La presentación exige identificar etiquetas, escalas y ejes con claridad en los gráficos de barras.</figcaption>
+      </figure>
       <div class="grid-2" style="margin-top:18px">
         <div class="card"><span class="label">Lectura visual</span><h3>Barras: una comparación directa</h3><div class="chart" aria-label="Gráfico de barras con Blanco 7, Azul 4, Gris 4, Rosa 4, Café 3, Negro 2 y Verde 1"><div class="bar" style="height:57%"><b>4</b><span>Az</span></div><div class="bar" style="height:100%"><b>7</b><span>Bl</span></div><div class="bar" style="height:43%"><b>3</b><span>Ca</span></div><div class="bar" style="height:57%"><b>4</b><span>Gr</span></div><div class="bar" style="height:29%"><b>2</b><span>Ne</span></div><div class="bar" style="height:57%"><b>4</b><span>Ro</span></div><div class="bar" style="height:14%"><b>1</b><span>Ve</span></div></div><p class="hint" style="margin-top:35px">La categoría blanco es la más frecuente: 7 de 25 estudiantes (28%).</p></div>
         <div class="card"><span class="label">Decisión de representación</span><h3>¿Qué usarías?</h3><p>Para categorías como color de camisa, la presentación recomienda gráfico circular o de barras. Para una variable cuantitativa agrupada se emplean, entre otros, histograma, polígono u ojiva.</p><div class="formula">fr = f / n &nbsp; · &nbsp; f acumulada(a) = observaciones ≤ a</div><p class="hint">La frecuencia acumulada corresponde a variables cuantitativas, porque requiere ordenar valores numéricos.</p></div>
@@ -221,6 +267,21 @@
         </details>
       </div>
       <div class="callout" style="margin-top:22px"><strong>Control de calidad antes de graficar:</strong> la suma de f debe ser n; la suma de fr debe ser aproximadamente 1 (las diferencias menores pueden venir del redondeo); y ninguna observación puede pertenecer a dos clases.</div>
+      <figure class="visual-board">
+        <svg viewBox="0 0 980 322" role="img" aria-labelledby="quant-title quant-desc">
+          <title id="quant-title">Tres representaciones de una distribución cuantitativa agrupada</title><desc id="quant-desc">Un histograma, un polígono de frecuencias y una ojiva a partir de cinco clases de gasto.</desc>
+          <text x="24" y="34" class="svg-kicker">DATOS CUANTITATIVOS AGRUPADOS</text><text x="24" y="65" class="svg-title">La tabla puede transformarse en tres preguntas visuales distintas.</text>
+          <g transform="translate(30 93)"><text x="0" y="0" class="svg-title">Histograma</text><text x="0" y="22" class="svg-muted">¿Cuántos caen en cada intervalo?</text><line x1="0" y1="180" x2="270" y2="180" stroke="#aec0cc"/><g fill="#8cd3ff"><rect x="12" y="50" width="45" height="130"/><rect x="59" y="76" width="45" height="104"/><rect x="106" y="102" width="45" height="78"/><rect x="153" y="128" width="45" height="52"/><rect x="200" y="154" width="45" height="26"/></g></g>
+          <g transform="translate(350 93)"><text x="0" y="0" class="svg-title">Polígono</text><text x="0" y="22" class="svg-muted">¿Cómo cambia la frecuencia?</text><line x1="0" y1="180" x2="270" y2="180" stroke="#aec0cc"/><polyline points="18,50 67,76 116,102 165,128 214,154" fill="none" stroke="#f4d267" stroke-width="4"/><g fill="#f4d267"><circle cx="18" cy="50" r="5"/><circle cx="67" cy="76" r="5"/><circle cx="116" cy="102" r="5"/><circle cx="165" cy="128" r="5"/><circle cx="214" cy="154" r="5"/></g></g>
+          <g transform="translate(670 93)"><text x="0" y="0" class="svg-title">Ojiva</text><text x="0" y="22" class="svg-muted">¿Cuánto se ha acumulado?</text><line x1="0" y1="180" x2="270" y2="180" stroke="#aec0cc"/><polyline points="18,137 67,102 116,76 165,50 214,24" fill="none" stroke="#ff896d" stroke-width="4"/><g fill="#ff896d"><circle cx="18" cy="137" r="5"/><circle cx="67" cy="102" r="5"/><circle cx="116" cy="76" r="5"/><circle cx="165" cy="50" r="5"/><circle cx="214" cy="24" r="5"/></g></g>
+          <text x="31" y="299" class="svg-muted">f = 5, 4, 3, 2, 1 · F acumulada = 5, 9, 12, 14, 15 · SVG pedagógico con la tabla de práctica.</text>
+        </svg>
+        <figcaption>Histograma: intervalos y frecuencias; polígono: puntos medios y frecuencias; ojiva: puntos medios y frecuencias acumuladas. Definiciones de la presentación, pp. 38–40.</figcaption>
+      </figure>
+      <div class="grid-2">
+        <article class="card"><span class="label">Serie de tiempo</span><h3>Cuando el eje horizontal es el período</h3><p>Un gráfico de línea estudia el comportamiento de una variable durante un período: tiempo en el eje horizontal y valores de la variable en el vertical.</p><svg viewBox="0 0 360 135" role="img" aria-label="Ejemplo de gráfico de línea temporal" style="width:100%;margin-top:10px"><path d="M30 12V110H340" fill="none" stroke="#aec0cc"/><polyline points="38,92 105,74 170,83 235,42 320,26" fill="none" stroke="#8cd3ff" stroke-width="5"/><g fill="#f4d267"><circle cx="38" cy="92" r="5"/><circle cx="105" cy="74" r="5"/><circle cx="170" cy="83" r="5"/><circle cx="235" cy="42" r="5"/><circle cx="320" cy="26" r="5"/></g><text x="36" y="129" class="svg-muted">T1</text><text x="102" y="129" class="svg-muted">T2</text><text x="168" y="129" class="svg-muted">T3</text><text x="232" y="129" class="svg-muted">T4</text><text x="316" y="129" class="svg-muted">T5</text></svg></article>
+        <article class="card"><span class="label">Datos espaciales</span><h3>Cuando el valor pertenece a una región</h3><p>Una coropleta es un mapa temático que sombrea áreas —usualmente de una misma gama— según el valor de una variable característica de cada región.</p><svg viewBox="0 0 360 135" role="img" aria-label="Ejemplo esquemático de coropleta" style="width:100%;margin-top:10px"><path d="M18 20l98-8 38 42-35 61-88-11z" fill="#235a78" stroke="#8cd3ff" stroke-width="2"/><path d="M116 12l99 12 17 58-78-28z" fill="#8cd3ff" stroke="#8cd3ff" stroke-width="2"/><path d="M154 54l78 28 58-35 43 54-51 24-112-10-51-61z" fill="#f4d267" stroke="#8cd3ff" stroke-width="2"/><text x="32" y="73" fill="#f7f2e9" style="font:700 16px Manrope,sans-serif">bajo</text><text x="163" y="45" fill="#071827" style="font:700 16px Manrope,sans-serif">medio</text><text x="238" y="100" fill="#071827" style="font:700 16px Manrope,sans-serif">alto</text></svg></article>
+      </div>
       <p class="hint">Enunciado, regla de Sturges y clases [Li, Ls): <em>EstadísticaProbabilidad - Semana 1.pdf</em>, pp. 35–43. La tabla desplegable es una inferencia pedagógica explícitamente marcada.</p>
     </section>
 
@@ -241,7 +302,7 @@
       </form>
     </section>
   </main>
-  <footer><div class="shell"><p><strong>Trazabilidad de la guía.</strong> Conceptos, casos y datos de clase: <em>EstadísticaProbabilidad - Semana 1.pdf</em>, pp. 11–18, 24–43 y 47; apoyo para tipos de variables: <em>Variables y tipos.pdf</em>, pp. 1–4.</p><p>El caso de gasto incluye una resolución pedagógica identificada como tal. Esta guía no altera los documentos fuente ni sustituye las indicaciones de clase.</p></div></footer>
+  <footer><div class="shell"><p><strong>Trazabilidad de la guía.</strong> Conceptos, casos y datos de clase: <em>EstadísticaProbabilidad - Semana 1.pdf</em>, pp. 11–20, 24–45 y 47–49; apoyo para tipos de variables: <em>Variables y tipos.pdf</em>, pp. 1–4.</p><p>El caso de gasto y la tabla de clasificación musical incluyen resoluciones pedagógicas identificadas como tales. Esta guía no altera los documentos fuente ni sustituye las indicaciones de clase.</p></div></footer>
   <script>
     const tabs = [...document.querySelectorAll('[role="tab"]')];
     const panels = [...document.querySelectorAll('[role="tabpanel"]')];
