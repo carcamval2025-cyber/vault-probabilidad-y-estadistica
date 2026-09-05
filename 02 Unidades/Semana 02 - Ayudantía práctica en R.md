@@ -42,7 +42,7 @@ Fuente: instrucción del usuario, 2026-09-03 (contenido pegado directamente en l
 
 ## Entregables
 
-- [[Entregables/Semana 02/Guía de estudio - Semana 02.html|Guía de estudio - Semana 02]] — teoría de media, mediana y moda (datos simples y agrupados), 5 diagramas SVG pedagógicos interactivos (Balanza de momentos Σ(xi-x̄)=0, Tríptico de Asimetría y Sesgo, Posición Central de la Mediana y Robustez, Ojiva del Examen ESEN e Histograma Vectorial de Libros Leídos), ejemplos, práctica y control autocorregible, más la guía de repaso del Control 1 resuelta paso a paso.
+- [[Entregables/Semana 02/Guía de estudio - Semana 02.html|Guía de estudio - Semana 02]] — teoría de media, mediana y moda (datos simples y agrupados), 6 diagramas SVG pedagógicos interactivos (Balanza de momentos Σ(xi-x̄)=0, Tríptico de Asimetría y Sesgo, Esquema de Mecanismos de Cálculo de la Media, Posición Central de la Mediana y Robustez, Ojiva del Examen ESEN e Histograma Vectorial Ampliado de Libros Leídos), ejemplos, práctica y control autocorregible, más la guía de repaso del Control 1 resuelta paso a paso.
 - `docs/semana-02/index.html` — versión publicada en la web del curso con paridad total.
 - `Ayudantia01.R` — script inicial (solo carga de datos). Ubicación: carpeta padre del vault.
 - `Ayudantia02.R` — script completo de la ayudantía (preguntas 1–4). Ubicación: carpeta padre del vault.
