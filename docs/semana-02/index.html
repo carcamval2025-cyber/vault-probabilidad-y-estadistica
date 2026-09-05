@@ -411,151 +411,174 @@
     </div>
 
     <figure class="visual-board" style="margin-top:22px">
-      <svg viewBox="0 0 980 365" role="img" aria-labelledby="media-desc-title media-desc-desc" class="svg-interactive">
+      <svg viewBox="0 0 980 495" role="img" aria-labelledby="media-desc-title media-desc-desc" class="svg-interactive">
   <title id="media-desc-title">Arquitectura del cálculo de la media: simple, ponderada y agrupada</title>
   <desc id="media-desc-desc">Diagrama comparativo que explica los tres métodos de cálculo de la media aritmética: nivelación individual, ponderación por tamaño de grupo y aproximación por punto medio.</desc>
   <defs>
-    <linearGradient id="mediaCardGrad" x1="0" y1="0" x2="0" y2="1">
+    <linearGradient id="mediaCardGradV2" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0%" stop-color="#14344d" stop-opacity="0.95"/>
       <stop offset="100%" stop-color="#081b29" stop-opacity="0.98"/>
     </linearGradient>
-    <filter id="mediaCardGlow" x="-5%" y="-10%" width="110%" height="125%">
+    <filter id="mediaCardGlowV2" x="-5%" y="-10%" width="110%" height="125%">
       <feDropShadow dx="0" dy="5" stdDeviation="5" flood-color="#000" flood-opacity="0.4"/>
     </filter>
   </defs>
 
-  <text x="24" y="30" class="svg-kicker">MECANISMOS DE CÁLCULO · RESUMEN CONCEPTUAL</text>
-  <text x="24" y="58" class="svg-title">Las tres formas de calcular la media: nivelación, ponderación y puntos medios.</text>
+  <text x="24" y="32" class="svg-kicker">MECANISMOS DE CÁLCULO · RESUMEN CONCEPTUAL</text>
+  <text x="24" y="62" class="svg-title">Las tres formas de calcular la media: nivelación, ponderación y puntos medios.</text>
 
   <!-- PANEL 1: DATOS SIMPLES (NIVELACIÓN) -->
-  <g class="svg-group" transform="translate(24, 75)" filter="url(#mediaCardGlow)">
-    <rect width="298" height="270" rx="12" fill="url(#mediaCardGrad)" stroke="#8cd3ff" stroke-width="1.3"/>
+  <g class="svg-group" transform="translate(24, 82)" filter="url(#mediaCardGlowV2)">
+    <rect width="298" height="395" rx="14" fill="url(#mediaCardGradV2)" stroke="#8cd3ff" stroke-width="1.3"/>
     
-    <rect x="14" y="14" width="168" height="22" rx="4" fill="rgba(140,211,255,0.18)"/>
-    <text x="20" y="29" fill="#8cd3ff" style="font:700 10px 'DM Mono', monospace;">01 · DATOS SIMPLES</text>
+    <!-- Header -->
+    <rect x="16" y="16" width="168" height="24" rx="5" fill="rgba(140,211,255,0.18)"/>
+    <text x="24" y="32" fill="#8cd3ff" style="font:800 11px 'DM Mono', monospace;">01 · DATOS SIMPLES</text>
 
     <!-- Fórmula -->
-    <rect x="14" y="44" width="270" height="28" rx="6" fill="#071827" stroke="#8cd3ff" stroke-width="1"/>
-    <text x="149" y="62" text-anchor="middle" fill="#ffffff" style="font:800 12px 'DM Mono', monospace;">μ = Σ xi / N  (peso 1/N c/u)</text>
+    <rect x="16" y="48" width="266" height="32" rx="6" fill="#071827" stroke="#8cd3ff" stroke-width="1.2"/>
+    <text x="149" y="69" text-anchor="middle" fill="#ffffff" style="font:800 13px 'DM Mono', monospace;">μ = Σ xi / N  (peso 1/N c/u)</text>
 
-    <!-- Visualización: Nivelación de 4 barras (2, 8, 4, 6) a promedio 5 -->
-    <!-- Base y=170 -->
-    <g transform="translate(24, 86)">
-      <!-- Eje base -->
-      <line x1="0" y1="90" x2="250" y2="90" stroke="#ffffff" stroke-opacity="0.2" stroke-width="1.5"/>
+    <!-- Visualización: Nivelación de 4 barras (2, 8, 4, 6) con base en y=225 -->
+    <!-- Eje base -->
+    <line x1="20" y1="225" x2="278" y2="225" stroke="#ffffff" stroke-opacity="0.25" stroke-width="1.5"/>
 
-      <!-- Barra 1: x1 = 2 (h=24) -->
-      <rect x="15" y="66" width="38" height="24" rx="4" fill="#2d82c2"/>
-      <text x="34" y="60" text-anchor="middle" fill="#8cd3ff" style="font:700 11px 'DM Mono', monospace;">2</text>
+    <!-- Barra 1: x1 = 2 (h=24, y=201) -->
+    <rect x="36" y="201" width="44" height="24" rx="4" fill="#2d82c2"/>
+    <text x="58" y="193" text-anchor="middle" fill="#8cd3ff" style="font:700 13px 'DM Mono', monospace;">2</text>
+    <text x="58" y="243" text-anchor="middle" fill="#c8d9e1" style="font:700 11px 'DM Mono', monospace;">x₁</text>
 
-      <!-- Barra 2: x2 = 8 (h=96) -->
-      <rect x="75" y="-6" width="38" height="96" rx="4" fill="#2d82c2"/>
-      <text x="94" y="-12" text-anchor="middle" fill="#8cd3ff" style="font:700 11px 'DM Mono', monospace;">8</text>
+    <!-- Barra 2: x2 = 8 (h=96, y=129) -->
+    <rect x="98" y="129" width="44" height="96" rx="4" fill="#2d82c2"/>
+    <text x="120" y="121" text-anchor="middle" fill="#8cd3ff" style="font:700 13px 'DM Mono', monospace;">8</text>
+    <text x="120" y="243" text-anchor="middle" fill="#c8d9e1" style="font:700 11px 'DM Mono', monospace;">x₂</text>
 
-      <!-- Barra 3: x3 = 4 (h=48) -->
-      <rect x="135" y="42" width="38" height="48" rx="4" fill="#2d82c2"/>
-      <text x="154" y="36" text-anchor="middle" fill="#8cd3ff" style="font:700 11px 'DM Mono', monospace;">4</text>
+    <!-- Barra 3: x3 = 4 (h=48, y=177) -->
+    <rect x="160" y="177" width="44" height="48" rx="4" fill="#2d82c2"/>
+    <text x="182" y="169" text-anchor="middle" fill="#8cd3ff" style="font:700 13px 'DM Mono', monospace;">4</text>
+    <text x="182" y="243" text-anchor="middle" fill="#c8d9e1" style="font:700 11px 'DM Mono', monospace;">x₃</text>
 
-      <!-- Barra 4: x4 = 6 (h=72) -->
-      <rect x="195" y="18" width="38" height="72" rx="4" fill="#2d82c2"/>
-      <text x="214" y="12" text-anchor="middle" fill="#8cd3ff" style="font:700 11px 'DM Mono', monospace;">6</text>
+    <!-- Barra 4: x4 = 6 (h=72, y=153) -->
+    <rect x="222" y="153" width="44" height="72" rx="4" fill="#2d82c2"/>
+    <text x="244" y="145" text-anchor="middle" fill="#8cd3ff" style="font:700 13px 'DM Mono', monospace;">6</text>
+    <text x="244" y="243" text-anchor="middle" fill="#c8d9e1" style="font:700 11px 'DM Mono', monospace;">x₄</text>
 
-      <!-- Línea niveladora media μ = 5 (h=60) -->
-      <line x1="5" y1="30" x2="245" y2="30" stroke="#f4d267" stroke-width="2" stroke-dasharray="4 3"/>
-      <rect x="190" y="22" width="55" height="16" rx="3" fill="#f4d267"/>
-      <text x="217" y="34" text-anchor="middle" fill="#071827" style="font:800 9.5px 'DM Mono', monospace;">μ = 5.0</text>
-    </g>
+    <!-- Línea niveladora media μ = 5 (h=60, y=165) -->
+    <line x1="20" y1="165" x2="278" y2="165" stroke="#f4d267" stroke-width="2.5" stroke-dasharray="5 3"/>
+    <rect x="195" y="93" width="75" height="22" rx="4" fill="#f4d267"/>
+    <text x="232" y="108" text-anchor="middle" fill="#071827" style="font:900 11px 'DM Mono', monospace;">μ = 5.0</text>
 
-    <!-- Explicación -->
-    <rect x="14" y="200" width="270" height="56" rx="6" fill="#071827" stroke="rgba(140,211,255,0.3)" stroke-width="1"/>
-    <text x="22" y="218" fill="#8cd3ff" style="font:700 11px Manrope, sans-serif;">Principio de Nivelación:</text>
-    <text x="22" y="234" fill="#c8d9e1" style="font:500 10.5px Manrope, sans-serif;">El exceso de las barras altas rellena el déficit</text>
-    <text x="22" y="248" fill="#c8d9e1" style="font:500 10.5px Manrope, sans-serif;">de las bajas hasta igualarse en 5.0.</text>
+    <!-- Pill de cálculo numérico -->
+    <rect x="16" y="258" width="266" height="28" rx="5" fill="#071827" stroke="rgba(140,211,255,0.25)"/>
+    <text x="149" y="276" text-anchor="middle" fill="#8cd3ff" style="font:700 11.5px 'DM Mono', monospace;">Σxi = 20 → μ = 20 / 4 = 5.0</text>
+
+    <!-- Explicación inferior -->
+    <rect x="16" y="296" width="266" height="82" rx="8" fill="#071827" stroke="rgba(140,211,255,0.3)" stroke-width="1"/>
+    <text x="26" y="318" fill="#8cd3ff" style="font:700 12px Manrope, sans-serif;">Principio de Nivelación:</text>
+    <text x="26" y="338" fill="#c8d9e1" style="font:500 11px Manrope, sans-serif;">Cada dato aporta peso 1/N. El total (20)</text>
+    <text x="26" y="354" fill="#c8d9e1" style="font:500 11px Manrope, sans-serif;">se redistribuye en partes iguales (5.0),</text>
+    <text x="26" y="370" fill="#c8d9e1" style="font:500 11px Manrope, sans-serif;">compensando los excesos y déficits.</text>
   </g>
 
   <!-- PANEL 2: MEDIA PONDERADA (SECCIONES) -->
-  <g class="svg-group" transform="translate(341, 75)" filter="url(#mediaCardGlow)">
-    <rect width="298" height="270" rx="12" fill="url(#mediaCardGrad)" stroke="#f4d267" stroke-width="1.3"/>
+  <g class="svg-group" transform="translate(341, 82)" filter="url(#mediaCardGlowV2)">
+    <rect width="298" height="395" rx="14" fill="url(#mediaCardGradV2)" stroke="#f4d267" stroke-width="1.3"/>
     
-    <rect x="14" y="14" width="180" height="22" rx="4" fill="rgba(244,210,103,0.18)"/>
-    <text x="20" y="29" fill="#f4d267" style="font:700 10px 'DM Mono', monospace;">02 · MEDIA PONDERADA</text>
+    <!-- Header -->
+    <rect x="16" y="16" width="180" height="24" rx="5" fill="rgba(244,210,103,0.18)"/>
+    <text x="24" y="32" fill="#f4d267" style="font:800 11px 'DM Mono', monospace;">02 · MEDIA PONDERADA</text>
 
     <!-- Fórmula -->
-    <rect x="14" y="44" width="270" height="28" rx="6" fill="#071827" stroke="#f4d267" stroke-width="1"/>
-    <text x="149" y="62" text-anchor="middle" fill="#ffffff" style="font:800 12px 'DM Mono', monospace;">μ = Σ (wi · xi) / Σ wi</text>
+    <rect x="16" y="48" width="266" height="32" rx="6" fill="#071827" stroke="#f4d267" stroke-width="1.2"/>
+    <text x="149" y="69" text-anchor="middle" fill="#ffffff" style="font:800 13px 'DM Mono', monospace;">μ = Σ (wi · xi) / Σ wi</text>
 
-    <!-- Visualización: Secciones A, B y C del curso -->
-    <g transform="translate(18, 86)">
-      <!-- Bloque Sección A: w=50, nota=7.5 -->
-      <g transform="translate(0, 0)">
-        <rect x="0" y="15" width="80" height="75" rx="5" fill="#172a46" stroke="#8cd3ff" stroke-width="1.2"/>
-        <text x="40" y="38" text-anchor="middle" fill="#8cd3ff" style="font:800 12px 'DM Mono', monospace;">SEC A</text>
-        <text x="40" y="56" text-anchor="middle" fill="#ffffff" style="font:600 11px 'DM Mono', monospace;">50 est.</text>
-        <text x="40" y="74" text-anchor="middle" fill="#f4d267" style="font:700 12px 'DM Mono', monospace;">x̄=7.5</text>
-      </g>
-
-      <!-- Bloque Sección B: w=40, nota=9.0 -->
-      <g transform="translate(88, 0)">
-        <rect x="0" y="0" width="76" height="90" rx="5" fill="#172a46" stroke="#f4d267" stroke-width="1.2"/>
-        <text x="38" y="28" text-anchor="middle" fill="#f4d267" style="font:800 12px 'DM Mono', monospace;">SEC B</text>
-        <text x="38" y="48" text-anchor="middle" fill="#ffffff" style="font:600 11px 'DM Mono', monospace;">40 est.</text>
-        <text x="38" y="68" text-anchor="middle" fill="#f4d267" style="font:700 12px 'DM Mono', monospace;">x̄=9.0</text>
-      </g>
-
-      <!-- Bloque Sección C: w=60, nota=8.3 -->
-      <g transform="translate(172, 0)">
-        <rect x="0" y="7" width="90" height="83" rx="5" fill="#172a46" stroke="#a8e6bd" stroke-width="1.2"/>
-        <text x="45" y="32" text-anchor="middle" fill="#a8e6bd" style="font:800 12px 'DM Mono', monospace;">SEC C</text>
-        <text x="45" y="52" text-anchor="middle" fill="#ffffff" style="font:600 11px 'DM Mono', monospace;">60 est.</text>
-        <text x="45" y="72" text-anchor="middle" fill="#f4d267" style="font:700 12px 'DM Mono', monospace;">x̄=8.3</text>
-      </g>
+    <!-- Visualización: Filas de secciones A, B y C del curso -->
+    <!-- Fila Sec A -->
+    <g transform="translate(16, 95)">
+      <rect width="266" height="42" rx="6" fill="#071827" stroke="#8cd3ff" stroke-width="1.2"/>
+      <rect x="8" y="8" width="60" height="26" rx="4" fill="rgba(140,211,255,0.15)"/>
+      <text x="38" y="25" text-anchor="middle" fill="#8cd3ff" style="font:800 11px 'DM Mono', monospace;">SEC A</text>
+      <text x="78" y="26" fill="#ffffff" style="font:600 12px Manrope, sans-serif;">50 alumnos × 7.5</text>
+      <text x="256" y="26" text-anchor="end" fill="#f4d267" style="font:800 12px 'DM Mono', monospace;">= 375</text>
     </g>
 
-    <!-- Explicación -->
-    <rect x="14" y="200" width="270" height="56" rx="6" fill="#071827" stroke="rgba(244,210,103,0.3)" stroke-width="1"/>
-    <text x="22" y="218" fill="#f4d267" style="font:700 11px Manrope, sans-serif;">Ponderación por tamaño real:</text>
-    <text x="22" y="234" fill="#ffffff" style="font:700 11px 'DM Mono', monospace;">μ = 1 233 / 150 = 8.22  (≠ 8.27 simple)</text>
-    <text x="22" y="248" fill="#c8d9e1" style="font:500 10px Manrope, sans-serif;">La sección C (60 alumnos) pesa más que B (40).</text>
+    <!-- Fila Sec B -->
+    <g transform="translate(16, 145)">
+      <rect width="266" height="42" rx="6" fill="#071827" stroke="#f4d267" stroke-width="1.2"/>
+      <rect x="8" y="8" width="60" height="26" rx="4" fill="rgba(244,210,103,0.15)"/>
+      <text x="38" y="25" text-anchor="middle" fill="#f4d267" style="font:800 11px 'DM Mono', monospace;">SEC B</text>
+      <text x="78" y="26" fill="#ffffff" style="font:600 12px Manrope, sans-serif;">40 alumnos × 9.0</text>
+      <text x="256" y="26" text-anchor="end" fill="#f4d267" style="font:800 12px 'DM Mono', monospace;">= 360</text>
+    </g>
+
+    <!-- Fila Sec C -->
+    <g transform="translate(16, 195)">
+      <rect width="266" height="42" rx="6" fill="#071827" stroke="#a8e6bd" stroke-width="1.2"/>
+      <rect x="8" y="8" width="60" height="26" rx="4" fill="rgba(168,230,189,0.15)"/>
+      <text x="38" y="25" text-anchor="middle" fill="#a8e6bd" style="font:800 11px 'DM Mono', monospace;">SEC C</text>
+      <text x="78" y="26" fill="#ffffff" style="font:600 12px Manrope, sans-serif;">60 alumnos × 8.3</text>
+      <text x="256" y="26" text-anchor="end" fill="#f4d267" style="font:800 12px 'DM Mono', monospace;">= 498</text>
+    </g>
+
+    <!-- Total y promedio ponderado -->
+    <g transform="translate(16, 247)">
+      <rect width="266" height="38" rx="6" fill="#172a46" stroke="#f4d267" stroke-width="1.5"/>
+      <text x="133" y="24" text-anchor="middle" fill="#ffffff" style="font:800 13px 'DM Mono', monospace;">μ = 1 233 / 150 = 8.22</text>
+    </g>
+
+    <!-- Explicación inferior -->
+    <rect x="16" y="296" width="266" height="82" rx="8" fill="#071827" stroke="rgba(244,210,103,0.3)" stroke-width="1"/>
+    <text x="26" y="318" fill="#f4d267" style="font:700 12px Manrope, sans-serif;">Atracción por Tamaño:</text>
+    <text x="26" y="338" fill="#c8d9e1" style="font:500 11px Manrope, sans-serif;">La sección C (60 alumnos) pesa 50% más</text>
+    <text x="26" y="354" fill="#c8d9e1" style="font:500 11px Manrope, sans-serif;">que la B (40). Por eso el promedio real</text>
+    <text x="26" y="370" fill="#ffffff" style="font:700 11px 'DM Mono', monospace;">es 8.22 y no el simple (8.27).</text>
   </g>
 
   <!-- PANEL 3: DATOS AGRUPADOS (PUNTOS MEDIOS) -->
-  <g class="svg-group" transform="translate(658, 75)" filter="url(#mediaCardGlow)">
-    <rect width="298" height="270" rx="12" fill="url(#mediaCardGrad)" stroke="#a8e6bd" stroke-width="1.3"/>
+  <g class="svg-group" transform="translate(658, 82)" filter="url(#mediaCardGlowV2)">
+    <rect width="298" height="395" rx="14" fill="url(#mediaCardGradV2)" stroke="#a8e6bd" stroke-width="1.3"/>
     
-    <rect x="14" y="14" width="186" height="22" rx="4" fill="rgba(168,230,189,0.18)"/>
-    <text x="20" y="29" fill="#a8e6bd" style="font:700 10px 'DM Mono', monospace;">03 · DATOS AGRUPADOS</text>
+    <!-- Header -->
+    <rect x="16" y="16" width="186" height="24" rx="5" fill="rgba(168,230,189,0.18)"/>
+    <text x="24" y="32" fill="#a8e6bd" style="font:800 11px 'DM Mono', monospace;">03 · DATOS AGRUPADOS</text>
 
     <!-- Fórmula -->
-    <rect x="14" y="44" width="270" height="28" rx="6" fill="#071827" stroke="#a8e6bd" stroke-width="1"/>
-    <text x="149" y="62" text-anchor="middle" fill="#ffffff" style="font:800 12px 'DM Mono', monospace;">μ = Σ (fi · PMi) / N</text>
+    <rect x="16" y="48" width="266" height="32" rx="6" fill="#071827" stroke="#a8e6bd" stroke-width="1.2"/>
+    <text x="149" y="69" text-anchor="middle" fill="#ffffff" style="font:800 13px 'DM Mono', monospace;">μ = Σ (fi · PMi) / N</text>
 
-    <!-- Visualización: Intervalo de clase [4, 8) colapsando en PM = 6 -->
-    <g transform="translate(18, 86)">
-      <!-- Barra de intervalo [4, 8) -->
-      <rect x="10" y="20" width="242" height="40" rx="6" fill="#172a46" stroke="#8cd3ff" stroke-width="1.2"/>
-      <text x="25" y="45" fill="#8cd3ff" style="font:700 12px 'DM Mono', monospace;">Li = 4</text>
-      <text x="235" y="45" text-anchor="end" fill="#8cd3ff" style="font:700 12px 'DM Mono', monospace;">Ls = 8</text>
+    <!-- Visualización: Intervalo [4, 8) colapsando en punto medio 6 -->
+    <!-- Rótulo de la clase -->
+    <text x="149" y="112" text-anchor="middle" fill="#8cd3ff" style="font:700 11.5px 'DM Mono', monospace;">Clase [4, 8) con fi = 50 personas</text>
 
-      <!-- Flechas hacia el centro PMi = 6 -->
-      <path d="M 65,40 L 105,40" stroke="#f4d267" stroke-width="2" marker-end="url(#arrow)"/>
-      <path d="M 197,40 L 157,40" stroke="#f4d267" stroke-width="2"/>
+    <!-- Barra geométrica del intervalo -->
+    <rect x="20" y="126" width="258" height="42" rx="8" fill="#172a46" stroke="#8cd3ff" stroke-width="1.3"/>
+    <text x="36" y="152" fill="#8cd3ff" style="font:800 13px 'DM Mono', monospace;">Li = 4</text>
+    <text x="262" y="152" text-anchor="end" fill="#8cd3ff" style="font:800 13px 'DM Mono', monospace;">Ls = 8</text>
 
-      <!-- Puntero y punto medio -->
-      <circle cx="131" cy="40" r="14" fill="#f4d267" stroke="#071827" stroke-width="2"/>
-      <text x="131" y="45" text-anchor="middle" fill="#071827" style="font:900 12px 'DM Mono', monospace;">6</text>
+    <!-- Flechas hacia el centro geométrico -->
+    <line x1="88" y1="147" x2="118" y2="147" stroke="#f4d267" stroke-width="2"/>
+    <line x1="210" y1="147" x2="180" y2="147" stroke="#f4d267" stroke-width="2"/>
 
-      <!-- Etiqueta superior del punto medio -->
-      <text x="131" y="10" text-anchor="middle" fill="#f4d267" style="font:700 11px 'DM Mono', monospace;">PM = (4+8)/2 = 6</text>
+    <!-- Punto medio representativo -->
+    <circle cx="149" cy="147" r="16" fill="#f4d267" stroke="#071827" stroke-width="2.5"/>
+    <text x="149" y="153" text-anchor="middle" fill="#071827" style="font:900 14px 'DM Mono', monospace;">6</text>
 
-      <!-- Ponderación fi -->
-      <text x="131" y="78" text-anchor="middle" fill="#a8e6bd" style="font:700 11.5px 'DM Mono', monospace;">Aporte: 50 × 6 = 300</text>
-    </g>
+    <text x="149" y="190" text-anchor="middle" fill="#f4d267" style="font:700 11px 'DM Mono', monospace;">PM = (4 + 8) / 2 = 6 años</text>
 
-    <!-- Explicación -->
-    <rect x="14" y="200" width="270" height="56" rx="6" fill="#071827" stroke="rgba(168,230,189,0.3)" stroke-width="1"/>
-    <text x="22" y="218" fill="#a8e6bd" style="font:700 11px Manrope, sans-serif;">Punto Medio como Representante:</text>
-    <text x="22" y="234" fill="#c8d9e1" style="font:500 10.5px Manrope, sans-serif;">Al no conocer las edades exactas, el centro 6</text>
-    <text x="22" y="248" fill="#c8d9e1" style="font:500 10.5px Manrope, sans-serif;">representa a los 50 beneficiarios de la clase.</text>
+    <!-- Tarjeta de cálculo fi * PMi -->
+    <rect x="20" y="206" width="258" height="34" rx="6" fill="#071827" stroke="#a8e6bd" stroke-width="1.2"/>
+    <text x="149" y="228" text-anchor="middle" fill="#a8e6bd" style="font:800 12px 'DM Mono', monospace;">Aporte: 50 × 6 = 300 años</text>
+
+    <!-- Total general de las 5 clases -->
+    <rect x="20" y="248" width="258" height="36" rx="6" fill="#172a46" stroke="#a8e6bd" stroke-width="1.3"/>
+    <text x="149" y="271" text-anchor="middle" fill="#ffffff" style="font:800 12px 'DM Mono', monospace;">μ = 2 040 / 200 = 10.2 años</text>
+
+    <!-- Explicación inferior -->
+    <rect x="16" y="296" width="266" height="82" rx="8" fill="#071827" stroke="rgba(168,230,189,0.3)" stroke-width="1"/>
+    <text x="26" y="318" fill="#a8e6bd" style="font:700 12px Manrope, sans-serif;">Punto Medio Representativo:</text>
+    <text x="26" y="338" fill="#c8d9e1" style="font:500 11px Manrope, sans-serif;">Al no conocer las 50 edades exactas,</text>
+    <text x="26" y="354" fill="#c8d9e1" style="font:500 11px Manrope, sans-serif;">el centro geométrico 6 asume la masa</text>
+    <text x="26" y="370" fill="#c8d9e1" style="font:500 11px Manrope, sans-serif;">total de la clase sin sesgar el cálculo.</text>
   </g>
 </svg>
       <figcaption>Mecanismos de cálculo de la media: en datos simples todos pesan igual; en la ponderada los grupos grandes ejercen mayor tracción; y en datos agrupados el punto medio asume la representación geométrica de toda la clase.</figcaption>
