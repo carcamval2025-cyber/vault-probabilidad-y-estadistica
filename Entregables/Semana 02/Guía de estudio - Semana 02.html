@@ -1,0 +1,1194 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Semana 02 · Medidas de tendencia central</title>
+<meta name="description" content="Guía interactiva de estudio para la Semana 02 de Estadística y Probabilidades: media, mediana y moda, más la guía de repaso del Control 1 resuelta.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root { --ink:#071827; --panel:#10283c; --panel-2:#12354d; --paper:#f7f2e9; --muted:#aec0cc; --line:rgba(247,242,233,.16); --blue:#8cd3ff; --yellow:#f4d267; --coral:#ff896d; --ok:#a8e6bd; --bad:#ffb0a0; }
+  * { box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { margin:0; background:var(--ink); color:var(--paper); font-family:Manrope, sans-serif; line-height:1.55; }
+  button, input { font:inherit; }
+  .shell { width:min(1140px, calc(100% - 40px)); margin:auto; }
+  .topline { border-bottom:1px solid var(--line); background:#06131f; }
+  .topline .shell { min-height:74px; display:flex; align-items:center; justify-content:space-between; gap:22px; }
+  .brand img { display:block; width:186px; max-width:52vw; }
+  .eyebrow, .meta, .tab, .label { font:500 .72rem/1.25 "DM Mono", monospace; letter-spacing:.08em; text-transform:uppercase; }
+  .meta { color:var(--muted); margin:0; text-align:right; }
+  .hero { padding:70px 0 44px; overflow:hidden; position:relative; }
+  .hero::after { content:""; position:absolute; width:520px; height:520px; border:1px solid rgba(140,211,255,.22); border-radius:50%; right:-250px; top:-300px; box-shadow:0 0 0 44px rgba(140,211,255,.035), 0 0 0 88px rgba(140,211,255,.025); }
+  .hero-grid { display:grid; grid-template-columns:1.45fr .55fr; gap:48px; align-items:end; position:relative; z-index:1; }
+  h1,h2,h3,p { margin-top:0; }
+  h1,h2,h3 { font-family:Fraunces, serif; line-height:1.04; letter-spacing:-.03em; }
+  h1 { max-width:790px; font-size:clamp(3rem,7vw,6.4rem); margin:14px 0 22px; }
+  h1 em { color:var(--blue); font-style:normal; }
+  h2 { font-size:clamp(2rem,4vw,3.25rem); margin-bottom:18px; }
+  h3 { font-size:1.32rem; margin-bottom:8px; }
+  .lede { max-width:680px; color:#d5e0e5; font-size:1.08rem; }
+  .source-tag { border-left:2px solid var(--yellow); padding:13px 0 13px 16px; color:#dfe7e9; font-size:.89rem; }
+  .source-tag strong { color:var(--yellow); }
+  .nav-wrap { position:sticky; top:0; z-index:5; background:rgba(7,24,39,.94); backdrop-filter:blur(14px); border-block:1px solid var(--line); }
+  .tabs { display:flex; overflow:auto; scrollbar-width:none; }
+  .tab { appearance:none; background:none; border:0; color:var(--muted); padding:16px 18px; white-space:nowrap; cursor:pointer; border-bottom:3px solid transparent; }
+  .tab:hover, .tab:focus-visible { color:var(--paper); outline:none; }
+  .tab[aria-selected="true"] { color:var(--yellow); border-bottom-color:var(--yellow); }
+  main { padding:44px 0 80px; }
+  [role="tabpanel"] { display:none; animation:rise .32s ease both; }
+  [role="tabpanel"].is-active { display:block; }
+  @keyframes rise { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:none; } }
+  .section-head { display:flex; justify-content:space-between; align-items:end; gap:30px; margin-bottom:26px; }
+  .section-head > p { max-width:360px; color:var(--muted); }
+  .grid-2, .grid-3 { display:grid; gap:18px; }
+  .grid-2 { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .grid-3 { grid-template-columns:repeat(3,minmax(0,1fr)); }
+  .card, .callout { border:1px solid var(--line); border-radius:16px; }
+  .card { padding:24px; background:linear-gradient(135deg, rgba(18,53,77,.82), rgba(16,40,60,.5)); }
+  .card p:last-child { margin-bottom:0; }
+  .card .label { color:var(--blue); display:block; margin-bottom:13px; }
+  .callout { padding:20px; background:rgba(244,210,103,.08); border-color:rgba(244,210,103,.36); color:#fff4c8; }
+  .callout.warn { background:rgba(255,137,109,.1); border-color:rgba(255,137,109,.4); color:#ffd9cd; }
+  .formula { margin:17px 0; padding:15px 18px; background:#06131f; color:var(--blue); border-radius:10px; font:500 1rem/1.4 "DM Mono", monospace; overflow:auto; }
+  .steps { counter-reset:step; list-style:none; padding:0; margin:0; display:grid; gap:14px; }
+  .steps li { position:relative; padding:17px 18px 17px 58px; background:rgba(247,242,233,.055); border-radius:11px; }
+  .steps li::before { counter-increment:step; content:counter(step, decimal-leading-zero); position:absolute; left:17px; top:17px; color:var(--yellow); font:500 .78rem "DM Mono", monospace; }
+  .exercise { margin-top:24px; padding:28px; border-radius:18px; background:#f7f2e9; color:#10283c; }
+  .exercise h3 { color:#071827; }
+  .exercise .eyebrow { color:#a64a37; }
+  .prompt { font-size:1.05rem; font-weight:700; }
+  .choices { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; margin:16px 0 8px; }
+  .choice { display:block; width:100%; text-align:left; padding:13px 14px; border:1px solid #bdd0d8; border-radius:9px; background:white; color:#10283c; cursor:pointer; }
+  .choice:hover, .choice:focus-visible { border-color:#2a86b5; box-shadow:0 0 0 3px rgba(42,134,181,.15); outline:none; }
+  .feedback { min-height:1.5em; margin:10px 0 0; font-weight:700; }
+  .feedback.ok { color:#136f46; } .feedback.no { color:#ab3622; }
+  table { width:100%; border-collapse:collapse; font-size:.94rem; }
+  th,td { padding:11px 10px; border-bottom:1px solid var(--line); text-align:left; }
+  th { color:var(--blue); font:500 .71rem "DM Mono", monospace; letter-spacing:.06em; text-transform:uppercase; }
+  .light-table th,.light-table td { border-color:#cdd8dc; } .light-table th { color:#316c88; }
+  .table-wrap { overflow:auto; }
+  .data-strip { font:500 .89rem/1.65 "DM Mono", monospace; color:#d2e8f5; background:#06131f; border-radius:12px; padding:17px; }
+  .chart { display:flex; align-items:end; gap:10px; height:190px; padding:20px 16px 8px; border-bottom:1px solid var(--line); }
+  .bar { flex:1; min-width:26px; background:linear-gradient(var(--blue), #2a86b5); border-radius:7px 7px 0 0; position:relative; }
+  .bar.hl { background:linear-gradient(var(--yellow), #c79a2b); }
+  .bar b { position:absolute; top:-25px; left:50%; transform:translateX(-50%); font:500 .74rem "DM Mono", monospace; color:var(--paper); }
+  .bar span { position:absolute; bottom:-25px; left:50%; transform:translateX(-50%); font:500 .64rem "DM Mono", monospace; color:var(--muted); white-space:nowrap; }
+  .hint { color:var(--muted); font-size:.9rem; }
+  .workbook { padding:28px; border:1px solid rgba(140,211,255,.35); border-radius:18px; background:linear-gradient(130deg,rgba(18,53,77,.75),rgba(7,24,39,.9)); }
+  details { margin-top:20px; border-top:1px solid var(--line); }
+  summary { padding:16px 0; cursor:pointer; color:var(--yellow); font-weight:800; }
+  .quiz-intro { display:flex; gap:20px; align-items:flex-start; padding:20px; background:rgba(140,211,255,.11); border-radius:14px; }
+  .quiz-count { flex:0 0 auto; width:54px; height:54px; display:grid; place-items:center; border-radius:50%; background:var(--blue); color:#071827; font:700 1.15rem "DM Mono", monospace; }
+  fieldset { margin:20px 0; padding:0 0 18px; border:0; border-bottom:1px solid var(--line); }
+  legend { padding:0; font:700 1.02rem/1.45 Manrope,sans-serif; }
+  .option { display:flex; gap:10px; align-items:flex-start; padding:11px 0; color:#dce5e8; cursor:pointer; }
+  .option input { accent-color:var(--yellow); margin-top:.35em; }
+  .submit { appearance:none; border:0; padding:14px 20px; border-radius:9px; background:var(--yellow); color:#071827; font-weight:800; cursor:pointer; }
+  .submit:hover,.submit:focus-visible { background:#ffe69a; outline:3px solid rgba(244,210,103,.3); }
+  .result { margin-top:20px; padding:18px; border-left:3px solid var(--yellow); background:rgba(244,210,103,.08); }
+  .corrections { margin:12px 0 0; padding-left:20px; } .corrections li { margin:8px 0; }
+  .visual-board { margin:22px 0; padding:20px; border:1px solid rgba(140,211,255,.3); border-radius:18px; background:radial-gradient(circle at 80% 10%, rgba(140,211,255,.13), transparent 35%), #0a2031; overflow:auto; }
+  .visual-board figcaption { color:var(--muted); font-size:.88rem; margin-top:12px; }
+  .visual-board svg { display:block; width:100%; min-width:560px; height:auto; }
+  .svg-kicker { fill:var(--blue); font:500 12px "DM Mono", monospace; letter-spacing:1.3px; }
+  .svg-title { fill:var(--paper); font:700 19px Manrope, sans-serif; }
+  .svg-copy { fill:#c8d9e1; font:500 14px Manrope, sans-serif; }
+  .svg-muted { fill:var(--muted); font:500 12px "DM Mono", monospace; }
+  .svg-interactive .svg-group { cursor: pointer; }
+  .svg-interactive .svg-group rect,
+  .svg-interactive .svg-group path,
+  .svg-interactive .svg-group circle,
+  .svg-interactive .svg-group line {
+    transition: stroke .2s ease, stroke-width .2s ease, filter .2s ease;
+  }
+  .svg-interactive .svg-group:hover > rect:first-child {
+    stroke: #f4d267 !important;
+    stroke-width: 2.2px !important;
+    filter: drop-shadow(0 0 10px rgba(244, 210, 103, 0.45));
+  }
+  .repaso-item { margin-top:22px; padding:24px; border-radius:16px; background:rgba(247,242,233,.05); border:1px solid var(--line); }
+  .repaso-item .num { display:inline-flex; align-items:center; justify-content:center; width:30px; height:30px; border-radius:50%; background:var(--yellow); color:#071827; font:700 .85rem "DM Mono",monospace; margin-right:10px; }
+  .answer-tag { display:inline-block; margin-top:14px; padding:8px 14px; border-radius:8px; background:rgba(168,230,189,.14); color:var(--ok); font:600 .92rem "DM Mono",monospace; }
+  footer { border-top:1px solid var(--line); padding:32px 0 50px; color:var(--muted); font-size:.88rem; }
+  footer strong { color:var(--paper); }
+  @media (max-width:760px) { .topline .shell,.hero-grid,.section-head { display:block; } .topline .shell { padding:16px 0; } .meta { text-align:left; margin-top:10px; } .hero { padding-top:52px; } .grid-2,.grid-3 { grid-template-columns:1fr; } .choices { grid-template-columns:1fr; } .section-head > p { margin-top:12px; } .exercise,.workbook,.card,.repaso-item { padding:20px; } }
+  @media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } *,*::before,*::after { animation-duration:.01ms!important; transition-duration:.01ms!important; } }
+</style>
+</head>
+<body>
+<header>
+  <div class="topline"><div class="shell">
+    <div class="brand"><img src="../../docs/assets/brand/ep-wordmark-light.svg" alt="Estadística y Probabilidades"></div>
+    <p class="meta">Ciclo III/2026 · Sección 2<br>Guía de estudio · Semana 02</p>
+  </div></div>
+  <section class="hero"><div class="shell hero-grid">
+    <div>
+      <p class="eyebrow">Tendencia central · práctica activa</p>
+      <h1>Un conjunto de datos,<br><em>reducido a un solo número.</em></h1>
+      <p class="lede">Media, mediana y moda resumen una distribución completa en un valor central. Aprende cuándo usar cada una, cómo se comportan bajo transformaciones, y practica con los mismos casos de clase.</p>
+    </div>
+    <aside class="source-tag"><strong>Qué vas a dominar</strong><br>media (simple, ponderada, agrupada), mediana y moda para datos simples y agrupados, sus propiedades, y la guía de repaso del Control 1.</aside>
+  </div></section>
+</header>
+
+<nav class="nav-wrap" aria-label="Secciones de la guía"><div class="shell tabs" role="tablist">
+  <button class="tab" role="tab" id="tab-mapa" aria-selected="true" aria-controls="mapa" tabindex="0">01 · Mapa</button>
+  <button class="tab" role="tab" id="tab-media" aria-selected="false" aria-controls="media" tabindex="-1">02 · Media</button>
+  <button class="tab" role="tab" id="tab-mediana" aria-selected="false" aria-controls="mediana" tabindex="-1">03 · Mediana</button>
+  <button class="tab" role="tab" id="tab-moda" aria-selected="false" aria-controls="moda" tabindex="-1">04 · Moda</button>
+  <button class="tab" role="tab" id="tab-practica" aria-selected="false" aria-controls="practica" tabindex="-1">05 · Práctica</button>
+  <button class="tab" role="tab" id="tab-repaso" aria-selected="false" aria-controls="repaso" tabindex="-1">06 · Repaso C1</button>
+  <button class="tab" role="tab" id="tab-control" aria-selected="false" aria-controls="control" tabindex="-1">07 · Control</button>
+</div></nav>
+
+<main class="shell">
+  <section role="tabpanel" id="mapa" aria-labelledby="tab-mapa" class="is-active">
+    <div class="section-head"><div><p class="eyebrow">01 · El mapa mínimo</p><h2>Tres formas de preguntar "¿dónde está el centro?"</h2></div><p>Cada medida responde una pregunta distinta. Elegir la correcta depende del tipo de dato y de qué tan sensible quieres ser a los valores extremos.</p></div>
+    <div class="grid-3">
+      <article class="card"><span class="label">Media (μ, x̄)</span><h3>El punto de equilibrio</h3><p>Suma todos los valores y divide entre el total. Usa <strong>todos</strong> los datos, por eso es sensible a valores extremos (outliers).</p></article>
+      <article class="card"><span class="label">Mediana (Me)</span><h3>El valor central</h3><p>El dato que deja la mitad de las observaciones abajo y la mitad arriba. No le afectan los valores extremos: es <strong>robusta</strong>.</p></article>
+      <article class="card"><span class="label">Moda (Mo)</span><h3>Lo más frecuente</h3><p>El valor (o clase) que más se repite. Es la única medida de tendencia central que también sirve para datos <strong>cualitativos</strong>.</p></article>
+    </div>
+
+    <figure class="visual-board">
+      <svg viewBox="0 0 980 330" role="img" aria-labelledby="balanza-title balanza-desc" class="svg-interactive">
+  <title id="balanza-title">La media aritmética como centro de gravedad de la distribución</title>
+  <desc id="balanza-desc">Demostración física de que la suma de desviaciones respecto a la media se cancela exactamente: Σ(xi - x̄) = 0.</desc>
+  <defs>
+    <linearGradient id="beamGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#ff896d"/>
+      <stop offset="35%" stop-color="#8cd3ff"/>
+      <stop offset="50%" stop-color="#f4d267"/>
+      <stop offset="65%" stop-color="#8cd3ff"/>
+      <stop offset="100%" stop-color="#a8e6bd"/>
+    </linearGradient>
+    <linearGradient id="fulcrumGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#18425f"/>
+      <stop offset="100%" stop-color="#081b29"/>
+    </linearGradient>
+    <filter id="cardGlow" x="-10%" y="-15%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000" flood-opacity="0.4"/>
+    </filter>
+  </defs>
+
+  <text x="24" y="32" class="svg-kicker">PROPIEDAD FUNDAMENTAL · Σ(xi − x̄) = 0</text>
+  <text x="24" y="60" class="svg-title">La media aritmética como centro de gravedad de la distribución.</text>
+
+  <!-- Fulcro y soporte central (x = 490) -->
+  <g class="svg-group">
+    <!-- Base -->
+    <rect x="400" y="222" width="180" height="12" rx="6" fill="#172a46" stroke="#1769aa" stroke-width="1.5"/>
+    <polygon points="425,222 555,222 490,146" fill="url(#fulcrumGrad)" stroke="#8cd3ff" stroke-width="2"/>
+    <!-- Tornillo / eje -->
+    <circle cx="490" cy="146" r="6" fill="#f4d267" stroke="#071827" stroke-width="2"/>
+    <!-- Plomada / indicador de equilibrio -->
+    <line x1="490" y1="146" x2="490" y2="210" stroke="#f4d267" stroke-width="2" stroke-dasharray="3 3"/>
+    <circle cx="490" cy="210" r="4" fill="#f4d267"/>
+    <!-- Indicador de Media x̄ -->
+    <rect x="460" y="96" width="60" height="28" rx="6" fill="#f4d267" stroke="#071827" stroke-width="1.5"/>
+    <text x="490" y="115" text-anchor="middle" fill="#071827" style="font:800 13px 'DM Mono', monospace;">x̄ = 5</text>
+    <polygon points="490,132 484,124 496,124" fill="#f4d267"/>
+  </g>
+
+  <!-- Brazo de la balanza (horizontal, en equilibrio) -->
+  <rect x="90" y="140" width="800" height="12" rx="6" fill="url(#beamGrad)" stroke="#172a46" stroke-width="1.5"/>
+
+  <!-- Marcas de escala en la palanca (distancias relativas) -->
+  <!-- Centro en 490 (x=5), escala: delta = 65px por unidad -->
+  <!-- x=2: 490 - 195 = 295 -->
+  <!-- x=4: 490 - 65 = 425 -->
+  <!-- x=5: 490 -->
+  <!-- x=6: 490 + 65 = 555 -->
+  <!-- x=8: 490 + 195 = 685 -->
+
+  <!-- Línea de eje con marcas -->
+  <g stroke="#ffffff" stroke-opacity="0.3" stroke-width="1.5">
+    <line x1="165" y1="138" x2="165" y2="154"/> <!-- x=0 -->
+    <line x1="230" y1="141" x2="230" y2="151"/> <!-- x=1 -->
+    <line x1="295" y1="138" x2="295" y2="154"/> <!-- x=2 -->
+    <line x1="360" y1="141" x2="360" y2="151"/> <!-- x=3 -->
+    <line x1="425" y1="138" x2="425" y2="154"/> <!-- x=4 -->
+    <line x1="490" y1="135" x2="490" y2="157" stroke="#f4d267" stroke-opacity="0.8"/> <!-- x=5 -->
+    <line x1="555" y1="138" x2="555" y2="154"/> <!-- x=6 -->
+    <line x1="620" y1="141" x2="620" y2="151"/> <!-- x=7 -->
+    <line x1="685" y1="138" x2="685" y2="154"/> <!-- x=8 -->
+    <line x1="750" y1="141" x2="750" y2="151"/> <!-- x=9 -->
+    <line x1="815" y1="138" x2="815" y2="154"/> <!-- x=10 -->
+  </g>
+
+  <!-- Pesa 1: x1 = 2 (Desviación = 2 - 5 = -3) -->
+  <g class="svg-group" filter="url(#cardGlow)">
+    <line x1="295" y1="152" x2="295" y2="198" stroke="#ff896d" stroke-width="2.5"/>
+    <rect x="265" y="198" width="60" height="34" rx="6" fill="#172a46" stroke="#ff896d" stroke-width="2"/>
+    <text x="295" y="214" text-anchor="middle" fill="#ff896d" style="font:700 12px 'DM Mono', monospace;">x₁ = 2</text>
+    <text x="295" y="226" text-anchor="middle" fill="#c8d9e1" style="font:600 10px 'DM Mono', monospace;">d₁ = −3</text>
+  </g>
+
+  <!-- Pesa 2: x2 = 4 (Desviación = 4 - 5 = -1) -->
+  <g class="svg-group" filter="url(#cardGlow)">
+    <line x1="425" y1="152" x2="425" y2="198" stroke="#ff896d" stroke-width="2"/>
+    <rect x="395" y="198" width="60" height="34" rx="6" fill="#172a46" stroke="#ff896d" stroke-width="2"/>
+    <text x="425" y="214" text-anchor="middle" fill="#ff896d" style="font:700 12px 'DM Mono', monospace;">x₂ = 4</text>
+    <text x="425" y="226" text-anchor="middle" fill="#c8d9e1" style="font:600 10px 'DM Mono', monospace;">d₂ = −1</text>
+  </g>
+
+  <!-- Pesa 3: x3 = 6 (Desviación = 6 - 5 = +1) -->
+  <g class="svg-group" filter="url(#cardGlow)">
+    <line x1="555" y1="152" x2="555" y2="198" stroke="#a8e6bd" stroke-width="2"/>
+    <rect x="525" y="198" width="60" height="34" rx="6" fill="#172a46" stroke="#a8e6bd" stroke-width="2"/>
+    <text x="555" y="214" text-anchor="middle" fill="#a8e6bd" style="font:700 12px 'DM Mono', monospace;">x₃ = 6</text>
+    <text x="555" y="226" text-anchor="middle" fill="#c8d9e1" style="font:600 10px 'DM Mono', monospace;">d₃ = +1</text>
+  </g>
+
+  <!-- Pesa 4: x4 = 8 (Desviación = 8 - 5 = +3) -->
+  <g class="svg-group" filter="url(#cardGlow)">
+    <line x1="685" y1="152" x2="685" y2="198" stroke="#a8e6bd" stroke-width="2.5"/>
+    <rect x="655" y="198" width="60" height="34" rx="6" fill="#172a46" stroke="#a8e6bd" stroke-width="2"/>
+    <text x="685" y="214" text-anchor="middle" fill="#a8e6bd" style="font:700 12px 'DM Mono', monospace;">x₄ = 8</text>
+    <text x="685" y="226" text-anchor="middle" fill="#c8d9e1" style="font:600 10px 'DM Mono', monospace;">d₄ = +3</text>
+  </g>
+
+  <!-- Tarjetas resumen inferiores con balance matemático -->
+  <g class="svg-group" transform="translate(48 260)">
+    <rect width="250" height="48" rx="8" fill="#0d2639" stroke="#ff896d" stroke-width="1.2"/>
+    <text x="14" y="21" fill="#ff896d" style="font:700 11px 'DM Mono', monospace;">DESVIACIONES NEGATIVAS</text>
+    <text x="14" y="38" fill="#e2f1fd" style="font:600 12px Manrope, sans-serif;">(−3) + (−1) = −4 de torque</text>
+  </g>
+
+  <g class="svg-group" transform="translate(355 260)">
+    <rect width="270" height="48" rx="8" fill="#172a46" stroke="#f4d267" stroke-width="1.5"/>
+    <circle cx="20" cy="24" r="6" fill="#f4d267"/>
+    <text x="34" y="21" fill="#f4d267" style="font:800 11px 'DM Mono', monospace;">SUMA TOTAL DE DESVIACIONES</text>
+    <text x="34" y="39" fill="#ffffff" style="font:700 13px 'DM Mono', monospace;">(−4) + (+4) = 0 (EQUILIBRIO)</text>
+  </g>
+
+  <g class="svg-group" transform="translate(682 260)">
+    <rect width="250" height="48" rx="8" fill="#0d2639" stroke="#a8e6bd" stroke-width="1.2"/>
+    <text x="14" y="21" fill="#a8e6bd" style="font:700 11px 'DM Mono', monospace;">DESVIACIONES POSITIVAS</text>
+    <text x="14" y="38" fill="#e2f1fd" style="font:600 12px Manrope, sans-serif;">(+1) + (+3) = +4 de torque</text>
+  </g>
+</svg>
+      <figcaption>Por eso la media "se mueve" hacia los valores extremos: necesita que las distancias ponderadas de cada lado se compensen exactamente, de modo que Σ(xi − x̄) = 0.</figcaption>
+    </figure>
+
+    <div class="grid-2" style="margin-top:18px">
+      <article class="card"><span class="label">Cuándo usar cada una</span><h3>Regla práctica</h3><p><strong>Media:</strong> datos cuantitativos sin distorsiones fuertes de valores extremos. <strong>Mediana:</strong> datos cuantitativos con outliers o distribuciones sesgadas (ingresos, precios). <strong>Moda:</strong> datos categóricos, o para identificar el valor "típico" en cualquier tipo de dato.</p></article>
+      <article class="card"><span class="label">Pista de sesgo</span><h3>Orden de las tres medidas</h3><p>En una distribución con cola a la derecha (sesgo positivo, como ingresos o años de estudio): <strong>Moda &lt; Mediana &lt; Media</strong>. Con cola a la izquierda, el orden se invierte. Si son iguales, la distribución es simétrica.</p></article>
+    </div>
+
+    <figure class="visual-board" style="margin-top:20px">
+      <svg viewBox="0 0 980 340" role="img" aria-labelledby="sesgo-title sesgo-desc" class="svg-interactive">
+  <title id="sesgo-title">Tríptico de asimetría: relación de orden entre Media, Mediana y Moda</title>
+  <desc id="sesgo-desc">Comparación gráfica de las distribuciones sesgadas a la izquierda, simétricas y sesgadas a la derecha con las posiciones relativas de media, mediana y moda.</desc>
+  <defs>
+    <linearGradient id="cardBgGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#14344d" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#091d2c" stop-opacity="0.98"/>
+    </linearGradient>
+    <linearGradient id="leftTailGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ff896d" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#ff896d" stop-opacity="0.02"/>
+    </linearGradient>
+    <linearGradient id="symmGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#8cd3ff" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#8cd3ff" stop-opacity="0.02"/>
+    </linearGradient>
+    <linearGradient id="rightTailGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f4d267" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#f4d267" stop-opacity="0.02"/>
+    </linearGradient>
+    <filter id="boxShadow" x="-5%" y="-10%" width="110%" height="125%">
+      <feDropShadow dx="0" dy="5" stdDeviation="5" flood-color="#000" flood-opacity="0.4"/>
+    </filter>
+  </defs>
+
+  <text x="24" y="30" class="svg-kicker">PROPIEDAD DE SESGO · FORMA DE LA DISTRIBUCIÓN</text>
+  <text x="24" y="58" class="svg-title">El sesgo determina el orden relativo entre Media, Mediana y Moda.</text>
+
+  <!-- PANEL 1: SESGO A LA IZQUIERDA -->
+  <g class="svg-group" transform="translate(24, 75)" filter="url(#boxShadow)">
+    <rect width="298" height="245" rx="12" fill="url(#cardBgGrad)" stroke="#ff896d" stroke-width="1.3"/>
+    
+    <!-- Badge cabecera -->
+    <rect x="14" y="14" width="186" height="22" rx="4" fill="rgba(255,137,109,0.18)"/>
+    <text x="20" y="29" fill="#ff896d" style="font:700 10px 'DM Mono', monospace;">SESGO IZQUIERDA (NEGATIVO)</text>
+    
+    <!-- Curva de densidad asimétrica izquierda: cola larga a la izquierda, pico a la derecha -->
+    <!-- Base de curva en y = 145 -->
+    <path d="M 20,145 C 70,144 140,138 180,95 C 205,68 225,52 235,52 C 248,52 260,85 278,145 Z" fill="url(#leftTailGrad)"/>
+    <path d="M 20,145 C 70,144 140,138 180,95 C 205,68 225,52 235,52 C 248,52 260,85 278,145" fill="none" stroke="#ff896d" stroke-width="2.5"/>
+    <line x1="16" y1="145" x2="282" y2="145" stroke="#ffffff" stroke-opacity="0.2" stroke-width="1"/>
+
+    <!-- Líneas de estadísticos -->
+    <!-- Media x̄ (muy a la izquierda por los outliers bajos) -->
+    <line x1="160" y1="105" x2="160" y2="145" stroke="#ff896d" stroke-width="2" stroke-dasharray="3 3"/>
+    <text x="160" y="160" text-anchor="middle" fill="#ff896d" style="font:800 11px 'DM Mono', monospace;">x̄</text>
+
+    <!-- Mediana (al centro del 50%) -->
+    <line x1="198" y1="80" x2="198" y2="145" stroke="#f4d267" stroke-width="2" stroke-dasharray="3 3"/>
+    <text x="198" y="160" text-anchor="middle" fill="#f4d267" style="font:800 11px 'DM Mono', monospace;">Me</text>
+
+    <!-- Moda (en la cúspide) -->
+    <line x1="235" y1="52" x2="235" y2="145" stroke="#8cd3ff" stroke-width="2" stroke-dasharray="3 3"/>
+    <text x="235" y="160" text-anchor="middle" fill="#8cd3ff" style="font:800 11px 'DM Mono', monospace;">Mo</text>
+
+    <!-- Caja de relación de orden -->
+    <rect x="14" y="176" width="270" height="30" rx="6" fill="#071827" stroke="#ff896d" stroke-width="1"/>
+    <text x="149" y="196" text-anchor="middle" fill="#ffffff" style="font:800 12px 'DM Mono', monospace;">x̄ &lt; Mediana &lt; Moda</text>
+    <text x="149" y="226" text-anchor="middle" fill="#c8d9e1" style="font:500 10.5px Manrope, sans-serif;">Cola izquierda estira la media hacia abajo.</text>
+  </g>
+
+  <!-- PANEL 2: SIMÉTRICA -->
+  <g class="svg-group" transform="translate(341, 75)" filter="url(#boxShadow)">
+    <rect width="298" height="245" rx="12" fill="url(#cardBgGrad)" stroke="#8cd3ff" stroke-width="1.3"/>
+    
+    <!-- Badge cabecera -->
+    <rect x="14" y="14" width="168" height="22" rx="4" fill="rgba(140,211,255,0.18)"/>
+    <text x="20" y="29" fill="#8cd3ff" style="font:700 10px 'DM Mono', monospace;">SIMÉTRICA (ACAMPANADA)</text>
+    
+    <!-- Curva campana de Gauss centrada en x = 149 -->
+    <path d="M 20,145 C 60,145 105,130 130,85 C 142,62 149,50 149,50 C 149,50 156,62 168,85 C 193,130 238,145 278,145 Z" fill="url(#symmGrad)"/>
+    <path d="M 20,145 C 60,145 105,130 130,85 C 142,62 149,50 149,50 C 149,50 156,62 168,85 C 193,130 238,145 278,145" fill="none" stroke="#8cd3ff" stroke-width="2.5"/>
+    <line x1="16" y1="145" x2="282" y2="145" stroke="#ffffff" stroke-opacity="0.2" stroke-width="1"/>
+
+    <!-- Línea única central donde coinciden las tres -->
+    <line x1="149" y1="50" x2="149" y2="145" stroke="#f4d267" stroke-width="2.5"/>
+    <circle cx="149" cy="50" r="4" fill="#f4d267"/>
+    <text x="149" y="162" text-anchor="middle" fill="#f4d267" style="font:800 12px 'DM Mono', monospace;">x̄ = Me = Mo</text>
+
+    <!-- Caja de relación de orden -->
+    <rect x="14" y="176" width="270" height="30" rx="6" fill="#071827" stroke="#8cd3ff" stroke-width="1"/>
+    <text x="149" y="196" text-anchor="middle" fill="#ffffff" style="font:800 12px 'DM Mono', monospace;">Media = Mediana = Moda</text>
+    <text x="149" y="226" text-anchor="middle" fill="#c8d9e1" style="font:500 10.5px Manrope, sans-serif;">Pico, centro posicional y balance coinciden.</text>
+  </g>
+
+  <!-- PANEL 3: SESGO A LA DERECHA -->
+  <g class="svg-group" transform="translate(658, 75)" filter="url(#boxShadow)">
+    <rect width="298" height="245" rx="12" fill="url(#cardBgGrad)" stroke="#f4d267" stroke-width="1.3"/>
+    
+    <!-- Badge cabecera -->
+    <rect x="14" y="14" width="180" height="22" rx="4" fill="rgba(244,210,103,0.18)"/>
+    <text x="20" y="29" fill="#f4d267" style="font:700 10px 'DM Mono', monospace;">SESGO DERECHA (POSITIVO)</text>
+    
+    <!-- Curva de densidad asimétrica derecha: pico a la izquierda, cola larga a la derecha -->
+    <path d="M 20,145 C 38,85 50,52 63,52 C 73,52 93,68 118,95 C 158,138 228,144 278,145 Z" fill="url(#rightTailGrad)"/>
+    <path d="M 20,145 C 38,85 50,52 63,52 C 73,52 93,68 118,95 C 158,138 228,144 278,145" fill="none" stroke="#f4d267" stroke-width="2.5"/>
+    <line x1="16" y1="145" x2="282" y2="145" stroke="#ffffff" stroke-opacity="0.2" stroke-width="1"/>
+
+    <!-- Líneas de estadísticos -->
+    <!-- Moda (en el pico inicial) -->
+    <line x1="63" y1="52" x2="63" y2="145" stroke="#8cd3ff" stroke-width="2" stroke-dasharray="3 3"/>
+    <text x="63" y="160" text-anchor="middle" fill="#8cd3ff" style="font:800 11px 'DM Mono', monospace;">Mo</text>
+
+    <!-- Mediana (al centro del 50%) -->
+    <line x1="100" y1="80" x2="100" y2="145" stroke="#f4d267" stroke-width="2" stroke-dasharray="3 3"/>
+    <text x="100" y="160" text-anchor="middle" fill="#f4d267" style="font:800 11px 'DM Mono', monospace;">Me</text>
+
+    <!-- Media x̄ (arrastrada hacia la derecha por los outliers altos) -->
+    <line x1="138" y1="105" x2="138" y2="145" stroke="#ff896d" stroke-width="2" stroke-dasharray="3 3"/>
+    <text x="138" y="160" text-anchor="middle" fill="#ff896d" style="font:800 11px 'DM Mono', monospace;">x̄</text>
+
+    <!-- Caja de relación de orden -->
+    <rect x="14" y="176" width="270" height="30" rx="6" fill="#071827" stroke="#f4d267" stroke-width="1"/>
+    <text x="149" y="196" text-anchor="middle" fill="#ffffff" style="font:800 12px 'DM Mono', monospace;">Moda &lt; Mediana &lt; x̄</text>
+    <text x="149" y="226" text-anchor="middle" fill="#c8d9e1" style="font:500 10.5px Manrope, sans-serif;">Pocos datos muy altos (libros/salarios) elevan x̄.</text>
+  </g>
+</svg>
+      <figcaption>La media es el estadístico más influenciado por la dirección y longitud de las colas. En distribuciones con sesgo a la derecha, los valores atípicos altos la estiran más allá de la mediana y de la moda.</figcaption>
+    </figure>
+  </section>
+
+  <section role="tabpanel" id="media" aria-labelledby="tab-media" tabindex="0">
+    <div class="section-head"><div><p class="eyebrow">02 · Media aritmética</p><h2>Tres fórmulas, una misma idea: repartir el total en partes iguales.</h2></div><p>Datos simples, datos ponderados por importancia distinta, y datos agrupados en clases.</p></div>
+
+    <div class="grid-3">
+      <article class="card"><span class="label">Datos simples</span><h3>Cada dato pesa igual</h3><div class="formula">μ = Σxi / N</div><p>Se suman todos los valores y se divide entre el número total de datos.</p></article>
+      <article class="card"><span class="label">Media ponderada</span><h3>Cada dato tiene un peso wi</h3><div class="formula">μ = Σ(wi·xi) / Σwi</div><p>Útil cuando cada grupo aporta un número distinto de observaciones (ej. secciones de un curso).</p></article>
+      <article class="card"><span class="label">Datos agrupados</span><h3>El punto medio representa la clase</h3><div class="formula">μ = Σ(fi·PMi) / N</div><p>PMi es el punto medio de cada clase; fi es su frecuencia absoluta.</p></article>
+    </div>
+
+    <div class="callout" style="margin-top:22px"><strong>Propiedades de la media:</strong> (1) Σ(xi − x̄) = 0. (2) La media de una constante k es la misma constante: k̄ = k. (3) Media de (k·xi) = k·x̄. (4) Media de (xi ± k) = x̄ ± k. Estas propiedades son la base para resolver problemas de "recomposición" de grupos sin recalcular todo desde cero.</div>
+
+    <div class="exercise">
+      <p class="eyebrow">Ejercicio de clase · datos simples</p><h3>Libros leídos por 20 personas</h3>
+      <p class="data-strip">1, 2, 0, 3, 0, 0, 1, 0, 1, 2, 2, 4, 0, 2, 6, 4, 0, 1, 5, 1</p>
+      <ol class="steps">
+        <li>Suma todos los valores: <span class="formula">Σxi = 35</span></li>
+        <li>Divide entre N = 20: <span class="formula">μ = 35 / 20 = 1.75</span></li>
+      </ol>
+      <p class="prompt" style="margin-top:16px">¿Qué tan representativa te parece esta media, sabiendo que 6 de las 20 personas leyeron 0 libros y una persona leyó 6?</p>
+      <div class="choices" data-check="media-repr">
+        <button class="choice" type="button" data-answer="ok" data-feedback="Correcto. El valor 6 (un outlier respecto al resto) arrastra la media hacia arriba; por eso 1.75 libros suena alto para un grupo donde el dato más común es 0.">Poco representativa: el valor 6 la infla</button>
+        <button class="choice" type="button" data-answer="no" data-feedback="La media sí toma en cuenta todos los datos, pero eso es justo el problema: un solo valor alto puede distorsionarla.">Muy representativa: usa todos los datos</button>
+      </div>
+      <p id="media-repr-feedback" class="feedback" aria-live="polite"></p>
+    </div>
+
+    <div class="exercise">
+      <p class="eyebrow">Ejercicio de clase · media ponderada</p><h3>Promedio de tres secciones de Introducción a la Economía</h3>
+      <div class="table-wrap"><table class="light-table"><thead><tr><th>Sección</th><th>Estudiantes</th><th>Promedio del parcial</th></tr></thead><tbody>
+        <tr><td>A</td><td>50</td><td>7.5</td></tr><tr><td>B</td><td>40</td><td>9.0</td></tr><tr><td>C</td><td>60</td><td>8.3</td></tr>
+      </tbody></table></div>
+      <ol class="steps">
+        <li>Pondera cada promedio por su número de estudiantes y suma: <span class="formula">50(7.5) + 40(9.0) + 60(8.3) = 375 + 360 + 498 = 1233</span></li>
+        <li>Divide entre el total de estudiantes: <span class="formula">μ = 1233 / 150 = 8.22</span></li>
+      </ol>
+      <p class="prompt" style="margin-top:16px">¿Coincide con el promedio simple de las secciones, (7.5+9.0+8.3)/3 = 8.27?</p>
+      <div class="choices" data-check="media-pond">
+        <button class="choice" type="button" data-answer="ok" data-feedback="Correcto. Son parecidos pero no iguales (8.22 vs 8.27): solo coincidirían si las tres secciones tuvieran el mismo número de estudiantes.">No exactamente, y solo coincidirían con grupos de igual tamaño</button>
+        <button class="choice" type="button" data-answer="no" data-feedback="Se acercan (8.22 y 8.27) porque los tamaños de sección son similares, pero no son iguales: coinciden solo si N es igual en las tres secciones.">Sí, siempre coinciden</button>
+      </div>
+      <p id="media-pond-feedback" class="feedback" aria-live="polite"></p>
+    </div>
+
+    <div class="exercise">
+      <p class="eyebrow">Ejercicio de clase · datos agrupados</p><h3>Edad de beneficiarios de un proyecto municipal</h3>
+      <div class="table-wrap"><table class="light-table"><thead><tr><th>Edad</th><th>Beneficiarios (fi)</th><th>Punto medio (PMi)</th><th>fi · PMi</th></tr></thead><tbody>
+        <tr><td>[0, 4)</td><td>20</td><td>2</td><td>40</td></tr>
+        <tr><td>[4, 8)</td><td>50</td><td>6</td><td>300</td></tr>
+        <tr><td>[8, 12)</td><td>60</td><td>10</td><td>600</td></tr>
+        <tr><td>[12, 16)</td><td>40</td><td>14</td><td>560</td></tr>
+        <tr><td>[16, 20]</td><td>30</td><td>18</td><td>540</td></tr>
+        <tr><td><strong>Total</strong></td><td><strong>200</strong></td><td></td><td><strong>2 040</strong></td></tr>
+      </tbody></table></div>
+      <div class="formula">μ = 2 040 / 200 = 10.2 años</div>
+      <p class="hint">Si en vez de fi te dieran la frecuencia <em>relativa</em> (fri), la fórmula cambia a μ = Σ(fri · PMi): ya no divides entre N porque las fri ya están expresadas sobre el total (suman 1). Verificación: 0.1(2)+0.25(6)+0.3(10)+0.2(14)+0.15(18) = 10.2, el mismo resultado.</p>
+    </div>
+
+    <div class="exercise">
+      <p class="eyebrow">Ejercicios de clase · recomposición de grupos</p><h3>Usa las propiedades, no recalcules desde cero</h3>
+      <p class="prompt">1. Un grupo de 34 alumnos tiene una media de 8.6. Se incorporan 5 alumnos con media 8.1. ¿Cuál es la media del grupo completo de 39?</p>
+      <details><summary>Ver solución</summary>
+        <p><span class="formula">μ = (34×8.6 + 5×8.1) / 39 = (292.4 + 40.5) / 39 = 332.9 / 39 ≈ 8.54</span></p>
+      </details>
+      <p class="prompt" style="margin-top:18px">2. 15 empleados tienen una edad media de 38.6 años. Este mes, 4 de ellos (edad media 40.75) son promovidos a otro departamento y salen del grupo. ¿Cuál es la nueva edad media de los 11 restantes?</p>
+      <details><summary>Ver solución</summary>
+        <p>Suma original: 15×38.6 = 579. Suma de quienes salen: 4×40.75 = 163. Suma restante: 579−163 = 416.</p>
+        <p><span class="formula">μ = 416 / 11 ≈ 37.82 años</span></p>
+      </details>
+      <p class="prompt" style="margin-top:18px">3. La sección A (40 alumnos, CUM 7.5) se fusionará con la sección B (20 alumnos). ¿Qué promedio necesita B para que el grupo combinado (60) tenga un promedio ≥ 8.0?</p>
+      <details><summary>Ver solución</summary>
+        <p><span class="formula">(40×7.5 + 20·xB) / 60 ≥ 8.0 → 300 + 20xB ≥ 480 → xB ≥ 9.0</span></p>
+        <p class="hint">La sección B necesita un promedio de al menos 9.0.</p>
+      </details>
+      <p class="prompt" style="margin-top:18px">4. En cambio, A se fusiona con C (CUM 8.6). ¿De cuántos estudiantes debe ser C para que el promedio global sea ≥ 8.0?</p>
+      <details><summary>Ver solución</summary>
+        <p><span class="formula">300 + 8.6n ≥ 8(40+n) → 0.6n ≥ 20 → n ≥ 33.33</span></p>
+        <p class="hint">Como n debe ser un número entero de estudiantes, se necesitan al menos 34.</p>
+      </details>
+      <p class="prompt" style="margin-top:18px">5. Un gimnasio calculó que el peso promedio de sus usuarios en enero 2024 fue 72 kg, pero la báscula sumaba 2 kg de más a todos. La universidad pide el promedio correcto en libras (1 kg = 2.2 libras).</p>
+      <details><summary>Ver solución</summary>
+        <p>Corrige primero el sesgo (propiedad de la media con una constante): 72 − 2 = 70 kg.</p>
+        <p><span class="formula">70 kg × 2.2 = 154 libras</span></p>
+      </details>
+    </div>
+  </section>
+
+  <section role="tabpanel" id="mediana" aria-labelledby="tab-mediana" tabindex="0">
+    <div class="section-head"><div><p class="eyebrow">03 · Mediana</p><h2>El valor que parte al conjunto exactamente por la mitad.</h2></div><p>No le importa cuánto valen los extremos, solo su posición.</p></div>
+
+    <div class="grid-2">
+      <article class="card"><span class="label">Datos simples, N impar</span><h3>Un único valor central</h3><div class="formula">Me = x((N+1)/2)</div></article>
+      <article class="card"><span class="label">Datos simples, N par</span><h3>Promedio de los dos centrales</h3><div class="formula">Me = [x(N/2) + x(N/2 + 1)] / 2</div></article>
+    </div>
+    <article class="card" style="margin-top:18px"><span class="label">Datos agrupados</span><h3>Se ubica la clase donde "cae" la posición central</h3><div class="formula">Me = Linf(k) + C · [ (N+1)/2 − f.acum(k−1) ] / f(k)</div><p>k es la clase donde se encuentra la mediana; Linf(k) su límite inferior; C el ancho de clase; f.acum(k−1) la frecuencia acumulada de la clase anterior; f(k) la frecuencia de la clase mediana.</p></article>
+
+    <figure class="visual-board" style="margin-top:20px">
+      <svg viewBox="0 0 980 320" role="img" aria-labelledby="med-pos-title med-pos-desc" class="svg-interactive">
+  <title id="med-pos-title">La mediana como medida de posición central y su propiedad de robustez</title>
+  <desc id="med-pos-desc">Ilustración de la mediana en un conjunto ordenado impar destacando la posición central y su invariancia ante valores atípicos extremos.</desc>
+  <defs>
+    <linearGradient id="medCardBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#14344d" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#081b29" stop-opacity="0.98"/>
+    </linearGradient>
+    <filter id="medGlow" x="-8%" y="-12%" width="116%" height="124%">
+      <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#000" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <text x="24" y="30" class="svg-kicker">CONCEPTO FUNDAMENTAL · MEDIANA POSICIONAL</text>
+  <text x="24" y="58" class="svg-title">La mediana depende de la posición central, no de la magnitud de los extremos.</text>
+
+  <!-- PANEL IZQUIERDO: CONJUNTO ORDENADO IMPAR (N = 7) -->
+  <g class="svg-group" transform="translate(24, 75)" filter="url(#medGlow)">
+    <rect width="460" height="225" rx="12" fill="url(#medCardBg)" stroke="#1769aa" stroke-width="1.3"/>
+    
+    <rect x="14" y="14" width="220" height="22" rx="4" fill="rgba(140,211,255,0.15)"/>
+    <text x="20" y="29" fill="#8cd3ff" style="font:700 10px 'DM Mono', monospace;">N IMPAR (N = 7) · POSICIÓN EXACTA</text>
+    
+    <!-- 7 Figuras humanas ordenadas por estatura/valor -->
+    <!-- Posición base y = 160 -->
+    <!-- Fig 1 (h=42) -->
+    <g transform="translate(32, 85)">
+      <circle cx="12" cy="10" r="7" fill="#6ba7cd"/>
+      <rect x="6" y="19" width="12" height="42" rx="4" fill="#6ba7cd"/>
+      <text x="12" y="73" text-anchor="middle" fill="#8cd3ff" style="font:600 10px 'DM Mono', monospace;">x₍₁₎</text>
+    </g>
+    <!-- Fig 2 (h=50) -->
+    <g transform="translate(78, 77)">
+      <circle cx="12" cy="10" r="7" fill="#6ba7cd"/>
+      <rect x="6" y="19" width="12" height="50" rx="4" fill="#6ba7cd"/>
+      <text x="12" y="81" text-anchor="middle" fill="#8cd3ff" style="font:600 10px 'DM Mono', monospace;">x₍₂₎</text>
+    </g>
+    <!-- Fig 3 (h=58) -->
+    <g transform="translate(124, 69)">
+      <circle cx="12" cy="10" r="7" fill="#6ba7cd"/>
+      <rect x="6" y="19" width="12" height="58" rx="4" fill="#6ba7cd"/>
+      <text x="12" y="89" text-anchor="middle" fill="#8cd3ff" style="font:600 10px 'DM Mono', monospace;">x₍₃₎</text>
+    </g>
+
+    <!-- Fig 4 CENTRAL: MEDIANA (h=66) RESALTADA -->
+    <g transform="translate(170, 50)">
+      <!-- Marco iluminado -->
+      <rect x="-8" y="0" width="56" height="122" rx="8" fill="rgba(244,210,103,0.12)" stroke="#f4d267" stroke-width="2" stroke-dasharray="4 2"/>
+      <circle cx="20" cy="16" r="8" fill="#f4d267"/>
+      <rect x="13" y="26" width="14" height="66" rx="4" fill="#f4d267"/>
+      <text x="20" y="108" text-anchor="middle" fill="#f4d267" style="font:800 11px 'DM Mono', monospace;">x₍₄₎</text>
+      <!-- Insignia Mediana -->
+      <rect x="-16" y="-18" width="72" height="18" rx="4" fill="#f4d267"/>
+      <text x="20" y="-5" text-anchor="middle" fill="#071827" style="font:800 9.5px 'DM Mono', monospace;">MEDIANA</text>
+    </g>
+
+    <!-- Fig 5 (h=74) -->
+    <g transform="translate(242, 53)">
+      <circle cx="12" cy="10" r="7" fill="#6ba7cd"/>
+      <rect x="6" y="19" width="12" height="74" rx="4" fill="#6ba7cd"/>
+      <text x="12" y="105" text-anchor="middle" fill="#8cd3ff" style="font:600 10px 'DM Mono', monospace;">x₍₅₎</text>
+    </g>
+    <!-- Fig 6 (h=82) -->
+    <g transform="translate(288, 45)">
+      <circle cx="12" cy="10" r="7" fill="#6ba7cd"/>
+      <rect x="6" y="19" width="12" height="82" rx="4" fill="#6ba7cd"/>
+      <text x="12" y="113" text-anchor="middle" fill="#8cd3ff" style="font:600 10px 'DM Mono', monospace;">x₍₆₎</text>
+    </g>
+    <!-- Fig 7 (h=90) -->
+    <g transform="translate(334, 37)">
+      <circle cx="12" cy="10" r="7" fill="#6ba7cd"/>
+      <rect x="6" y="19" width="12" height="90" rx="4" fill="#6ba7cd"/>
+      <text x="12" y="121" text-anchor="middle" fill="#8cd3ff" style="font:600 10px 'DM Mono', monospace;">x₍₇₎</text>
+    </g>
+
+    <!-- Llaves/cintillos de 50% -->
+    <path d="M 38,185 L 140,185" stroke="#8cd3ff" stroke-width="1.5"/>
+    <text x="89" y="198" text-anchor="middle" fill="#8cd3ff" style="font:600 10px 'DM Mono', monospace;">50% MENOR (3 datos)</text>
+
+    <path d="M 254,185 L 356,185" stroke="#8cd3ff" stroke-width="1.5"/>
+    <text x="305" y="198" text-anchor="middle" fill="#8cd3ff" style="font:600 10px 'DM Mono', monospace;">50% MAYOR (3 datos)</text>
+
+    <text x="230" y="215" text-anchor="middle" fill="#c8d9e1" style="font:500 10.5px Manrope, sans-serif;">Posición: (7+1)/2 = 4ª observación exactamente.</text>
+  </g>
+
+  <!-- PANEL DERECHO: DEMOSTRACIÓN DE ROBUSTEZ ANTE OUTLIERS -->
+  <g class="svg-group" transform="translate(498, 75)" filter="url(#medGlow)">
+    <rect width="458" height="225" rx="12" fill="url(#medCardBg)" stroke="#f4d267" stroke-width="1.3"/>
+    
+    <rect x="14" y="14" width="240" height="22" rx="4" fill="rgba(244,210,103,0.18)"/>
+    <text x="20" y="29" fill="#f4d267" style="font:700 10px 'DM Mono', monospace;">PRUEBA DE ROBUSTEZ · VALOR ATÍPICO</text>
+
+    <!-- Tarjeta comparativa de impacto -->
+    <g transform="translate(18, 48)">
+      <!-- Fila 1: La Mediana -->
+      <rect width="422" height="66" rx="8" fill="#071827" stroke="#a8e6bd" stroke-width="1.2"/>
+      <circle cx="28" cy="33" r="14" fill="rgba(168,230,189,0.15)"/>
+      <text x="28" y="38" text-anchor="middle" fill="#a8e6bd" style="font:900 16px Manrope, sans-serif;">✓</text>
+      <text x="54" y="26" fill="#a8e6bd" style="font:700 12px 'DM Mono', monospace;">MEDIANA (ROBUSTA)</text>
+      <text x="54" y="44" fill="#ffffff" style="font:700 13px Manrope, sans-serif;">Permanece inalterada en x₍₄₎</text>
+      <text x="54" y="58" fill="#c8d9e1" style="font:500 11px Manrope, sans-serif;">Si el último dato pasa de 90 a 10 000, la posición central sigue siendo 1.</text>
+    </g>
+
+    <g transform="translate(18, 124)">
+      <!-- Fila 2: La Media -->
+      <rect width="422" height="66" rx="8" fill="#071827" stroke="#ff896d" stroke-width="1.2"/>
+      <circle cx="28" cy="33" r="14" fill="rgba(255,137,109,0.15)"/>
+      <text x="28" y="38" text-anchor="middle" fill="#ff896d" style="font:900 16px Manrope, sans-serif;">⚠</text>
+      <text x="54" y="26" fill="#ff896d" style="font:700 12px 'DM Mono', monospace;">MEDIA ARITMÉTICA (SENSIBLE)</text>
+      <text x="54" y="44" fill="#ffffff" style="font:700 13px Manrope, sans-serif;">Se desplaza drásticamente hacia el extremo</text>
+      <text x="54" y="58" fill="#c8d9e1" style="font:500 11px Manrope, sans-serif;">Al sumar todos los datos, un solo outlier contamina el promedio total.</text>
+    </g>
+
+    <!-- Regla mnemotécnica -->
+    <text x="229" y="210" text-anchor="middle" fill="#f4d267" style="font:700 11px 'DM Mono', monospace;">REGLA: Con datos muy asimétricos o outliers, reporta la Mediana.</text>
+  </g>
+</svg>
+      <figcaption>Demostración gráfica de la mediana: al ser una medida puramente posicional, permanece inalterada ante modificaciones extremas en las colas (propiedad de robustez o resistencia).</figcaption>
+    </figure>
+
+    <div class="exercise">
+      <p class="eyebrow">Mismo caso de clase</p><h3>Libros leídos por 20 personas</h3>
+      <p class="data-strip">Ordenados: 0×6, 1×5, 2×4, 3×1, 4×2, 5×1, 6×1 &nbsp;(N = 20)</p>
+      <ol class="steps">
+        <li>N = 20 es par → promedia las posiciones 10 y 11.</li>
+        <li>Los seis primeros valores son 0 (posiciones 1–6); los siguientes cinco son 1 (posiciones 7–11). Las posiciones 10 y 11 caen ambas en el valor 1.</li>
+        <li><span class="formula">Me = (1 + 1) / 2 = 1</span></li>
+      </ol>
+      <p class="prompt" style="margin-top:16px">La media de este conjunto era 1.75. Si se agrega el dato de una alumna que leyó 7 libros (N=21, impar), ¿qué pasa con la mediana?</p>
+      <div class="choices" data-check="mediana-agrega">
+        <button class="choice" type="button" data-answer="ok" data-feedback="Correcto. Con N=21 la mediana es el valor en la posición (21+1)/2 = 11, que sigue siendo 1: agregar un dato extremo no mueve la posición central.">Sigue siendo 1</button>
+        <button class="choice" type="button" data-answer="no" data-feedback="El nuevo dato (7) se añade al final de la lista ordenada; no altera qué valor ocupa la posición 11. La mediana sigue siendo 1.">Sube, porque el nuevo dato es alto</button>
+      </div>
+      <p id="mediana-agrega-feedback" class="feedback" aria-live="polite"></p>
+      <p class="hint">Comparación completa: moda = 0, mediana = 1, media = 1.75. El orden Mo &lt; Me &lt; x̄ confirma el sesgo hacia la derecha (unas pocas personas leen muchos libros).</p>
+    </div>
+
+    <div class="exercise">
+      <p class="eyebrow">Ejercicios de clase</p><h3>Propiedades y lectura de gráficos</h3>
+      <p class="prompt">1. Una profesora califica a 54 estudiantes: mediana = 7.1, media = 6.9. ¿Qué pasa con cada estadístico si…</p>
+      <div class="table-wrap"><table class="light-table"><thead><tr><th>Cambio</th><th>Nueva media</th><th>Nueva mediana</th></tr></thead><tbody>
+        <tr><td>a) Sumar 1 punto a todos</td><td>6.9 + 1 = 7.9</td><td>7.1 + 1 = 8.1</td></tr>
+        <tr><td>b) Incrementar 20% a todos</td><td>6.9 × 1.2 = 8.28</td><td>7.1 × 1.2 = 8.52</td></tr>
+        <tr><td>c) Descartar 3 notas más altas y 3 más bajas</td><td colspan="2">No se puede calcular el nuevo valor exacto sin los datos originales. La mediana suele mantenerse cercana a 7.1 (es robusta a los extremos); la media puede moverse en cualquier dirección según qué tan simétricos sean los valores descartados.</td></tr>
+      </tbody></table></div>
+      <p class="hint">(a) y (b) aplican directamente las propiedades de transformación lineal: sumar una constante desplaza mediana y media por igual; multiplicar por una constante las escala por igual. (c) no es una transformación lineal de todo el conjunto, así que no hay fórmula directa.</p>
+
+      <p class="prompt" style="margin-top:22px">2. Lectura de una ojiva (curva de frecuencia acumulada) del examen de admisión, con notas de 0 a 8:</p>
+      <figure class="visual-board" style="margin-top:14px;margin-bottom:18px">
+        <svg viewBox="0 0 980 365" role="img" aria-labelledby="ojiva-title ojiva-desc" class="svg-interactive">
+  <title id="ojiva-title">Ojiva acumulada del examen de admisión 2024 (ESEN)</title>
+  <desc id="ojiva-desc">Curva de frecuencia relativa acumulada que ilustra la lectura gráfica de percentiles y la nota mediana aproximada de 4.0.</desc>
+  <defs>
+    <linearGradient id="ojivaCurveGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#ff896d"/>
+      <stop offset="50%" stop-color="#f4d267"/>
+      <stop offset="100%" stop-color="#8cd3ff"/>
+    </linearGradient>
+    <linearGradient id="ojivaAreaGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f4d267" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#f4d267" stop-opacity="0.01"/>
+    </linearGradient>
+    <filter id="ojivaGlow" x="-5%" y="-10%" width="110%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#000" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <text x="24" y="30" class="svg-kicker">LÁMINA 18 DE CLASE · LECTURA GRÁFICA DIRECTA</text>
+  <text x="24" y="58" class="svg-title">Ojiva del Examen de Admisión: frecuencias acumuladas y percentiles.</text>
+
+  <!-- ÁREA DEL GRÁFICO (Izquierda, x de 80 a 560, y de 85 a 285) -->
+  <!-- Origen: Nota 0 en x=80, Nota 8 en x=560. Paso de 60px por punto de nota -->
+  <!-- Eje Y: 0.0 en y=285, 1.0 en y=85. Altura = 200px (20px por cada 0.1 de fr.acum) -->
+  <g class="svg-group" transform="translate(10, 0)">
+    <!-- Cuadrícula horizontal de frecuencias acumuladas (0.0 a 1.0) -->
+    <g stroke="#ffffff" stroke-opacity="0.08" stroke-width="1">
+      <line x1="80" y1="285" x2="560" y2="285"/> <!-- 0.0 -->
+      <line x1="80" y1="265" x2="560" y2="265"/> <!-- 0.1 -->
+      <line x1="80" y1="245" x2="560" y2="245"/> <!-- 0.2 -->
+      <line x1="80" y1="225" x2="560" y2="225"/> <!-- 0.3 -->
+      <line x1="80" y1="205" x2="560" y2="205"/> <!-- 0.4 -->
+      <line x1="80" y1="185" x2="560" y2="185"/> <!-- 0.5 MEDIANA -->
+      <line x1="80" y1="165" x2="560" y2="165"/> <!-- 0.6 -->
+      <line x1="80" y1="145" x2="560" y2="145"/> <!-- 0.7 -->
+      <line x1="80" y1="125" x2="560" y2="125"/> <!-- 0.8 -->
+      <line x1="80" y1="105" x2="560" y2="105"/> <!-- 0.9 -->
+      <line x1="80" y1="85"  x2="560" y2="85"/>  <!-- 1.0 -->
+    </g>
+
+    <!-- Cuadrícula vertical de notas (0 a 8) -->
+    <g stroke="#ffffff" stroke-opacity="0.08" stroke-width="1">
+      <line x1="80"  y1="85" x2="80"  y2="285"/> <!-- 0 -->
+      <line x1="140" y1="85" x2="140" y2="285"/> <!-- 1 -->
+      <line x1="200" y1="85" x2="200" y2="285"/> <!-- 2 -->
+      <line x1="260" y1="85" x2="260" y2="285"/> <!-- 3 -->
+      <line x1="320" y1="85" x2="320" y2="285"/> <!-- 4 -->
+      <line x1="380" y1="85" x2="380" y2="285"/> <!-- 5 -->
+      <line x1="440" y1="85" x2="440" y2="285"/> <!-- 6 -->
+      <line x1="500" y1="85" x2="500" y2="285"/> <!-- 7 -->
+      <line x1="560" y1="85" x2="560" y2="285"/> <!-- 8 -->
+    </g>
+
+    <!-- Rótulos del Eje Y (Frecuencia Acumulada) -->
+    <g fill="#c8d9e1" text-anchor="end" style="font:600 11px 'DM Mono', monospace;">
+      <text x="70" y="289">0.0</text>
+      <text x="70" y="249">0.2</text>
+      <text x="70" y="209">0.4</text>
+      <text x="70" y="189" fill="#f4d267" font-weight="800">0.5</text>
+      <text x="70" y="149">0.7</text>
+      <text x="70" y="115" fill="#ff896d">0.85</text>
+      <text x="70" y="89">1.0</text>
+    </g>
+    <text x="25" y="185" fill="#8cd3ff" text-anchor="middle" transform="rotate(-90, 25, 185)" style="font:700 11px 'DM Mono', monospace;">Frecuencia Acumulada (F)</text>
+
+    <!-- Rótulos del Eje X (Notas) -->
+    <g fill="#c8d9e1" text-anchor="middle" style="font:600 11.5px 'DM Mono', monospace;">
+      <text x="80"  y="304">0</text>
+      <text x="140" y="304">1</text>
+      <text x="200" y="304">2</text>
+      <text x="260" y="304" fill="#ff896d" font-weight="700">3</text>
+      <text x="320" y="304" fill="#f4d267" font-weight="800">4</text>
+      <text x="380" y="304">5</text>
+      <text x="440" y="304" fill="#a8e6bd" font-weight="700">6</text>
+      <text x="500" y="304">7</text>
+      <text x="560" y="304">8</text>
+    </g>
+    <text x="320" y="324" fill="#8cd3ff" text-anchor="middle" style="font:700 12px 'DM Mono', monospace;">Nota obtenida en el examen de admisión</text>
+
+    <!-- Franja sombreada entre notas 4 y 6 (Pregunta c: 35%) -->
+    <path d="M 320,185 C 340,165 370,140 440,115 L 440,285 L 320,285 Z" fill="url(#ojivaAreaGrad)"/>
+
+    <!-- CURVA SIGMOIDE EN S EXACTA -->
+    <!-- Puntos: (80,281) [0, 0.02], (140,275) [1, 0.05], (200,265) [2, 0.10], (260,245) [3, 0.20], (320,185) [4, 0.50], (380,135) [5, 0.75], (440,115) [6, 0.85], (500,95) [7, 0.95], (560,85) [8, 1.00] -->
+    <path d="M 80,281 C 120,280 180,270 230,255 C 260,245 285,225 320,185 C 355,145 390,125 440,115 C 490,105 530,88 560,85" fill="none" stroke="url(#ojivaCurveGrad)" stroke-width="4"/>
+
+    <!-- LÍNEAS GUÍA DE PREGUNTAS -->
+    <!-- Pregunta a: Nota 3 -> F = 0.20 -->
+    <g stroke="#ff896d" stroke-width="1.8" stroke-dasharray="4 3">
+      <line x1="260" y1="245" x2="260" y2="285"/>
+      <line x1="80"  y1="245" x2="260" y2="245"/>
+    </g>
+    <circle cx="260" cy="245" r="5" fill="#ff896d" stroke="#071827" stroke-width="2"/>
+
+    <!-- Pregunta d: Mediana F = 0.50 -> Nota = 4.0 -->
+    <g stroke="#f4d267" stroke-width="2.2" stroke-dasharray="4 3">
+      <line x1="320" y1="185" x2="320" y2="285"/>
+      <line x1="80"  y1="185" x2="320" y2="185"/>
+    </g>
+    <circle cx="320" cy="185" r="6" fill="#f4d267" stroke="#071827" stroke-width="2"/>
+
+    <!-- Pregunta b: Nota 6 -> F = 0.85 -->
+    <g stroke="#a8e6bd" stroke-width="1.8" stroke-dasharray="4 3">
+      <line x1="440" y1="115" x2="440" y2="285"/>
+      <line x1="80"  y1="115" x2="440" y2="115"/>
+    </g>
+    <circle cx="440" cy="115" r="5" fill="#a8e6bd" stroke="#071827" stroke-width="2"/>
+  </g>
+
+  <!-- PANEL DERECHO: TARJETAS DE LECTURA VISUAL RESUELTA -->
+  <g class="svg-group" transform="translate(595, 75)" filter="url(#ojivaGlow)">
+    <rect width="360" height="252" rx="12" fill="#0c2335" stroke="#1769aa" stroke-width="1.3"/>
+    
+    <rect x="14" y="12" width="180" height="20" rx="4" fill="rgba(140,211,255,0.15)"/>
+    <text x="20" y="26" fill="#8cd3ff" style="font:700 9.5px 'DM Mono', monospace;">RESOLUCIÓN DE LECTURA VISUAL</text>
+
+    <!-- Item a -->
+    <g transform="translate(14, 40)">
+      <rect width="332" height="42" rx="6" fill="#071827" stroke="#ff896d" stroke-width="1"/>
+      <text x="10" y="18" fill="#ff896d" style="font:700 10.5px 'DM Mono', monospace;">a) % con nota menor a 3</text>
+      <text x="10" y="34" fill="#ffffff" style="font:600 12px Manrope, sans-serif;">F(3) = 0.20 → <strong>20% de los postulantes</strong></text>
+    </g>
+
+    <!-- Item d (Mediana destacada) -->
+    <g transform="translate(14, 88)">
+      <rect width="332" height="46" rx="6" fill="#071827" stroke="#f4d267" stroke-width="1.8"/>
+      <text x="10" y="18" fill="#f4d267" style="font:800 11px 'DM Mono', monospace;">d) NOTA MEDIANA (F = 0.50)</text>
+      <text x="10" y="36" fill="#ffffff" style="font:700 13px Manrope, sans-serif;">Cruce en F = 0.50 → <strong>Nota ≈ 4.0 puntos</strong></text>
+    </g>
+
+    <!-- Item b -->
+    <g transform="translate(14, 140)">
+      <rect width="332" height="42" rx="6" fill="#071827" stroke="#a8e6bd" stroke-width="1"/>
+      <text x="10" y="18" fill="#a8e6bd" style="font:700 10.5px 'DM Mono', monospace;">b) % con nota mayor a 6</text>
+      <text x="10" y="34" fill="#ffffff" style="font:600 12px Manrope, sans-serif;">1.00 − F(6) = 1.00 − 0.85 = <strong>15%</strong></text>
+    </g>
+
+    <!-- Item c -->
+    <g transform="translate(14, 188)">
+      <rect width="332" height="42" rx="6" fill="#071827" stroke="#8cd3ff" stroke-width="1"/>
+      <text x="10" y="18" fill="#8cd3ff" style="font:700 10.5px 'DM Mono', monospace;">c) % con nota entre 4 y 6</text>
+      <text x="10" y="34" fill="#ffffff" style="font:600 12px Manrope, sans-serif;">F(6) − F(4) = 0.85 − 0.50 = <strong>35%</strong></text>
+    </g>
+  </g>
+</svg>
+        <figcaption>Ojiva del Examen de Admisión 2024 (ESEN). Las líneas punteadas muestran el cruce directo entre notas y frecuencias acumuladas para responder las 4 preguntas de la clase.</figcaption>
+      </figure>
+      <div class="table-wrap"><table class="light-table"><thead><tr><th>Pregunta</th><th>Lectura aproximada de la curva</th></tr></thead><tbody>
+        <tr><td>a) % con nota menor a 3</td><td>≈ 20%</td></tr>
+        <tr><td>b) % con nota mayor a 6</td><td>≈ 15%</td></tr>
+        <tr><td>c) % entre 4 y 6</td><td>≈ 35%</td></tr>
+        <tr><td>d) Nota mediana</td><td>≈ 4.0 (donde la curva cruza fr.acum = 0.5)</td></tr>
+      </tbody></table></div>
+      <p class="hint">Estos valores son una lectura visual aproximada de la forma de la curva mostrada en clase (una ojiva en S que cruza 0.5 alrededor de nota 4). Confírmalos contra tu propia copia de la gráfica antes del control: leer una ojiva con precisión requiere ubicar exactamente dónde la curva cruza cada línea horizontal.</p>
+    </div>
+
+    <div class="exercise">
+      <p class="eyebrow">Ejercicio de clase · datos agrupados</p><h3>Misma tabla de edades, ahora la mediana</h3>
+      <div class="table-wrap"><table class="light-table"><thead><tr><th>Edad</th><th>fi</th><th>F acumulada</th></tr></thead><tbody>
+        <tr><td>[0, 4)</td><td>20</td><td>20</td></tr>
+        <tr><td>[4, 8)</td><td>50</td><td>70</td></tr>
+        <tr><td>[8, 12)</td><td>60</td><td>130</td></tr>
+        <tr><td>[12, 16)</td><td>40</td><td>170</td></tr>
+        <tr><td>[16, 20]</td><td>30</td><td>200</td></tr>
+      </tbody></table></div>
+      <ol class="steps">
+        <li>(N+1)/2 = 201/2 = 100.5. Busca la primera clase cuya F acumulada supere 100.5: es [8, 12), porque 70 &lt; 100.5 ≤ 130.</li>
+        <li>Identifica Linf=8, C=4, f.acum(k−1)=70, f(k)=60.</li>
+        <li><span class="formula">Me = 8 + 4 × [(100.5 − 70) / 60] = 8 + 4×0.508 ≈ 10.03 años</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <section role="tabpanel" id="moda" aria-labelledby="tab-moda" tabindex="0">
+    <div class="section-head"><div><p class="eyebrow">04 · Moda</p><h2>El único centro que también sirve para categorías.</h2></div><p>Para datos no agrupados se obtiene por simple inspección; para datos agrupados hay que ubicar la clase modal.</p></div>
+
+    <div class="grid-2">
+      <article class="card"><span class="label">Datos no agrupados</span><h3>Por inspección directa</h3><p>Es el valor que se repite más veces. Puede no existir (todos los valores distintos), o haber más de uno (bimodal, multimodal).</p></article>
+      <article class="card"><span class="label">Datos agrupados</span><h3>Clase modal</h3><div class="formula">Mo = Linf(k) + C · (fk − fk−1) / [(fk − fk−1) + (fk − fk+1)]</div><p>k es la clase con mayor frecuencia (la clase modal); fk−1 y fk+1 son las frecuencias de las clases inmediatamente anterior y siguiente.</p></article>
+    </div>
+
+    <div class="exercise">
+      <p class="eyebrow">Mismo caso de clase</p><h3>Libros leídos por 20 personas</h3>
+      <figure class="visual-board" style="margin:16px 0">
+        <svg viewBox="0 0 980 340" role="img" aria-labelledby="libros-title libros-desc" class="svg-interactive">
+  <title id="libros-title">Distribución de libros leídos: Moda, Mediana y Media</title>
+  <desc id="libros-desc">Histograma vectorial completo del caso de 20 lectores que destaca la barra modal en cero y compara las posiciones relativas de moda, mediana y media.</desc>
+  <defs>
+    <linearGradient id="barModalGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffd56b"/>
+      <stop offset="100%" stop-color="#d99914"/>
+    </linearGradient>
+    <linearGradient id="barStdGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#2d82c2"/>
+      <stop offset="100%" stop-color="#124973"/>
+    </linearGradient>
+    <filter id="librosShadow" x="-5%" y="-10%" width="110%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#000" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <text x="24" y="30" class="svg-kicker">CASO FUENTE DE CLASE · 20 PERSONAS ENCUESTADAS</text>
+  <text x="24" y="58" class="svg-title">Distribución de frecuencia: determinación de la Moda e impacto del sesgo.</text>
+
+  <!-- ÁREA DE GRÁFICO (x de 70 a 600, y de 85 a 265) -->
+  <!-- Eje Y: Frecuencia 0 a 7. Altura 180px -> 25.7px por unidad de frecuencia -->
+  <!-- Eje X: 7 categorías (0, 1, 2, 3, 4, 5, 6 libros). Cada barra width=52, gap=20 -->
+  <g class="svg-group" transform="translate(10, 0)">
+    <!-- Cuadrícula horizontal -->
+    <g stroke="#ffffff" stroke-opacity="0.08" stroke-width="1">
+      <line x1="70" y1="265" x2="590" y2="265"/> <!-- 0 -->
+      <line x1="70" y1="235" x2="590" y2="235"/> <!-- 1 -->
+      <line x1="70" y1="205" x2="590" y2="205"/> <!-- 2 -->
+      <line x1="70" y1="175" x2="590" y2="175"/> <!-- 3 -->
+      <line x1="70" y1="145" x2="590" y2="145"/> <!-- 4 -->
+      <line x1="70" y1="115" x2="590" y2="115"/> <!-- 5 -->
+      <line x1="70" y1="85"  x2="590" y2="85"/>  <!-- 6 (Máx) -->
+    </g>
+
+    <!-- Rótulos eje Y -->
+    <g fill="#c8d9e1" text-anchor="end" style="font:600 11px 'DM Mono', monospace;">
+      <text x="60" y="269">0</text>
+      <text x="60" y="239">1</text>
+      <text x="60" y="209">2</text>
+      <text x="60" y="179">3</text>
+      <text x="60" y="149">4</text>
+      <text x="60" y="119">5</text>
+      <text x="60" y="89" fill="#f4d267" font-weight="800">6</text>
+    </g>
+    <text x="25" y="175" fill="#8cd3ff" text-anchor="middle" transform="rotate(-90, 25, 175)" style="font:700 11px 'DM Mono', monospace;">Frecuencia (fi)</text>
+
+    <!-- BARRAS -->
+    <!-- Barra 0: fi = 6 (MODA) en x = 85 -->
+    <g class="svg-group">
+      <rect x="85" y="85" width="54" height="180" rx="6" fill="url(#barModalGrad)" stroke="#ffe69a" stroke-width="1.8"/>
+      <!-- Conteo en la barra -->
+      <circle cx="112" cy="105" r="12" fill="#071827"/>
+      <text x="112" y="110" text-anchor="middle" fill="#f4d267" style="font:800 13px 'DM Mono', monospace;">6</text>
+      <text x="112" y="285" text-anchor="middle" fill="#f4d267" style="font:800 14px 'DM Mono', monospace;">0</text>
+      <!-- Badge de Moda -->
+      <rect x="82" y="58" width="60" height="20" rx="4" fill="#f4d267"/>
+      <text x="112" y="72" text-anchor="middle" fill="#071827" style="font:800 10px 'DM Mono', monospace;">MODA</text>
+    </g>
+
+    <!-- Barra 1: fi = 5 en x = 157 -->
+    <g class="svg-group">
+      <rect x="157" y="115" width="54" height="150" rx="6" fill="url(#barStdGrad)" stroke="#8cd3ff" stroke-width="1.2"/>
+      <circle cx="184" cy="135" r="12" fill="#071827"/>
+      <text x="184" y="140" text-anchor="middle" fill="#8cd3ff" style="font:700 13px 'DM Mono', monospace;">5</text>
+      <text x="184" y="285" text-anchor="middle" fill="#c8d9e1" style="font:700 13px 'DM Mono', monospace;">1</text>
+    </g>
+
+    <!-- Barra 2: fi = 4 en x = 229 -->
+    <g class="svg-group">
+      <rect x="229" y="145" width="54" height="120" rx="6" fill="url(#barStdGrad)" stroke="#8cd3ff" stroke-width="1.2"/>
+      <circle cx="256" cy="165" r="12" fill="#071827"/>
+      <text x="256" y="170" text-anchor="middle" fill="#8cd3ff" style="font:700 13px 'DM Mono', monospace;">4</text>
+      <text x="256" y="285" text-anchor="middle" fill="#c8d9e1" style="font:700 13px 'DM Mono', monospace;">2</text>
+    </g>
+
+    <!-- Barra 3: fi = 1 en x = 301 -->
+    <g class="svg-group">
+      <rect x="301" y="235" width="54" height="30" rx="6" fill="url(#barStdGrad)" stroke="#8cd3ff" stroke-width="1.2"/>
+      <text x="328" y="225" text-anchor="middle" fill="#8cd3ff" style="font:700 12px 'DM Mono', monospace;">1</text>
+      <text x="328" y="285" text-anchor="middle" fill="#c8d9e1" style="font:700 13px 'DM Mono', monospace;">3</text>
+    </g>
+
+    <!-- Barra 4: fi = 2 en x = 373 -->
+    <g class="svg-group">
+      <rect x="373" y="205" width="54" height="60" rx="6" fill="url(#barStdGrad)" stroke="#8cd3ff" stroke-width="1.2"/>
+      <text x="400" y="195" text-anchor="middle" fill="#8cd3ff" style="font:700 12px 'DM Mono', monospace;">2</text>
+      <text x="400" y="285" text-anchor="middle" fill="#c8d9e1" style="font:700 13px 'DM Mono', monospace;">4</text>
+    </g>
+
+    <!-- Barra 5: fi = 1 en x = 445 -->
+    <g class="svg-group">
+      <rect x="445" y="235" width="54" height="30" rx="6" fill="url(#barStdGrad)" stroke="#8cd3ff" stroke-width="1.2"/>
+      <text x="472" y="225" text-anchor="middle" fill="#8cd3ff" style="font:700 12px 'DM Mono', monospace;">1</text>
+      <text x="472" y="285" text-anchor="middle" fill="#c8d9e1" style="font:700 13px 'DM Mono', monospace;">5</text>
+    </g>
+
+    <!-- Barra 6: fi = 1 (Outlier) en x = 517 -->
+    <g class="svg-group">
+      <rect x="517" y="235" width="54" height="30" rx="6" fill="#172a46" stroke="#ff896d" stroke-width="1.8"/>
+      <text x="544" y="225" text-anchor="middle" fill="#ff896d" style="font:700 12px 'DM Mono', monospace;">1</text>
+      <text x="544" y="285" text-anchor="middle" fill="#ff896d" style="font:700 13px 'DM Mono', monospace;">6</text>
+      <text x="544" y="253" text-anchor="middle" fill="#ff896d" style="font:600 9px 'DM Mono', monospace;">OUTLIER</text>
+    </g>
+
+    <!-- LÍNEAS VERTICALES COMPARATIVAS -->
+    <!-- Mediana: x = 1 (centro de barra 1 = 184) -->
+    <line x1="184" y1="75" x2="184" y2="265" stroke="#f4d267" stroke-width="2" stroke-dasharray="4 3"/>
+    <rect x="156" y="58" width="56" height="18" rx="4" fill="#f4d267"/>
+    <text x="184" y="71" text-anchor="middle" fill="#071827" style="font:800 9.5px 'DM Mono', monospace;">Me = 1</text>
+
+    <!-- Media: x = 1.75 (posición interpolada entre barra 1 y 2 = 184 + 0.75*72 = 238) -->
+    <line x1="238" y1="65" x2="238" y2="265" stroke="#ff896d" stroke-width="2.2" stroke-dasharray="4 3"/>
+    <rect x="210" y="48" width="56" height="18" rx="4" fill="#ff896d"/>
+    <text x="238" y="61" text-anchor="middle" fill="#071827" style="font:800 9.5px 'DM Mono', monospace;">x̄ = 1.75</text>
+
+    <text x="330" y="315" fill="#8cd3ff" text-anchor="middle" style="font:700 12px 'DM Mono', monospace;">Número de libros leídos en el año</text>
+  </g>
+
+  <!-- PANEL DERECHO: COMPARATIVA EDITORIAL -->
+  <g class="svg-group" transform="translate(620, 75)" filter="url(#librosShadow)">
+    <rect width="335" height="235" rx="12" fill="#0c2335" stroke="#1769aa" stroke-width="1.3"/>
+    
+    <rect x="14" y="14" width="200" height="20" rx="4" fill="rgba(244,210,103,0.15)"/>
+    <text x="20" y="28" fill="#f4d267" style="font:700 9.5px 'DM Mono', monospace;">DIAGNÓSTICO DE ASIMETRÍA</text>
+
+    <!-- Orden de las tres medidas -->
+    <g transform="translate(14, 46)">
+      <rect width="307" height="48" rx="6" fill="#071827" stroke="#f4d267" stroke-width="1.5"/>
+      <text x="14" y="20" fill="#f4d267" style="font:800 11px 'DM Mono', monospace;">ORDEN COMPLETO (SESGO DERECHA)</text>
+      <text x="14" y="38" fill="#ffffff" style="font:800 14px 'DM Mono', monospace;">Mo (0) &lt; Me (1) &lt; x̄ (1.75)</text>
+    </g>
+
+    <!-- Explicación pedagógica -->
+    <g transform="translate(14, 106)">
+      <text x="0" y="16" fill="#8cd3ff" style="font:700 11.5px Manrope, sans-serif;">¿Por qué la media es 1.75 si 6 leyeron 0?</text>
+      <text x="0" y="36" fill="#c8d9e1" style="font:500 11px Manrope, sans-serif;">La persona que leyó 6 libros y las 2 que</text>
+      <text x="0" y="52" fill="#c8d9e1" style="font:500 11px Manrope, sans-serif;">leyeron 4 actúan como un contrapeso largo,</text>
+      <text x="0" y="68" fill="#c8d9e1" style="font:500 11px Manrope, sans-serif;">arrastrando la media hacia la derecha.</text>
+      <text x="0" y="96" fill="#a8e6bd" style="font:600 11px 'DM Mono', monospace;">✓ Moda (0) y Mediana (1) son más representativas.</text>
+    </g>
+  </g>
+</svg>
+        <figcaption>La barra modal (0 libros) tiene la mayor frecuencia (6 personas). La media (1.75) es arrastrada a la derecha por los lectores de 4, 5 y 6 libros, cumpliéndose Mo &lt; Me &lt; x̄.</figcaption>
+      </figure>
+      <p class="prompt" style="margin-top:16px">¿Cuál es la moda, y cómo se compara con la media (1.75) y la mediana (1)?</p>
+      <div class="choices" data-check="moda-libros">
+        <button class="choice" type="button" data-answer="ok" data-feedback="Correcto. Moda = 0 (la barra más alta), y el orden Mo(0) < Me(1) < x̄(1.75) confirma un sesgo hacia la derecha: la mayoría leyó pocos libros, pero unos pocos leyeron muchos y arrastran la media hacia arriba.">Moda = 0; se cumple Mo &lt; Me &lt; x̄</button>
+        <button class="choice" type="button" data-answer="no" data-feedback="1 es el segundo valor más frecuente (5 veces), pero 0 aparece 6 veces: la moda es 0.">Moda = 1, igual que la mediana</button>
+      </div>
+      <p id="moda-libros-feedback" class="feedback" aria-live="polite"></p>
+    </div>
+
+    <div class="exercise">
+      <p class="eyebrow">Ejercicio de clase · datos agrupados</p><h3>Misma tabla de edades, ahora la moda</h3>
+      <div class="table-wrap"><table class="light-table"><thead><tr><th>Edad</th><th>fi</th></tr></thead><tbody>
+        <tr><td>[0, 4)</td><td>20</td></tr>
+        <tr><td>[4, 8)</td><td>50</td></tr>
+        <tr><td>[8, 12)</td><td><strong>60 ← clase modal</strong></td></tr>
+        <tr><td>[12, 16)</td><td>40</td></tr>
+        <tr><td>[16, 20]</td><td>30</td></tr>
+      </tbody></table></div>
+      <ol class="steps">
+        <li>La clase con mayor frecuencia es [8, 12), con fk=60. Linf=8, C=4, fk−1=50, fk+1=40.</li>
+        <li><span class="formula">Mo = 8 + 4 × (60−50) / [(60−50)+(60−40)] = 8 + 4 × 10/30 ≈ 9.33 años</span></li>
+      </ol>
+      <p class="hint">Compara: media = 10.2, mediana ≈ 10.03, moda ≈ 9.33. El orden Mo &lt; Me &lt; x̄ vuelve a aparecer: esta distribución de edades también tiene cola a la derecha.</p>
+    </div>
+  </section>
+
+  <section role="tabpanel" id="practica" aria-labelledby="tab-practica" tabindex="0">
+    <div class="section-head"><div><p class="eyebrow">05 · Práctica integrada</p><h2>Ahora calcula las tres medidas para el mismo conjunto agrupado.</h2></div><p>Desarrolla tú primero la tabla completa; luego revisa la propuesta de resolución.</p></div>
+    <div class="workbook">
+      <span class="label">Caso fuente · peso de un grupo de bachilleres, en libras</span>
+      <h3>Media, mediana y moda de datos agrupados con ancho de clase constante</h3>
+      <div class="table-wrap"><table class="light-table"><thead><tr><th>Peso (libras)</th><th>Número de bachilleres</th></tr></thead><tbody>
+        <tr><td>96 — 118.8</td><td>17</td></tr>
+        <tr><td>118.8 — 141.6</td><td>32</td></tr>
+        <tr><td>141.6 — 164.4</td><td>21</td></tr>
+        <tr><td>164.4 — 187.2</td><td>8</td></tr>
+        <tr><td>187.2 — 210</td><td>2</td></tr>
+      </tbody></table></div>
+      <ol class="steps">
+        <li>Calcula N y el ancho de clase C (aquí es constante: C = 22.8).</li>
+        <li>Calcula el punto medio de cada clase y multiplícalo por fi para obtener la media.</li>
+        <li>Ubica la clase mediana con (N+1)/2 y la clase modal (la de mayor fi).</li>
+        <li>Aplica las tres fórmulas de esta guía.</li>
+      </ol>
+      <details>
+        <summary>Ver propuesta de resolución</summary>
+        <p><strong>N = 80.</strong> Puntos medios: 107.4, 130.2, 153.0, 175.8, 198.6.</p>
+        <div class="table-wrap"><table><thead><tr><th>Clase</th><th>fi</th><th>PMi</th><th>fi·PMi</th><th>F acum.</th></tr></thead><tbody>
+          <tr><td>96—118.8</td><td>17</td><td>107.4</td><td>1 825.8</td><td>17</td></tr>
+          <tr><td>118.8—141.6</td><td>32</td><td>130.2</td><td>4 166.4</td><td>49</td></tr>
+          <tr><td>141.6—164.4</td><td>21</td><td>153.0</td><td>3 213.0</td><td>70</td></tr>
+          <tr><td>164.4—187.2</td><td>8</td><td>175.8</td><td>1 406.4</td><td>78</td></tr>
+          <tr><td>187.2—210</td><td>2</td><td>198.6</td><td>397.2</td><td>80</td></tr>
+        </tbody></table></div>
+        <p><strong>Media:</strong> Σ(fi·PMi) = 11 008.8 → μ = 11 008.8 / 80 = <strong>137.61 libras</strong>.</p>
+        <p><strong>Mediana:</strong> (N+1)/2 = 40.5, que cae en la clase 118.8—141.6 (F acum. pasa de 17 a 49). Linf=118.8, C=22.8, f.acum(k−1)=17, fk=32.<br>Me = 118.8 + 22.8×(40.5−17)/32 = 118.8 + 22.8×0.734 ≈ <strong>135.54 libras</strong>.</p>
+        <p><strong>Moda:</strong> la clase modal es 118.8—141.6 (fk=32, la mayor). fk−1=17, fk+1=21.<br>Mo = 118.8 + 22.8×(32−17)/[(32−17)+(32−21)] = 118.8 + 22.8×15/26 ≈ <strong>131.95 libras</strong>.</p>
+        <p class="hint">Media (137.61) &gt; mediana (135.54) &gt; moda (131.95): otra vez un ligero sesgo a la derecha, coherente con que la clase de mayor peso tiene solo 2 bachilleres pero se aleja bastante de las demás.</p>
+      </details>
+    </div>
+    <div class="callout" style="margin-top:22px"><strong>Control de calidad antes de entregar cualquiera de estas tres medidas:</strong> la suma de fi debe dar N; la clase mediana y la clase modal pueden ser distintas (aquí, por casualidad, coinciden); y si el ancho de clase no es constante, la fórmula de la media sigue funcionando igual, pero conviene verificar los puntos medios uno por uno.</div>
+  </section>
+
+  <section role="tabpanel" id="repaso" aria-labelledby="tab-repaso" tabindex="0">
+    <div class="section-head"><div><p class="eyebrow">06 · Guía de repaso resuelta</p><h2>Los 10 ejercicios de "Guía S2" para el Control 1.</h2></div><p>Solo para tu repaso personal.</p></div>
+    <div class="callout warn"><strong>Uso exclusivamente personal.</strong> El programa del curso prohíbe usar IA para elaborar tareas y controles que se entregan como trabajo propio. Esta sección es un repaso resuelto para que verifiques tu propio proceso antes del Control 1 — no la copies como si fuera tu solución en una evaluación. Trabaja primero cada ejercicio por tu cuenta y usa esto solo para comparar.</div>
+
+    <div class="repaso-item">
+      <h3><span class="num">1</span>Datos simples — media, mediana y moda</h3>
+      <p class="prompt">a) 11, 4, 9, 13, 16, 10, 25, 16</p>
+      <p>Ordenados: 4, 9, 10, 11, 13, 16, 16, 25 (N=8, par). Σxi = 104.</p>
+      <p class="answer-tag">Media = 104/8 = 13 · Mediana = (11+13)/2 = 12 · Moda = 16</p>
+      <p class="prompt" style="margin-top:16px">b) 3, 10, 10, 10, 12, 12, 18, 18, 18, 19, 20</p>
+      <p>Ya ordenados (N=11, impar). Σxi = 150.</p>
+      <p class="answer-tag">Media = 150/11 ≈ 13.64 · Mediana = valor en posición 6 = 12 · Bimodal: 10 y 18 (ambos con frecuencia 3)</p>
+    </div>
+
+    <div class="repaso-item">
+      <h3><span class="num">2</span>Datos agrupados — años de estudio aprobados</h3>
+      <div class="table-wrap"><table class="light-table"><thead><tr><th>Años [Li, Ls)</th><th>Personas</th><th>PM</th></tr></thead><tbody>
+        <tr><td>1 — 4</td><td>23 341</td><td>2.5</td></tr>
+        <tr><td>4 — 7</td><td>60 593</td><td>5.5</td></tr>
+        <tr><td>7 — 10</td><td>41 347</td><td>8.5</td></tr>
+        <tr><td>10 — 13</td><td>36 327</td><td>11.5</td></tr>
+        <tr><td>13 — 20 (cerrada)</td><td>20 461</td><td>16.5</td></tr>
+      </tbody></table></div>
+      <p>N = 182 069. Σ(fi·PMi) = 1 498 430.5.</p>
+      <p class="answer-tag">Media ≈ 8.23 años</p>
+      <p>Mediana: (N+1)/2 = 91 035, cae en la clase 7—10 (F acum. pasa de 83 934 a 125 281). Me = 7 + 3×(91 035−83 934)/41 347.</p>
+      <p class="answer-tag">Mediana ≈ 7.52 años</p>
+      <p>Moda: clase modal 4—7 (60 593, la mayor). Mo = 4 + 3×(60 593−23 341)/[(60 593−23 341)+(60 593−41 347)].</p>
+      <p class="answer-tag">Moda ≈ 5.98 años</p>
+      <p class="hint">Media &gt; mediana &gt; moda: distribución con cola a la derecha (hay menos personas con muchos años de estudio, pero las que hay estiran el promedio).</p>
+    </div>
+
+    <div class="repaso-item">
+      <h3><span class="num">3</span>Cinco enteros consecutivos</h3>
+      <p>Si n, n+1, n+2, n+3, n+4 tienen media 10, el término central (n+2) es igual a la media: n+2=10 → n=8. Los cinco enteros son 8, 9, 10, 11, 12.</p>
+      <p class="answer-tag">El entero mayor es 12</p>
+    </div>
+
+    <div class="repaso-item">
+      <h3><span class="num">4</span>Sueldo medio de una oficina</h3>
+      <p>8 personas, sueldo medio $450 → suma total = $3 600. Se va quien gana $800; entran dos con $340 y $415.</p>
+      <p>Nueva suma = 3 600 − 800 + 340 + 415 = $3 555. Nuevo total de personas = 8 − 1 + 2 = 9.</p>
+      <p class="answer-tag">Nuevo sueldo medio = 3 555 / 9 = $395</p>
+    </div>
+
+    <div class="repaso-item">
+      <h3><span class="num">5</span>Horas de conexión de 4 amigos</h3>
+      <p>Media = 24 h → suma total = 4×24 = 96 h. Juan (20) + Pedro (28) + Angélica (15) = 63 h.</p>
+      <p class="answer-tag">María se conecta 96 − 63 = 33 horas</p>
+    </div>
+
+    <div class="repaso-item">
+      <h3><span class="num">6</span>Edad media de una maquila (media ponderada)</h3>
+      <p>125 mujeres, media 28 años; 25 hombres, media 40 años.</p>
+      <p class="formula">μ = (125×28 + 25×40) / 150 = (3 500 + 1 000) / 150</p>
+      <p class="answer-tag">Edad media de todos = 4 500 / 150 = 30 años</p>
+    </div>
+
+    <div class="repaso-item">
+      <h3><span class="num">7</span>Intercambio de estudiantes entre secciones</h3>
+      <p>Sección A: 25 est., promedio 8.3 (Σ=207.5). Sección B: 30 est., promedio 7.9 (Σ=237).</p>
+      <p>Salen de A hacia B: 5 est. con promedio 8.0 (Σ=40) → A queda con 20 est. y Σ=167.5.</p>
+      <p>Salen de B hacia A: 7 est. con promedio 7.7 (Σ=53.9) → B queda con 23 est. y Σ=183.1.</p>
+      <p>Nueva A = 20+7=27 est., Σ=167.5+53.9=221.4 → promedio = 221.4/27 = 8.20.</p>
+      <p>Nueva B = 23+5=28 est., Σ=183.1+40=223.1 → promedio = 223.1/28 ≈ 7.97.</p>
+      <p class="answer-tag">Sección A: 27 estudiantes, promedio 8.20 · Sección B: 28 estudiantes, promedio ≈ 7.97</p>
+    </div>
+
+    <div class="repaso-item">
+      <h3><span class="num">8</span>Bonos en una fábrica</h3>
+      <p class="prompt">a) Hombres auxiliares de cada tipo</p>
+      <p>Total = 52; mujeres = 8+4 = 12 → hombres = 40, así que X+Y = 40−8 = 32 (auxiliares de planta X y de calidad Y).</p>
+      <p>Suma de bonos de hombres = 40×25.50 = 1 020. Suma conocida (supervisores de planta) = 8×50.50 = 404.</p>
+      <p class="formula">16.5X + 20.9Y = 1 020 − 404 = 616, con Y = 32 − X → 16.5X + 20.9(32−X) = 616 → X = 12</p>
+      <p class="answer-tag">X = 12 auxiliares de planta · Y = 20 auxiliares de calidad</p>
+      <p class="prompt" style="margin-top:14px">b) Media y mediana del bono de las mujeres supervisoras (8 de planta a $45.50, 4 de calidad a $55.25)</p>
+      <p class="answer-tag">Media = (8×45.50 + 4×55.25)/12 = $48.75 · Mediana = $45.50 (las posiciones 6 y 7 de 12 caen en el bloque de $45.50)</p>
+      <p class="prompt" style="margin-top:14px">c) Bono promedio de "persona supervisora" tras los ajustes</p>
+      <p>Mujeres planta: 45.50+5.25=50.75 (n=8). Mujeres calidad: 55.25−2.50=52.75 (n=4). Hombres planta: 50.50×1.10=55.55 (n=8).</p>
+      <p class="answer-tag">Promedio = (8×50.75 + 4×52.75 + 8×55.55) / 20 = 1 061.4/20 = $53.07</p>
+    </div>
+
+    <div class="repaso-item">
+      <h3><span class="num">9</span>Mediana tras agregar un dato desconocido</h3>
+      <p>Datos ordenados: 2, 2, 3, 4, 5, 5, 5, 6, 7, 9 (N=10). Al agregar x, N=11 (impar) y la mediana es la posición 6.</p>
+      <p>El valor "5" ya ocupa las posiciones 5, 6 y 7 del conjunto original. Sin importar dónde se inserte x (muy bajo, muy alto, o entre medio), la posición 6 del nuevo conjunto de 11 datos sigue cayendo dentro de ese bloque de 5's.</p>
+      <p class="answer-tag">La mediana es 5 sin importar el valor de x</p>
+    </div>
+
+    <div class="repaso-item">
+      <h3><span class="num">10</span>Efecto de dos curvas sobre media, mediana y moda</h3>
+      <p>Actuales: media = 6.5, mediana = 6.2, moda = 6.0.</p>
+      <p><strong>Curva A</strong> (sumar 0.5 a todos): las tres se desplazan +0.5 por igual.</p>
+      <p class="answer-tag">Media = 7.0 · Mediana = 6.7 · Moda = 6.5</p>
+      <p><strong>Curva B</strong> (incrementar 10%): las tres se multiplican por 1.10.</p>
+      <p class="answer-tag">Media = 7.15 · Mediana = 6.82 · Moda = 6.6</p>
+      <p class="hint">Ambas transformaciones son lineales, así que afectan a media, mediana y moda de la misma manera (propiedades de traslación y escala).</p>
+    </div>
+  </section>
+
+  <section role="tabpanel" id="control" aria-labelledby="tab-control" tabindex="0">
+    <div class="section-head"><div><p class="eyebrow">07 · Control de salida</p><h2>Ocho decisiones para confirmar que dominas el tema.</h2></div><p>Responde y recibe retroalimentación inmediata con la razón de cada corrección.</p></div>
+    <div class="quiz-intro"><div class="quiz-count">08</div><p><strong>Sin calculadora.</strong><br>Este control recupera definiciones y propiedades de media, mediana y moda. Puedes volver a intentarlo cuantas veces quieras.</p></div>
+    <form id="quiz" novalidate>
+      <fieldset><legend>1. En la media de datos agrupados, el dato representativo de cada clase es…</legend><label class="option"><input type="radio" name="q1" value="a">el límite inferior.</label><label class="option"><input type="radio" name="q1" value="b">el punto medio.</label><label class="option"><input type="radio" name="q1" value="c">la frecuencia relativa.</label></fieldset>
+      <fieldset><legend>2. Si a todos los datos de un conjunto se les suma una constante k, la media…</legend><label class="option"><input type="radio" name="q2" value="a">no cambia.</label><label class="option"><input type="radio" name="q2" value="b">aumenta en k.</label><label class="option"><input type="radio" name="q2" value="c">se multiplica por k.</label></fieldset>
+      <fieldset><legend>3. La mediana de un conjunto ordenado es…</legend><label class="option"><input type="radio" name="q3" value="a">el valor que más se repite.</label><label class="option"><input type="radio" name="q3" value="b">el promedio aritmético.</label><label class="option"><input type="radio" name="q3" value="c">el valor que ocupa la posición central.</label></fieldset>
+      <fieldset><legend>4. En una distribución con cola a la derecha (sesgo positivo), lo usual es que…</legend><label class="option"><input type="radio" name="q4" value="a">moda &lt; mediana &lt; media.</label><label class="option"><input type="radio" name="q4" value="b">media &lt; mediana &lt; moda.</label><label class="option"><input type="radio" name="q4" value="c">las tres sean iguales.</label></fieldset>
+      <fieldset><legend>5. En la fórmula de la moda para datos agrupados, Linf corresponde a…</legend><label class="option"><input type="radio" name="q5" value="a">el límite inferior de la clase modal.</label><label class="option"><input type="radio" name="q5" value="b">el límite superior de la clase con mayor frecuencia.</label><label class="option"><input type="radio" name="q5" value="c">el punto medio de la primera clase.</label></fieldset>
+      <fieldset><legend>6. Un conjunto de datos es bimodal cuando…</legend><label class="option"><input type="radio" name="q6" value="a">no tiene moda.</label><label class="option"><input type="radio" name="q6" value="b">tiene dos valores con la misma frecuencia máxima.</label><label class="option"><input type="radio" name="q6" value="c">la media y la mediana son iguales.</label></fieldset>
+      <fieldset><legend>7. Para promediar varias secciones con distinto número de estudiantes, hay que…</legend><label class="option"><input type="radio" name="q7" value="a">promediar simplemente los promedios de cada sección.</label><label class="option"><input type="radio" name="q7" value="b">ponderar cada promedio por su número de estudiantes, sumar y dividir entre el total.</label><label class="option"><input type="radio" name="q7" value="c">usar solo el promedio de la sección más grande.</label></fieldset>
+      <fieldset><legend>8. Si multiplicamos todos los datos de un conjunto por una constante k&gt;0, la mediana…</legend><label class="option"><input type="radio" name="q8" value="a">no cambia.</label><label class="option"><input type="radio" name="q8" value="b">se multiplica por k.</label><label class="option"><input type="radio" name="q8" value="c">se divide entre k.</label></fieldset>
+      <button class="submit" type="submit">Revisar mis respuestas</button>
+      <div id="quiz-result" class="result" aria-live="polite" hidden></div>
+    </form>
+  </section>
+</main>
+<footer><div class="shell"><p><strong>Trazabilidad de la guía.</strong> Conceptos, fórmulas y ejercicios de clase: <em>Media, mediana y moda - Semana 2.pdf</em>, pp. 3–26. Guía de repaso del Control 1: <em>Guía S2 - Medidas de tendencia central.pdf</em>, pp. 1–2; fórmulas: <em>Fórmulas_Control 1.pdf</em>, p. 1.</p><p>La guía de repaso se resolvió únicamente para el estudio personal del usuario, no para su entrega como trabajo propio. Esta guía no altera los documentos fuente ni sustituye las indicaciones de clase.</p></div></footer>
+<script>
+  const tabs = [...document.querySelectorAll('[role="tab"]')];
+  const panels = [...document.querySelectorAll('[role="tabpanel"]')];
+  function activateTab(tab) {
+    tabs.forEach(item => { const active = item === tab; item.setAttribute('aria-selected', active); item.tabIndex = active ? 0 : -1; });
+    panels.forEach(panel => panel.classList.toggle('is-active', panel.id === tab.getAttribute('aria-controls')));
+  }
+  tabs.forEach((tab, index) => {
+    tab.addEventListener('click', () => activateTab(tab));
+    tab.addEventListener('keydown', event => { if (!['ArrowRight','ArrowLeft','Home','End'].includes(event.key)) return; event.preventDefault(); const next = event.key === 'Home' ? 0 : event.key === 'End' ? tabs.length - 1 : (index + (event.key === 'ArrowRight' ? 1 : -1) + tabs.length) % tabs.length; tabs[next].focus(); activateTab(tabs[next]); });
+  });
+  document.querySelectorAll('[data-check]').forEach(group => group.addEventListener('click', event => {
+    const button = event.target.closest('button[data-answer]'); if (!button) return;
+    const feedback = document.getElementById(`${group.dataset.check}-feedback`); const correct = button.dataset.answer === 'ok';
+    feedback.className = `feedback ${correct ? 'ok' : 'no'}`; feedback.textContent = button.dataset.feedback;
+  }));
+  const answers = {
+    q1:['b','La media de datos agrupados usa el punto medio de cada clase como dato representativo.'],
+    q2:['b','Propiedad de traslación: la media de (xi + k) es x̄ + k.'],
+    q3:['c','La mediana es el valor que ocupa la posición central de los datos ordenados.'],
+    q4:['a','Con cola a la derecha, los valores altos y poco frecuentes arrastran la media más que la mediana, y esta más que la moda: Mo < Me < x̄.'],
+    q5:['a','Linf es el límite inferior de la clase modal (la de mayor frecuencia).'],
+    q6:['b','Bimodal significa que dos valores comparten la frecuencia máxima.'],
+    q7:['b','La media ponderada exige multiplicar cada promedio por su peso (número de estudiantes), sumar, y dividir entre el total.'],
+    q8:['b','Propiedad de escala: la mediana de (k·xi) es k·Me, igual que ocurre con la media.']
+  };
+  document.getElementById('quiz').addEventListener('submit', event => {
+    event.preventDefault(); let score = 0; const corrections = [];
+    Object.entries(answers).forEach(([name,[answer,reason]], index) => { const value = new FormData(event.currentTarget).get(name); if (value === answer) score++; else corrections.push(`<li><strong>${index + 1}.</strong> ${reason}</li>`); });
+    const result = document.getElementById('quiz-result'); result.hidden = false;
+    const message = score === 8 ? 'Dominio completo: puedes pasar al Control 1 con confianza.' : score >= 6 ? 'Vas bien: revisa las correcciones antes de avanzar.' : 'Conviene volver a las secciones indicadas y repetir el control.';
+    result.innerHTML = `<strong>${score}/8 · ${message}</strong>${corrections.length ? `<ul class="corrections">${corrections.join('')}</ul>` : '<p>Respuestas correctas en las ocho decisiones.</p>'}`;
+    result.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block:'nearest' });
+  });
+</script>
+</body>
+</html>

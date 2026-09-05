@@ -9,5 +9,7 @@ Registro aditivo de trabajo. Revisar la entrada más reciente antes de crear un 
 - [[01 Bitácora/Entradas/2026-09-03 - Ampliación visual Semana 01|2026-09-03 — Ampliación visual Semana 01]]
 - [[01 Bitácora/Entradas/2026-09-03 - Rediseño premium de diagramas SVG Semana 01|2026-09-03 — Rediseño premium de diagramas SVG Semana 01]]
 - [[01 Bitácora/Entradas/2026-09-03 - Incorporación de nuevos diagramas SVG Semana 01 y 02|2026-09-03 — Incorporación de nuevos diagramas SVG Semana 01 y 02]]
+- [[01 Bitácora/Entradas/2026-09-04 - Incorporación de diagramas SVG Semana 02|2026-09-04 — Incorporación de diagramas SVG Semana 02]]
+- [[01 Bitácora/Entradas/2026-09-05 - Presentación y guía de repaso de Semana 02|2026-09-05 — Presentación y guía de repaso de Semana 02]]
 
 Ver también: [[Plantillas/Plantilla - Entrada de bitácora]].

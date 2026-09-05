@@ -7,7 +7,7 @@
 | Semana | Fechas | Hito programado | Presentación / estado |
 | --- | --- | --- | --- |
 | 01 | 24–28 ago | — | `EstadísticaProbabilidad - Semana 1.pdf` — documentada |
-| 02 | 31 ago–4 sep | — | Ayudantía (R) registrada — [[02 Unidades/Semana 02 - Ayudantía práctica en R]]; presentación de clase pendiente |
+| 02 | 31 ago–4 sep | — | Presentación (Medidas de tendencia central) y ayudantía (R) documentadas — [[02 Unidades/Semana 02 - Ayudantía práctica en R]] |
 | 03 | 7–11 sep | Control 1 (10%) | Pendiente de presentación |
 | 04 | 14–18 sep | — | Pendiente de presentación |
 | 05 | 21–25 sep | Control 2 (10%) | Pendiente de presentación |

@@ -6,9 +6,9 @@ tags: [moc, probabilidad-estadistica]
 
 ## Estado actual
 
-- Semanas documentadas: [[02 Unidades/Semana 01 - Naturaleza de la estadística y visualización]] (presentación) y [[02 Unidades/Semana 02 - Ayudantía práctica en R]] (ayudantía; presentación de clase pendiente).
+- Semanas documentadas: [[02 Unidades/Semana 01 - Naturaleza de la estadística y visualización]] (presentación) y [[02 Unidades/Semana 02 - Ayudantía práctica en R]] (presentación de clase y ayudantía).
 - Fuentes inventariadas: [[03 Fuentes/Inventario de fuentes iniciales]].
-- Materiales generados: `Ayudantia02.R` (Semana 02).
+- Materiales generados: `Ayudantia02.R` (Semana 02); Guía de estudio - Semana 02 (media, mediana, moda + guía de repaso resuelta).
 - Regla de calendarización: cada presentación de clase o ayudantía equivale a una semana.
 - Programa incorporado: Ciclo III/2026, Sección 2; 12 semanas y 100% de evaluación documentados.
 
@@ -26,4 +26,4 @@ tags: [moc, probabilidad-estadistica]
 
 ## Próximo paso
 
-Con el contenido actual sí se puede elaborar material de apoyo de la Semana 1 cuando se solicite. La siguiente presentación que se incorpore abrirá la Semana 02.
+Semanas 1 y 2 ya tienen material de apoyo elaborado. La siguiente presentación que se incorpore (Semana 03, con Control 1) abrirá esa semana en el vault.
