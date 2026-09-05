@@ -53,21 +53,21 @@
     .callout { padding:20px; background:rgba(244,210,103,.08); border-color:rgba(244,210,103,.36); color:#fff4c8; }
     .formula { margin:17px 0; padding:15px 18px; background:#06131f; color:var(--blue); border-radius:10px; font:500 1rem/1.4 "DM Mono", monospace; overflow:auto; }
     .steps { counter-reset:step; list-style:none; padding:0; margin:0; display:grid; gap:14px; }
-    .steps li { position:relative; padding:17px 18px 17px 58px; background:rgba(247,242,233,.055); border-radius:11px; }
+    .steps li { position:relative; padding:17px 18px 17px 58px; background:rgba(255,255,255,.04); border-radius:11px; color:var(--paper); }
     .steps li::before { counter-increment:step; content:counter(step, decimal-leading-zero); position:absolute; left:17px; top:17px; color:var(--yellow); font:500 .78rem "DM Mono", monospace; }
-    .exercise { margin-top:24px; padding:28px; border-radius:18px; background:#f7f2e9; color:#10283c; }
-    .exercise h3 { color:#071827; }
-    .exercise .eyebrow { color:#a64a37; }
-    .prompt { font-size:1.05rem; font-weight:700; }
+    .exercise { margin-top:24px; padding:28px; border-radius:18px; background:linear-gradient(135deg, rgba(18,53,77,.72), rgba(16,40,60,.55)); border:1px solid rgba(140,211,255,.25); color:var(--paper); }
+    .exercise h3 { color:var(--paper); }
+    .exercise .eyebrow { color:var(--blue); }
+    .prompt { font-size:1.05rem; font-weight:700; color:var(--paper); }
     .choices { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; margin:16px 0 8px; }
-    .choice { display:block; width:100%; text-align:left; padding:13px 14px; border:1px solid #bdd0d8; border-radius:9px; background:white; color:#10283c; cursor:pointer; }
-    .choice:hover, .choice:focus-visible { border-color:#2a86b5; box-shadow:0 0 0 3px rgba(42,134,181,.15); outline:none; }
+    .choice { display:block; width:100%; text-align:left; padding:13px 14px; border:1px solid rgba(140,211,255,.2); border-radius:9px; background:rgba(7,24,39,.65); color:var(--paper); cursor:pointer; transition:all .2s ease; }
+    .choice:hover, .choice:focus-visible { border-color:var(--yellow); background:rgba(244,210,103,.12); box-shadow:0 0 0 3px rgba(244,210,103,.2); outline:none; }
     .feedback { min-height:1.5em; margin:10px 0 0; font-weight:700; }
-    .feedback.ok { color:#136f46; } .feedback.no { color:#ab3622; }
+    .feedback.ok { color:var(--ok); } .feedback.no { color:var(--bad); }
     table { width:100%; border-collapse:collapse; font-size:.94rem; }
-    th,td { padding:11px 10px; border-bottom:1px solid var(--line); text-align:left; }
+    th,td { padding:11px 10px; border-bottom:1px solid var(--line); text-align:left; color:var(--paper); }
     th { color:var(--blue); font:500 .71rem "DM Mono", monospace; letter-spacing:.06em; text-transform:uppercase; }
-    .light-table th,.light-table td { border-color:#cdd8dc; } .light-table th { color:#316c88; }
+    .light-table th,.light-table td { border-color:var(--line); color:var(--paper); } .light-table th { color:var(--blue); }
     .table-wrap { overflow:auto; }
     .data-strip { font:500 .89rem/1.65 "DM Mono", monospace; color:#d2e8f5; background:#06131f; border-radius:12px; padding:17px; }
     .chart { display:flex; align-items:end; gap:10px; height:180px; padding:20px 16px 8px; border-bottom:1px solid var(--line); }
@@ -79,7 +79,7 @@
     details { margin-top:20px; border-top:1px solid var(--line); }
     summary { padding:16px 0; cursor:pointer; color:var(--yellow); font-weight:800; }
     .quiz-intro { display:flex; gap:20px; align-items:flex-start; padding:20px; background:rgba(140,211,255,.11); border-radius:14px; }
-    .quiz-count { flex:0 0 auto; width:54px; height:54px; display:grid; place-items:center; border-radius:50%; background:var(--blue); color:#071827; font:700 1.15rem "DM Mono", monospace; }
+    .quiz-count { flex:0 0 auto; width:54px; height:54px; display:grid; place-items:center; border-radius:50%; background:rgba(140,211,255,.15); border:2px solid var(--blue); color:var(--blue); font:700 1.15rem "DM Mono", monospace; }
     fieldset { margin:20px 0; padding:0 0 18px; border:0; border-bottom:1px solid var(--line); }
     legend { padding:0; font:700 1.02rem/1.45 Manrope,sans-serif; }
     .option { display:flex; gap:10px; align-items:flex-start; padding:11px 0; color:#dce5e8; cursor:pointer; }
@@ -212,12 +212,13 @@
 
           <!-- Step 4: Resultado -->
           <g filter="url(#flowShadow)" transform="translate(772 96)">
-            <rect width="184" height="114" rx="14" fill="url(#flowResGrad)" stroke="#f4d267" stroke-width="1.5"/>
-            <rect x="14" y="14" width="116" height="20" rx="6" fill="rgba(7,24,39,0.12)"/>
-            <text x="22" y="28" fill="#4d3907" style="font:700 10px 'DM Mono',monospace;letter-spacing:1px">04 · CONCLUSIÓN</text>
-            <text x="14" y="58" fill="#071827" style="font:800 18px Manrope,sans-serif">Describir</text>
-            <text x="14" y="80" fill="#10283c" style="font:600 13px Manrope,sans-serif">o Inferir con rigor</text>
-            <text x="14" y="99" fill="#4d3907" style="font:500 11px 'DM Mono',monospace">Tablas, IC y tests</text>
+            <rect width="184" height="114" rx="14" fill="url(#flowCardGrad)" stroke="#f4d267" stroke-width="1.5"/>
+            <rect x="14" y="14" width="116" height="20" rx="6" fill="rgba(244,210,103,0.15)"/>
+            <text x="22" y="28" fill="#f4d267" style="font:700 10px 'DM Mono',monospace;letter-spacing:1px">04 · CONCLUSIÓN</text>
+            <text x="14" y="58" class="svg-title" style="font-size:17px">Describir</text>
+            <text x="14" y="80" class="svg-copy" style="font-size:13px">o Inferir con rigor</text>
+            <rect x="14" y="87" width="156" height="18" rx="4" fill="rgba(244,210,103,0.15)"/>
+            <text x="20" y="100" fill="#f4d267" style="font:600 11px 'DM Mono',monospace">Tablas, IC y tests</text>
           </g>
 
           <!-- Bottom bar definition summary -->
@@ -367,14 +368,14 @@
     
     <!-- Mini matrix diagram -->
     <g transform="translate(14 108)">
-      <rect x="0" y="0" width="36" height="24" rx="4" fill="#8cd3ff"/>
-      <rect x="42" y="0" width="36" height="24" rx="4" fill="#8cd3ff"/>
-      <rect x="84" y="0" width="36" height="24" rx="4" fill="#8cd3ff"/>
-      <rect x="126" y="0" width="36" height="24" rx="4" fill="#8cd3ff"/>
-      <text x="18" y="16" text-anchor="middle" fill="#071827" style="font:700 10px 'DM Mono',monospace">e_1</text>
-      <text x="60" y="16" text-anchor="middle" fill="#071827" style="font:700 10px 'DM Mono',monospace">e_2</text>
-      <text x="102" y="16" text-anchor="middle" fill="#071827" style="font:700 10px 'DM Mono',monospace">e_3</text>
-      <text x="144" y="16" text-anchor="middle" fill="#071827" style="font:700 10px 'DM Mono',monospace">e_n</text>
+      <rect x="0" y="0" width="36" height="24" rx="4" fill="rgba(140,211,255,0.18)" stroke="#8cd3ff" stroke-width="1"/>
+      <rect x="42" y="0" width="36" height="24" rx="4" fill="rgba(140,211,255,0.18)" stroke="#8cd3ff" stroke-width="1"/>
+      <rect x="84" y="0" width="36" height="24" rx="4" fill="rgba(140,211,255,0.18)" stroke="#8cd3ff" stroke-width="1"/>
+      <rect x="126" y="0" width="36" height="24" rx="4" fill="rgba(140,211,255,0.18)" stroke="#8cd3ff" stroke-width="1"/>
+      <text x="18" y="16" text-anchor="middle" fill="#8cd3ff" style="font:700 10px 'DM Mono',monospace">e_1</text>
+      <text x="60" y="16" text-anchor="middle" fill="#8cd3ff" style="font:700 10px 'DM Mono',monospace">e_2</text>
+      <text x="102" y="16" text-anchor="middle" fill="#8cd3ff" style="font:700 10px 'DM Mono',monospace">e_3</text>
+      <text x="144" y="16" text-anchor="middle" fill="#8cd3ff" style="font:700 10px 'DM Mono',monospace">e_n</text>
       <text x="180" y="16" fill="#aec0cc" style="font:600 11px 'DM Mono',monospace">en t = t_1</text>
     </g>
   </g>
@@ -390,14 +391,14 @@
     
     <!-- Mini timeline diagram -->
     <g transform="translate(14 108)">
-      <rect x="0" y="0" width="36" height="24" rx="4" fill="#f4d267"/>
-      <rect x="42" y="0" width="36" height="24" rx="4" fill="#f4d267"/>
-      <rect x="84" y="0" width="36" height="24" rx="4" fill="#f4d267"/>
-      <rect x="126" y="0" width="36" height="24" rx="4" fill="#f4d267"/>
-      <text x="18" y="16" text-anchor="middle" fill="#071827" style="font:700 10px 'DM Mono',monospace">T_1</text>
-      <text x="60" y="16" text-anchor="middle" fill="#071827" style="font:700 10px 'DM Mono',monospace">T_2</text>
-      <text x="102" y="16" text-anchor="middle" fill="#071827" style="font:700 10px 'DM Mono',monospace">T_3</text>
-      <text x="144" y="16" text-anchor="middle" fill="#071827" style="font:700 10px 'DM Mono',monospace">T_k</text>
+      <rect x="0" y="0" width="36" height="24" rx="4" fill="rgba(244,210,103,0.18)" stroke="#f4d267" stroke-width="1"/>
+      <rect x="42" y="0" width="36" height="24" rx="4" fill="rgba(244,210,103,0.18)" stroke="#f4d267" stroke-width="1"/>
+      <rect x="84" y="0" width="36" height="24" rx="4" fill="rgba(244,210,103,0.18)" stroke="#f4d267" stroke-width="1"/>
+      <rect x="126" y="0" width="36" height="24" rx="4" fill="rgba(244,210,103,0.18)" stroke="#f4d267" stroke-width="1"/>
+      <text x="18" y="16" text-anchor="middle" fill="#f4d267" style="font:700 10px 'DM Mono',monospace">T_1</text>
+      <text x="60" y="16" text-anchor="middle" fill="#f4d267" style="font:700 10px 'DM Mono',monospace">T_2</text>
+      <text x="102" y="16" text-anchor="middle" fill="#f4d267" style="font:700 10px 'DM Mono',monospace">T_3</text>
+      <text x="144" y="16" text-anchor="middle" fill="#f4d267" style="font:700 10px 'DM Mono',monospace">T_k</text>
       <text x="180" y="16" fill="#f4d267" style="font:600 11px 'DM Mono',monospace">para e = e_1</text>
     </g>
   </g>
@@ -413,12 +414,12 @@
     
     <!-- Mini 2D grid diagram -->
     <g transform="translate(14 108)">
-      <rect x="0" y="0" width="36" height="11" rx="2" fill="#a8e6bd"/>
-      <rect x="42" y="0" width="36" height="11" rx="2" fill="#a8e6bd"/>
-      <rect x="84" y="0" width="36" height="11" rx="2" fill="#a8e6bd"/>
-      <rect x="0" y="13" width="36" height="11" rx="2" fill="#a8e6bd"/>
-      <rect x="42" y="13" width="36" height="11" rx="2" fill="#a8e6bd"/>
-      <rect x="84" y="13" width="36" height="11" rx="2" fill="#a8e6bd"/>
+      <rect x="0" y="0" width="36" height="11" rx="2" fill="rgba(168,230,189,0.25)" stroke="#a8e6bd" stroke-width="0.8"/>
+      <rect x="42" y="0" width="36" height="11" rx="2" fill="rgba(168,230,189,0.25)" stroke="#a8e6bd" stroke-width="0.8"/>
+      <rect x="84" y="0" width="36" height="11" rx="2" fill="rgba(168,230,189,0.25)" stroke="#a8e6bd" stroke-width="0.8"/>
+      <rect x="0" y="13" width="36" height="11" rx="2" fill="rgba(168,230,189,0.25)" stroke="#a8e6bd" stroke-width="0.8"/>
+      <rect x="42" y="13" width="36" height="11" rx="2" fill="rgba(168,230,189,0.25)" stroke="#a8e6bd" stroke-width="0.8"/>
+      <rect x="84" y="13" width="36" height="11" rx="2" fill="rgba(168,230,189,0.25)" stroke="#a8e6bd" stroke-width="0.8"/>
       <text x="140" y="18" fill="#a8e6bd" style="font:600 11px 'DM Mono',monospace">n sujetos × T tiempos</text>
     </g>
   </g>
@@ -447,8 +448,8 @@
 
           <!-- Root Question -->
           <g filter="url(#treeShadow)" transform="translate(355 78)">
-            <rect width="270" height="44" rx="22" fill="#f4d267" stroke="#ffe69a" stroke-width="2"/>
-            <text x="135" y="27" text-anchor="middle" fill="#071827" style="font:800 15px Manrope,sans-serif">¿Qué representa el dato?</text>
+            <rect width="270" height="44" rx="22" fill="url(#treeNodeGrad)" stroke="#f4d267" stroke-width="2"/>
+            <text x="135" y="27" text-anchor="middle" fill="#f4d267" style="font:800 15px Manrope,sans-serif">¿Qué representa el dato?</text>
           </g>
 
           <!-- Connectors from Root to Main Branches -->
@@ -1118,13 +1119,15 @@
 
   <!-- Region 3: Central (Alto) -->
   <path d="M 128 65 L 155 58 L 235 62 L 210 112 L 88 108 Z" fill="#8cd3ff" stroke="#081d2e" stroke-width="2"/>
-  <text x="165" y="88" text-anchor="middle" fill="#071827" style="font:800 12px Manrope,sans-serif">Alto</text>
-  <text x="165" y="102" text-anchor="middle" fill="#071827" style="font:700 10px 'DM Mono',monospace">62%</text>
+  <rect x="142" y="73" width="46" height="34" rx="6" fill="rgba(7,24,39,0.78)" stroke="rgba(140,211,255,0.4)" stroke-width="1"/>
+  <text x="165" y="87" text-anchor="middle" fill="#ffffff" style="font:800 12px Manrope,sans-serif">Alto</text>
+  <text x="165" y="101" text-anchor="middle" fill="#8cd3ff" style="font:700 10px 'DM Mono',monospace">62%</text>
 
   <!-- Region 4: Oriental (Muy Alto) -->
   <path d="M 215 22 L 338 32 L 315 106 L 210 112 L 235 62 Z" fill="#f4d267" stroke="#081d2e" stroke-width="2"/>
-  <text x="270" y="65" text-anchor="middle" fill="#071827" style="font:800 12px Manrope,sans-serif">Muy alto</text>
-  <text x="270" y="80" text-anchor="middle" fill="#4d3907" style="font:700 10px 'DM Mono',monospace">88%</text>
+  <rect x="238" y="51" width="64" height="34" rx="6" fill="rgba(7,24,39,0.78)" stroke="rgba(244,210,103,0.4)" stroke-width="1"/>
+  <text x="270" y="65" text-anchor="middle" fill="#ffffff" style="font:800 12px Manrope,sans-serif">Muy alto</text>
+  <text x="270" y="79" text-anchor="middle" fill="#f4d267" style="font:700 10px 'DM Mono',monospace">88%</text>
 
   <!-- Legend bar at bottom -->
   <g transform="translate(80 124)">
