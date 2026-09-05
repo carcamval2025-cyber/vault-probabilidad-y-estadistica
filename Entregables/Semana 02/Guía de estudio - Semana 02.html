@@ -54,21 +54,21 @@
   .callout.warn { background:rgba(255,137,109,.1); border-color:rgba(255,137,109,.4); color:#ffd9cd; }
   .formula { margin:17px 0; padding:15px 18px; background:#06131f; color:var(--blue); border-radius:10px; font:500 1rem/1.4 "DM Mono", monospace; overflow:auto; }
   .steps { counter-reset:step; list-style:none; padding:0; margin:0; display:grid; gap:14px; }
-  .steps li { position:relative; padding:17px 18px 17px 58px; background:rgba(247,242,233,.055); border-radius:11px; }
+  .steps li { position:relative; padding:17px 18px 17px 58px; background:rgba(255,255,255,.04); border-radius:11px; color:var(--paper); }
   .steps li::before { counter-increment:step; content:counter(step, decimal-leading-zero); position:absolute; left:17px; top:17px; color:var(--yellow); font:500 .78rem "DM Mono", monospace; }
-  .exercise { margin-top:24px; padding:28px; border-radius:18px; background:#f7f2e9; color:#10283c; }
-  .exercise h3 { color:#071827; }
-  .exercise .eyebrow { color:#a64a37; }
-  .prompt { font-size:1.05rem; font-weight:700; }
+  .exercise { margin-top:24px; padding:28px; border-radius:18px; background:linear-gradient(135deg, rgba(18,53,77,.72), rgba(16,40,60,.55)); border:1px solid rgba(140,211,255,.25); color:var(--paper); }
+  .exercise h3 { color:var(--paper); }
+  .exercise .eyebrow { color:var(--blue); }
+  .prompt { font-size:1.05rem; font-weight:700; color:var(--paper); }
   .choices { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; margin:16px 0 8px; }
-  .choice { display:block; width:100%; text-align:left; padding:13px 14px; border:1px solid #bdd0d8; border-radius:9px; background:white; color:#10283c; cursor:pointer; }
-  .choice:hover, .choice:focus-visible { border-color:#2a86b5; box-shadow:0 0 0 3px rgba(42,134,181,.15); outline:none; }
+  .choice { display:block; width:100%; text-align:left; padding:13px 14px; border:1px solid rgba(140,211,255,.2); border-radius:9px; background:rgba(7,24,39,.65); color:var(--paper); cursor:pointer; transition:all .2s ease; }
+  .choice:hover, .choice:focus-visible { border-color:var(--yellow); background:rgba(244,210,103,.12); box-shadow:0 0 0 3px rgba(244,210,103,.2); outline:none; }
   .feedback { min-height:1.5em; margin:10px 0 0; font-weight:700; }
-  .feedback.ok { color:#136f46; } .feedback.no { color:#ab3622; }
+  .feedback.ok { color:var(--ok); } .feedback.no { color:var(--bad); }
   table { width:100%; border-collapse:collapse; font-size:.94rem; }
-  th,td { padding:11px 10px; border-bottom:1px solid var(--line); text-align:left; }
+  th,td { padding:11px 10px; border-bottom:1px solid var(--line); text-align:left; color:var(--paper); }
   th { color:var(--blue); font:500 .71rem "DM Mono", monospace; letter-spacing:.06em; text-transform:uppercase; }
-  .light-table th,.light-table td { border-color:#cdd8dc; } .light-table th { color:#316c88; }
+  .light-table th,.light-table td { border-color:var(--line); color:var(--paper); } .light-table th { color:var(--blue); }
   .table-wrap { overflow:auto; }
   .data-strip { font:500 .89rem/1.65 "DM Mono", monospace; color:#d2e8f5; background:#06131f; border-radius:12px; padding:17px; }
   .chart { display:flex; align-items:end; gap:10px; height:190px; padding:20px 16px 8px; border-bottom:1px solid var(--line); }
@@ -81,7 +81,7 @@
   details { margin-top:20px; border-top:1px solid var(--line); }
   summary { padding:16px 0; cursor:pointer; color:var(--yellow); font-weight:800; }
   .quiz-intro { display:flex; gap:20px; align-items:flex-start; padding:20px; background:rgba(140,211,255,.11); border-radius:14px; }
-  .quiz-count { flex:0 0 auto; width:54px; height:54px; display:grid; place-items:center; border-radius:50%; background:var(--blue); color:#071827; font:700 1.15rem "DM Mono", monospace; }
+  .quiz-count { flex:0 0 auto; width:54px; height:54px; display:grid; place-items:center; border-radius:50%; background:rgba(140,211,255,.15); border:2px solid var(--blue); color:var(--blue); font:700 1.15rem "DM Mono", monospace; }
   fieldset { margin:20px 0; padding:0 0 18px; border:0; border-bottom:1px solid var(--line); }
   legend { padding:0; font:700 1.02rem/1.45 Manrope,sans-serif; }
   .option { display:flex; gap:10px; align-items:flex-start; padding:11px 0; color:#dce5e8; cursor:pointer; }
@@ -110,7 +110,7 @@
     filter: drop-shadow(0 0 10px rgba(244, 210, 103, 0.45));
   }
   .repaso-item { margin-top:22px; padding:24px; border-radius:16px; background:rgba(247,242,233,.05); border:1px solid var(--line); }
-  .repaso-item .num { display:inline-flex; align-items:center; justify-content:center; width:30px; height:30px; border-radius:50%; background:var(--yellow); color:#071827; font:700 .85rem "DM Mono",monospace; margin-right:10px; }
+  .repaso-item .num { display:inline-flex; align-items:center; justify-content:center; width:30px; height:30px; border-radius:50%; background:rgba(244,210,103,.15); border:1.5px solid var(--yellow); color:var(--yellow); font:700 .85rem "DM Mono",monospace; margin-right:10px; }
   .answer-tag { display:inline-block; margin-top:14px; padding:8px 14px; border-radius:8px; background:rgba(168,230,189,.14); color:var(--ok); font:600 .92rem "DM Mono",monospace; }
   footer { border-top:1px solid var(--line); padding:32px 0 50px; color:var(--muted); font-size:.88rem; }
   footer strong { color:var(--paper); }
@@ -188,8 +188,8 @@
     <line x1="490" y1="146" x2="490" y2="210" stroke="#f4d267" stroke-width="2" stroke-dasharray="3 3"/>
     <circle cx="490" cy="210" r="4" fill="#f4d267"/>
     <!-- Indicador de Media x̄ -->
-    <rect x="460" y="96" width="60" height="28" rx="6" fill="#f4d267" stroke="#071827" stroke-width="1.5"/>
-    <text x="490" y="115" text-anchor="middle" fill="#071827" style="font:800 13px 'DM Mono', monospace;">x̄ = 5</text>
+    <rect x="460" y="96" width="60" height="28" rx="6" fill="#071827" stroke="#f4d267" stroke-width="1.8"/>
+    <text x="490" y="115" text-anchor="middle" fill="#f4d267" style="font:800 13px 'DM Mono', monospace;">x̄ = 5</text>
     <polygon points="490,132 484,124 496,124" fill="#f4d267"/>
   </g>
 
@@ -465,8 +465,8 @@
 
     <!-- Línea niveladora media μ = 5 (h=60, y=165) -->
     <line x1="20" y1="165" x2="278" y2="165" stroke="#f4d267" stroke-width="2.5" stroke-dasharray="5 3"/>
-    <rect x="195" y="93" width="75" height="22" rx="4" fill="#f4d267"/>
-    <text x="232" y="108" text-anchor="middle" fill="#071827" style="font:900 11px 'DM Mono', monospace;">μ = 5.0</text>
+    <rect x="195" y="93" width="75" height="22" rx="4" fill="#071827" stroke="#f4d267" stroke-width="1.5"/>
+    <text x="232" y="108" text-anchor="middle" fill="#f4d267" style="font:900 11px 'DM Mono', monospace;">μ = 5.0</text>
 
     <!-- Pill de cálculo numérico -->
     <rect x="16" y="258" width="266" height="28" rx="5" fill="#071827" stroke="rgba(140,211,255,0.25)"/>
@@ -560,8 +560,8 @@
     <line x1="210" y1="147" x2="180" y2="147" stroke="#f4d267" stroke-width="2"/>
 
     <!-- Punto medio representativo -->
-    <circle cx="149" cy="147" r="16" fill="#f4d267" stroke="#071827" stroke-width="2.5"/>
-    <text x="149" y="153" text-anchor="middle" fill="#071827" style="font:900 14px 'DM Mono', monospace;">6</text>
+    <circle cx="149" cy="147" r="16" fill="#071827" stroke="#f4d267" stroke-width="2.5"/>
+    <text x="149" y="153" text-anchor="middle" fill="#f4d267" style="font:900 14px 'DM Mono', monospace;">6</text>
 
     <text x="149" y="190" text-anchor="middle" fill="#f4d267" style="font:700 11px 'DM Mono', monospace;">PM = (4 + 8) / 2 = 6 años</text>
 
@@ -723,8 +723,8 @@
       <rect x="13" y="26" width="14" height="66" rx="4" fill="#f4d267"/>
       <text x="20" y="108" text-anchor="middle" fill="#f4d267" style="font:800 11px 'DM Mono', monospace;">x₍₄₎</text>
       <!-- Insignia Mediana -->
-      <rect x="-16" y="-18" width="72" height="18" rx="4" fill="#f4d267"/>
-      <text x="20" y="-5" text-anchor="middle" fill="#071827" style="font:800 9.5px 'DM Mono', monospace;">MEDIANA</text>
+      <rect x="-16" y="-18" width="72" height="18" rx="4" fill="#071827" stroke="#f4d267" stroke-width="1.5"/>
+      <text x="20" y="-5" text-anchor="middle" fill="#f4d267" style="font:800 9.5px 'DM Mono', monospace;">MEDIANA</text>
     </g>
 
     <!-- Fig 5 (h=74) -->
@@ -1071,10 +1071,11 @@
       <circle cx="145" cy="150" r="16" fill="#071827"/>
       <text x="145" y="156" text-anchor="middle" fill="#f4d267" style="font:900 17px 'DM Mono', monospace;">6</text>
       <!-- Porcentaje dentro de la barra -->
-      <text x="145" y="195" text-anchor="middle" fill="#071827" style="font:800 13px 'DM Mono', monospace;">30%</text>
+      <rect x="118" y="180" width="54" height="22" rx="4" fill="#071827" stroke="#f4d267" stroke-width="1.2"/>
+      <text x="145" y="196" text-anchor="middle" fill="#f4d267" style="font:800 12px 'DM Mono', monospace;">30%</text>
       <!-- Badge superior flotante -->
-      <rect x="110" y="88" width="70" height="24" rx="5" fill="#f4d267" stroke="#071827" stroke-width="1.5"/>
-      <text x="145" y="104" text-anchor="middle" fill="#071827" style="font:900 11px 'DM Mono', monospace;">★ MODA</text>
+      <rect x="110" y="88" width="70" height="24" rx="5" fill="#071827" stroke="#f4d267" stroke-width="1.8"/>
+      <text x="145" y="104" text-anchor="middle" fill="#f4d267" style="font:900 11px 'DM Mono', monospace;">★ MODA</text>
       <!-- Rótulo Eje X -->
       <text x="145" y="375" text-anchor="middle" fill="#f4d267" style="font:900 17px 'DM Mono', monospace;">0 libros</text>
     </g>
@@ -1123,8 +1124,8 @@
     <g class="svg-group">
       <rect x="816" y="312" width="74" height="38" rx="6" fill="url(#outlierGrad)" stroke="#ff896d" stroke-width="2"/>
       <text x="853" y="295" text-anchor="middle" fill="#ff896d" style="font:800 14px 'DM Mono', monospace;">1 (5%)</text>
-      <rect x="818" y="260" width="70" height="20" rx="4" fill="#ff896d"/>
-      <text x="853" y="274" text-anchor="middle" fill="#071827" style="font:900 10px 'DM Mono', monospace;">OUTLIER</text>
+      <rect x="818" y="260" width="70" height="20" rx="4" fill="#071827" stroke="#ff896d" stroke-width="1.5"/>
+      <text x="853" y="274" text-anchor="middle" fill="#ff896d" style="font:900 10px 'DM Mono', monospace;">OUTLIER</text>
       <text x="853" y="375" text-anchor="middle" fill="#ff896d" style="font:800 16px 'DM Mono', monospace;">6 libros</text>
     </g>
 
@@ -1133,15 +1134,15 @@
     <g stroke="#f4d267" stroke-width="2.8" stroke-dasharray="6 4">
       <line x1="263" y1="95" x2="263" y2="350"/>
     </g>
-    <rect x="223" y="70" width="80" height="24" rx="5" fill="#f4d267" stroke="#071827" stroke-width="1.5"/>
-    <text x="263" y="86" text-anchor="middle" fill="#071827" style="font:900 11.5px 'DM Mono', monospace;">MEDIANA = 1</text>
+    <rect x="223" y="70" width="80" height="24" rx="5" fill="#071827" stroke="#f4d267" stroke-width="1.8"/>
+    <text x="263" y="86" text-anchor="middle" fill="#f4d267" style="font:900 11.5px 'DM Mono', monospace;">MEDIANA = 1</text>
 
     <!-- Línea Media: x̄ = 1.75 (Posición interpolada = 263 + 0.75 * 118 = 351) -->
     <g stroke="#ff896d" stroke-width="3" stroke-dasharray="6 4">
       <line x1="351" y1="85" x2="351" y2="350"/>
     </g>
-    <rect x="311" y="58" width="80" height="24" rx="5" fill="#ff896d" stroke="#071827" stroke-width="1.5"/>
-    <text x="351" y="74" text-anchor="middle" fill="#071827" style="font:900 11.5px 'DM Mono', monospace;">MEDIA = 1.75</text>
+    <rect x="311" y="58" width="80" height="24" rx="5" fill="#071827" stroke="#ff896d" stroke-width="1.8"/>
+    <text x="351" y="74" text-anchor="middle" fill="#ff896d" style="font:900 11.5px 'DM Mono', monospace;">MEDIA = 1.75</text>
   </g>
 
   <!-- TARJETAS HORIZONTALES INFERIORES: CONCLUSIONES VISUALES (y de 400 a 462) -->
